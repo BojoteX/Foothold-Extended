@@ -217,6 +217,17 @@ function getPlayerAssignment(playerName)
     return nil, nil
 end
 
+function getPlayerDisplayName(playerName)
+    if not playerName then
+        return playerName
+    end
+    local callsign = select(1, getPlayerAssignment(playerName))
+    if callsign and callsign ~= "" then
+        return callsign
+    end
+    return playerName
+end
+
 function findOrAssignSlot(playerName, groupName, zoneName)
     local existingCallsign, assignedZone = getPlayerAssignment(playerName)
     if existingCallsign then
@@ -1314,8 +1325,7 @@ function SpawnEscortFromGround(clientGroup, templateName, alias, onSpawn)
     end
 
     local function GetEscortTemplateUnitCount(name)
-        local tpl = _DATABASE and _DATABASE.Templates and _DATABASE.Templates.Groups and _DATABASE.Templates.Groups[name]
-        tpl = tpl and tpl.Template or nil
+        local tpl = _DATABASE.Templates.Groups[name]
         if not tpl and FetchMETemplate then
             tpl = FetchMETemplate(name)
         end
@@ -1378,9 +1388,6 @@ function SpawnEscortFromGround(clientGroup, templateName, alias, onSpawn)
     if parkingIds then
         spawned = sp:SpawnAtParkingSpot(homebase, parkingIds, SPAWN.Takeoff.Hot)
     end
-    if not spawned then
-        spawned = sp:SpawnAtAirbase(homebase, SPAWN.Takeoff.Hot)
-    end
 
     return spawned
 end
@@ -1411,11 +1418,7 @@ function EscortClientGroup(clientGroup)
                     escortAuftrag:SetMissionSpeed(600)
                     escortAuftrag:SetROE(2)
                     escortAuftrag:SetROT(3)
-                    self:AddMission(escortAuftrag)
-                    local currentMission = self:GetMissionCurrent()
-                    if currentMission then
-                        currentMission:__Cancel(5)
-                    end
+                    self:MissionStart(escortAuftrag)
                     AddEscortMenu(clientGroup)
                     SCHEDULER:New(nil, function()
                         if clientGroup and clientGroup:IsAlive() then
@@ -1704,7 +1707,7 @@ function static:OnEventPlayerLeaveUnit(EventData)
         if EventData.IniUnit and EventData.IniPlayerName then
             local playerUnit = EventData.IniUnit
             playerGroup = playerUnit:GetGroup()
-            local groupName = playerGroup and playerGroup:GetName() or nil
+            local groupName = playerGroup and playerGroup:GetName()
 
             local playerName = EventData.IniPlayerName
             if (not groupName) and globalCallsignAssignments[playerName] then

@@ -3205,14 +3205,7 @@ bc:registerShopItem('intel','Intel on enemy zone',ShopPrices.intel,function(send
 			end
 			intelActiveZones[targetZoneName] = true
 			startZoneIntel(targetZoneName)
-			trigger.action.outTextForCoalition(2, 'Intel available for '..targetZoneName..'. Check Zone status. Valid for 1 hour', 15)
-			timer.scheduleFunction(function(args)
-				local zName = args[1]
-				if intelActiveZones[zName] then intelActiveZones[zName] = false end
-				local zn = bc:getZoneByName(zName)
-				if zn and zn.updateLabel then zn:updateLabel() end
-				trigger.action.outTextForCoalition(2, 'Intel on '..zName..' has expired.', 10)
-			end, {targetZoneName}, timer.getTime()+60*60)
+			trigger.action.outTextForCoalition(2, 'Gathering intel on '..targetZoneName..'. Stand by for report...', 10)
 			intelMenu = nil
 		end
 	end
@@ -3223,13 +3216,7 @@ function(sender, params)
 	if params.zone and params.zone.side == 1 and not params.zone.suspended then
 		intelActiveZones[params.zone.zone] = true
 		startZoneIntel(params.zone.zone)
-		trigger.action.outTextForCoalition(2, 'Intel available for '..params.zone.zone..'. Check Zone status. Valid for 1 hour', 15)
-		SCHEDULER:New(nil,function(zName)
-			if intelActiveZones[zName] then intelActiveZones[zName] = false end
-			local zn = bc:getZoneByName(zName)
-			if zn and zn.updateLabel then zn:updateLabel() end
-			trigger.action.outTextForCoalition(2, 'Intel on '..zName..' has expired.', 10)
-		end,{params.zone.zone},3600)
+		trigger.action.outTextForCoalition(2, 'Gathering intel on '..params.zone.zone..'. Stand by for report...', 10)
 	else
 		return 'Must pick an enemy zone'
 	end
@@ -3468,9 +3455,8 @@ local function redZoneUpgradeAction()
 	if not ok then
 		return "Zone already upgraded"
 	end
-	if type(zoneObj.updateLabel) == "function" then
 		zoneObj:updateLabel()
-	end
+		
 	zoneObj:upgrade(true)
 	trigger.action.outText("Red forces reinforced at "..zoneObj.zone, 10)
 	return true
@@ -6152,7 +6138,8 @@ function generateSupplyMission()
 end
 
 function checkAndGenerateReconMissionV2()
-	if reconMissionTarget ~= nil or timer.getTime() < reconMissionCooldownUntil then
+	local now = timer.getTime()
+	if reconMissionTarget ~= nil or now < reconMissionCooldownUntil then
 		return true
 	end
 
@@ -6163,7 +6150,11 @@ function checkAndGenerateReconMissionV2()
 
 		local function checkValid(zone)
 			local lname = zone.zone:lower()
+			local zoneIntelActive = (intelActiveZones and intelActiveZones[zone.zone] == true)
+			local zoneIntelExpire = tonumber((intelExpireTimes and intelExpireTimes[zone.zone]) or 0) or 0
+			local intelStillActive = zoneIntelActive and (zoneIntelExpire <= 0 or zoneIntelExpire > now)
 			return zone.side == 1 and zone.active and not zone.suspended and not zone.isHidden and
+				not intelStillActive and
 				not isZoneUnderSEADMission(zone.zone) and
 				not lname:find('hidden') and not lname:find('sam') and not lname:find('defence') and
 				not lname:find('papa') and not lname:find('juliett') and not lname:find('india') and

@@ -81,8 +81,14 @@ CTLDPrices = CTLDPrices or {
   ["Humvee scout"]           = { price = 100, reqRank = 1 },
   ["Linebacker"]             = { price = 300, reqRank = 2 },
   ["Vulcan"]                 = { price = 300, reqRank = 2 },
-  ["HAWK Site"]              = { price = 750, reqRank = 3 },
-  ["Nasam Site"]             = { price = 750, reqRank = 3 },
+  ["HAWK System"]            = { price = 750, reqRank = 3 },
+  ["Hawk TR Add-on"]         = { price = 250, reqRank = 3 },
+  ["Hawk SR Add-on"]         = { price = 250, reqRank = 3 },
+  ["Hawk LN Add-on"]         = { price = 250, reqRank = 3 },
+  ["NASAMS System"]          = { price = 750, reqRank = 3 },
+  ["NASAMS C2 Add-on"]       = { price = 250, reqRank = 3 },
+  ["NASAMS SR Add-on"]       = { price = 250, reqRank = 3 },
+  ["NASAMS LN Add-on"]       = { price = 250, reqRank = 3 },
   ["FARP"]                   = { price = 500, reqRank = 1 },
   ["IRIS T STR Add-on"]      = { price = 750, reqRank = 3 },
   ["IRIS T LN Add-on"]       = { price = 500, reqRank = 3 },
@@ -114,20 +120,30 @@ Foothold_ctld:AddCratesCargo("Bradly",{"CTLD_CARGO_Bradly"},CTLD_CARGO.Enum.VEHI
 Foothold_ctld:AddCratesCargoNoMove("L118",{"CTLD_CARGO_L118"},CTLD_CARGO.Enum.VEHICLE,1,700,12, "Support",nil,nil,nil,"Cargos",nil,nil, "iso_container_small")
 Foothold_ctld:AddCratesCargoNoMove("Ammo Truck",{"CTLD_CARGO_AmmoTruck"},CTLD_CARGO.Enum.VEHICLE,2,800,10, "Support")
 Foothold_ctld:AddCratesCargo("Humvee scout",{"CTLD_CARGO_Scout"},CTLD_CARGO.Enum.VEHICLE,2,1000,10, "Support")
-Foothold_ctld:AddCratesCargo("Linebacker",{"CTLD_CARGO_Linebacker"},CTLD_CARGO.Enum.VEHICLE,2,1500,10, "SAM/AAA")
-Foothold_ctld:AddCratesCargo("Vulcan",{"CTLD_CARGO_Vulcan"}, CTLD_CARGO.Enum.VEHICLE, 2, 1500,10, "SAM/AAA")
-Foothold_ctld:AddCratesCargoNoMove("HAWK Site",{"CTLD_CARGO_HAWKSite"},CTLD_CARGO.Enum.FOB,4,1900,10, "SAM/AAA",nil,nil,nil,"Cargos",nil,nil, "iso_container_small")
-Foothold_ctld:AddCratesCargoNoMove("Nasam Site",{"CTLD_CARGO_NasamsSite"},CTLD_CARGO.Enum.FOB,4,1900,10, "SAM/AAA",nil,nil,nil,"Cargos",nil,nil, "iso_container_small")
-Foothold_ctld:AddCratesCargo("FARP",{"CTLD_TROOP_FOB"},CTLD_CARGO.Enum.FOB,3,1500,10, "FARP",nil,nil,nil,"Cargos","ammo_cargo",nil, "cds_crate")
+Foothold_ctld:AddCratesCargoNoMove("HAWK System",{"CTLD_CARGO_HAWKSite"},CTLD_CARGO.Enum.FOB,4,1900,10, "SAM/AAA",nil,nil,nil,"Cargos",nil,nil, "iso_container_small")
+
+Foothold_ctld:AddCratesCargoNoMove("Hawk TR Add-on", {"CTLD_CARGO_HAWKSite_TR"},CTLD_CARGO.Enum.FOB, 1, 1500, 10, "SAM Addon",nil,nil,nil,"Cargos","cds_crate",nil, "iso_container_small")
+Foothold_ctld:AddCratesCargoNoMove("Hawk SR Add-on", {"CTLD_CARGO_HAWKSite_SR"},CTLD_CARGO.Enum.FOB, 1, 1500, 15, "SAM Addon",nil,nil,nil,"Cargos","cds_crate",nil, "iso_container_small")
+Foothold_ctld:AddCratesCargoNoMove("Hawk LN Add-on", {"CTLD_CARGO_HAWKSite_LN"},CTLD_CARGO.Enum.FOB, 1, 1500, 10, "SAM Addon",nil,nil,nil,"Cargos","cds_crate",nil, "iso_container_small")
 
 if Era=='Modern' then
-Foothold_ctld:AddCratesCargoNoMove("IRIS T STR Add-on", {"CTLD_CARGO_IRISTSLM_STR"},CTLD_CARGO.Enum.FOB, 1, 2500, 10, "SAM/AAA",nil,nil,nil,"Cargos","cds_crate",nil, "iso_container_small")
-Foothold_ctld:AddCratesCargoNoMove("IRIS T LN Add-on", {"CTLD_CARGO_IRISTSLM-LN"},CTLD_CARGO.Enum.FOB, 1, 3500, 15, "SAM/AAA",nil,nil,nil,"Cargos","cds_crate",nil, "iso_container_small")
-Foothold_ctld:AddCratesCargoNoMove("IRIS T C2 Add-on", {"CTLD_CARGO_IRISTSLM_C2"},CTLD_CARGO.Enum.FOB, 1, 1900, 10, "SAM/AAA",nil,nil,nil,"Cargos","cds_crate",nil, "iso_container_small")
+Foothold_ctld:AddCratesCargoNoMove("NASAMS System",{"CTLD_CARGO_NasamsSite"},CTLD_CARGO.Enum.FOB,4,1900,10, "SAM/AAA",nil,nil,nil,"Cargos",nil,nil, "iso_container_small")
+
+Foothold_ctld:AddCratesCargoNoMove("NASAMS C2 Add-on",{"CTLD_CARGO_NasamsSite_C2"},CTLD_CARGO.Enum.FOB, 1, 1500, 10, "SAM Addon",nil,nil,nil,"Cargos","cds_crate",nil, "iso_container_small")
+Foothold_ctld:AddCratesCargoNoMove("NASAMS SR Add-on",{"CTLD_CARGO_NasamsSite_SR"},CTLD_CARGO.Enum.FOB, 1, 1500, 15, "SAM Addon",nil,nil,nil,"Cargos","cds_crate",nil, "iso_container_small")
+Foothold_ctld:AddCratesCargoNoMove("NASAMS LN Add-on",{"CTLD_CARGO_NasamsSite_LN"},CTLD_CARGO.Enum.FOB, 1, 1500, 10, "SAM Addon",nil,nil,nil,"Cargos","cds_crate",nil, "iso_container_small")
+
+
+Foothold_ctld:AddCratesCargoNoMove("IRIS T STR Add-on", {"CTLD_CARGO_IRISTSLM_STR"},CTLD_CARGO.Enum.FOB, 1, 2500, 10, "SAM Addon",nil,nil,nil,"Cargos","cds_crate",nil, "iso_container_small")
+Foothold_ctld:AddCratesCargoNoMove("IRIS T LN Add-on", {"CTLD_CARGO_IRISTSLM-LN"},CTLD_CARGO.Enum.FOB, 1, 3500, 15, "SAM Addon",nil,nil,nil,"Cargos","cds_crate",nil, "iso_container_small")
+Foothold_ctld:AddCratesCargoNoMove("IRIS T C2 Add-on", {"CTLD_CARGO_IRISTSLM_C2"},CTLD_CARGO.Enum.FOB, 1, 1900, 10, "SAM Addon",nil,nil,nil,"Cargos","cds_crate",nil, "iso_container_small")
 Foothold_ctld:AddCratesCargoNoMove("IRIS T System", {"CTLD_CARGO_IRISTSLM_System"}, CTLD_CARGO.Enum.FOB, 3, 2800, 10, "SAM/AAA", nil,nil,nil,"Cargos","cds_crate",nil, "iso_container_small")
 Foothold_ctld:AddCratesCargoNoMove("C-RAM", {"CTLD_CARGO_CRAM"}, CTLD_CARGO.Enum.FOB, 2, 1000, 10, "SAM/AAA")
 Foothold_ctld:AddCratesCargoNoMove("HIMARS GMLRRS HE GUIDED",{"CTLD_CARGO_GMLRS_HE"},CTLD_CARGO.Enum.VEHICLE,2,3500,12, "Support", nil,nil,nil,"Cargos",nil,nil, "iso_container_small")
 end
+Foothold_ctld:AddCratesCargo("Linebacker",{"CTLD_CARGO_Linebacker"},CTLD_CARGO.Enum.VEHICLE,2,1500,10, "SAM/AAA")
+Foothold_ctld:AddCratesCargo("Vulcan",{"CTLD_CARGO_Vulcan"}, CTLD_CARGO.Enum.VEHICLE, 2, 1500,10, "SAM/AAA")
+
 Foothold_ctld:AddUnits("Humvee",{"CTLD_CARGO_HMMWV"},CTLD_CARGO.Enum.VEHICLE,10, "ANTI TANK")
 Foothold_ctld:AddUnits("Mephisto",{"CTLD_CARGO_Mephisto"},CTLD_CARGO.Enum.VEHICLE,10, "ANTI TANK")
 Foothold_ctld:AddUnits("Vulcan",{"CTLD_CARGO_Vulcan"}, CTLD_CARGO.Enum.VEHICLE, 10, "SAM/AAA")
@@ -135,6 +151,7 @@ Foothold_ctld:AddUnits("Avenger",{"CTLD_CARGO_Avenger"}, CTLD_CARGO.Enum.VEHICLE
 Foothold_ctld:AddUnits("Humvee scout",{"CTLD_CARGO_Scout"}, CTLD_CARGO.Enum.VEHICLE, 10, "Support")
 Foothold_ctld:AddUnits("FV-107 Scimitar",{"CTLD_CARGO_Scimitar"}, CTLD_CARGO.Enum.VEHICLE, 10, "Support")
 Foothold_ctld:AddUnits("FV-101 Scorpion",{"CTLD_CARGO_Scorpion"}, CTLD_CARGO.Enum.VEHICLE, 10, "Support")
+Foothold_ctld:AddCratesCargo("FARP",{"CTLD_TROOP_FOB"},CTLD_CARGO.Enum.FOB,3,1500,10, "FARP",nil,nil,nil,"Cargos","ammo_cargo",nil, "cds_crate")
 
 local function addStaticFromType(name, typeName, mass, subCategory, unitTypes, displayName) return Foothold_ctld:AddStaticsCargoFromType(name, typeName, mass, nil, subCategory, true, nil, unitTypes, nil, nil, nil, displayName) end
 
@@ -208,8 +225,14 @@ MAX_AT_SPAWN = MAX_AT_SPAWN or {
     ["Mortar Squad"]            = 2,
     ["Linebacker"]              = 2,
     ["Vulcan"]                  = 2,
-    ["HAWK Site"]               = 3,
-    ["Nasam Site"]              = 3,
+    ["HAWK System"]             = 3,
+    ["Hawk TR Add-on"]          = 3,
+    ["Hawk SR Add-on"]          = 3,
+    ["Hawk LN Add-on"]          = 8,
+    ["NASAMS System"]           = 3,
+    ["NASAMS C2 Add-on"]        = 3,
+    ["NASAMS SR Add-on"]        = 3,
+    ["NASAMS LN Add-on"]        = 8,
     ["Tank Abrahams"]           = 0,
     ["FARP"]                    = 3,
     ["IRIS T STR Add-on"]       = 3,
@@ -322,23 +345,20 @@ zoneCaptureInfo = {}
 deployedTroops = {}
 local zoneSupplyCrates = {}
 
-local IRIS_LOG_PREFIX = "[IRIS-MERGE]"
 local IRIS_SYSTEM_CARGO_NAME = "IRIS T SLM System"
 local IRIS_SYSTEM_TEMPLATE = "CTLD_CARGO_IRISTSLM_System"
 local IRIS_ROLE_BY_CARGO_NAME = {
   ["IRIS T SLM LN"] = "LN",
   ["IRIS T SLM STR"] = "STR",
   ["IRIS T SLM C2"] = "C2",
+  ["IRIS T LN Add-on"] = "LN",
+  ["IRIS T STR Add-on"] = "STR",
+  ["IRIS T C2 Add-on"] = "C2",
 }
 local IRIS_ROLE_BY_TEMPLATE_ID = {
   ["CTLD_CARGO_IRISTSLM-LN"] = "LN",
   ["CTLD_CARGO_IRISTSLM_STR"] = "STR",
   ["CTLD_CARGO_IRISTSLM_C2"] = "C2",
-}
-local IRIS_ROLE_TO_TEMPLATE = {
-  LN = "CTLD_CARGO_IRISTSLM-LN",
-  STR = "CTLD_CARGO_IRISTSLM_STR",
-  C2 = "CTLD_CARGO_IRISTSLM_C2",
 }
 local IRIS_ROLE_TO_UNITTYPE = {
   LN = "CHAP_IRISTSLM_LN",
@@ -356,160 +376,6 @@ local LoadIRISAugments = function() return {} end
 local ApplyIRISAugments = function() return false end
 local RunIrisOnePassStandaloneMerge = function() return false end
 
-local function irisLog(self, message)
-  local text = string.format("%s %s", IRIS_LOG_PREFIX, tostring(message))
-  if self and self.I then
-    self:I(text)
-  else
-    env.info(text)
-  end
-end
-
-local function isIrisComponentCargoName(cargoName)
-  return IRIS_ROLE_BY_CARGO_NAME[tostring(cargoName or "")]
-end
-
-local function roleFromTemplateIdText(text)
-  local haystack = tostring(text or "")
-  for templateId, role in pairs(IRIS_ROLE_BY_TEMPLATE_ID) do
-    if string.find(haystack, templateId, 1, true) then
-      return role
-    end
-  end
-  return nil
-end
-
-local function isIrisSystemTemplateText(text)
-  return string.find(tostring(text or ""), IRIS_SYSTEM_TEMPLATE, 1, true) ~= nil
-end
-
-local function resolveIrisComponentRole(vehicleGroup, cargoName)
-  local role = nil
-
-  if vehicleGroup and vehicleGroup.GetName then
-    role = roleFromTemplateIdText(vehicleGroup:GetName())
-    if role then return role end
-  end
-
-  if vehicleGroup and vehicleGroup.GetTemplate then
-    local template = vehicleGroup:GetTemplate()
-    if template then
-      role = roleFromTemplateIdText(template.name)
-      if role then return role end
-
-      if type(template.units) == "table" then
-        for _, unit in ipairs(template.units) do
-          local unitType = unit and unit.type or nil
-          for candidateRole, mappedType in pairs(IRIS_ROLE_TO_UNITTYPE) do
-            if unitType == mappedType then
-              return candidateRole
-            end
-          end
-        end
-      end
-    end
-  end
-
-  return isIrisComponentCargoName(cargoName)
-end
-
-local function isIrisSystemGroupName(groupName)
-  if type(groupName) ~= "string" then return false end
-  return string.find(groupName, IRIS_SYSTEM_TEMPLATE, 1, true) == 1
-end
-
-local function roleFromUnitType(typeName)
-  for role, unitType in pairs(IRIS_ROLE_TO_UNITTYPE) do
-    if typeName == unitType then
-      return role
-    end
-  end
-  return nil
-end
-
-local function countIrisRolesInTemplate(template)
-  local counts = { LN = 0, STR = 0, C2 = 0 }
-  if not template or type(template.units) ~= "table" then return counts end
-  for _, unit in ipairs(template.units) do
-    local role = roleFromUnitType(unit and unit.type or nil)
-    if role then
-      counts[role] = (counts[role] or 0) + 1
-    end
-  end
-  return counts
-end
-
-local function countIrisRolesInGroup(group)
-  local counts = { LN = 0, STR = 0, C2 = 0 }
-  if not group or not group.IsAlive or not group:IsAlive() then return counts end
-  local units = group:GetUnits() or {}
-  for _, unit in ipairs(units) do
-    local role = roleFromUnitType(unit and unit.GetTypeName and unit:GetTypeName() or nil)
-    if role then
-      counts[role] = (counts[role] or 0) + 1
-    end
-  end
-  return counts
-end
-
-local function getIrisMergeBaseTemplate(systemGroup)
-  if not systemGroup then
-    return nil, nil, "system group missing"
-  end
-
-  local template = systemGroup:GetTemplate()
-  if not template or type(template.units) ~= "table" then
-    return nil, nil, "system template missing units"
-  end
-
-  if IRIS_RESTORE_UNIT_HEALTH_ON_MERGE then
-    return template, "restore-health", nil
-  end
-
-  local aliveCounts = countIrisRolesInGroup(systemGroup)
-  local aliveTotal = (aliveCounts.LN or 0) + (aliveCounts.STR or 0) + (aliveCounts.C2 or 0)
-  if aliveTotal <= 0 then
-    return nil, "preserve-alive-composition", "no alive IRIS units in system to merge onto"
-  end
-  local keptCounts = { LN = 0, STR = 0, C2 = 0 }
-  local trimmedUnits = {}
-
-  for _, unit in ipairs(template.units) do
-    local role = roleFromUnitType(unit and unit.type or nil)
-    if not role then
-      trimmedUnits[#trimmedUnits + 1] = unit
-    else
-      local keepMax = aliveCounts[role] or 0
-      if (keptCounts[role] or 0) < keepMax then
-        keptCounts[role] = (keptCounts[role] or 0) + 1
-        trimmedUnits[#trimmedUnits + 1] = unit
-      end
-    end
-  end
-
-  if #trimmedUnits == 0 then
-    return nil, "preserve-alive-composition", "no alive units in system to merge onto"
-  end
-
-  template.units = trimmedUnits
-  return template, "preserve-alive-composition", nil
-end
-
-local function extractUnitTemplateForRole(groupTemplate, role)
-  if not groupTemplate or type(groupTemplate.units) ~= "table" then return nil end
-  local wantedType = IRIS_ROLE_TO_UNITTYPE[role]
-  local fallback = nil
-  for _, unit in ipairs(groupTemplate.units) do
-    if not fallback and unit then
-      fallback = UTILS.DeepCopy(unit)
-    end
-    if unit and unit.type == wantedType then
-      return UTILS.DeepCopy(unit)
-    end
-  end
-  return fallback
-end
-
 local function getIrisSlotPosition(ax, ay, slotIndex)
   local index = slotIndex or 1
   local ring = math.floor((index - 1) / IRIS_MERGE_SLOT_COUNT)
@@ -519,7 +385,30 @@ local function getIrisSlotPosition(ax, ay, slotIndex)
   return ax + math.cos(angle) * radius, ay + math.sin(angle) * radius
 end
 
-local function reflowIrisTemplateLayout(systemTemplate, anchorUnit)
+local function samMergeSpreadLnHeadings(profile, units, baseHeading)
+  if not profile or type(units) ~= "table" then return end
+  local lnType = profile.role_to_unittype and profile.role_to_unittype.LN or nil
+  if not lnType then return end
+
+  local lnUnits = {}
+  for _, unit in ipairs(units) do
+    if unit and unit.type == lnType then
+      lnUnits[#lnUnits + 1] = unit
+    end
+  end
+
+  local count = #lnUnits
+  if count == 0 then return end
+  local step = (2 * math.pi) / count
+  local base = tonumber(baseHeading) or 0
+  for idx, unit in ipairs(lnUnits) do
+    local heading = math.fmod(base + ((idx - 1) * step), 2 * math.pi)
+    unit.heading = heading
+    unit.psi = heading
+  end
+end
+
+local function reflowIrisTemplateLayout(profile, systemTemplate, anchorUnit)
   if not systemTemplate or type(systemTemplate.units) ~= "table" or #systemTemplate.units == 0 then
     return false
   end
@@ -552,52 +441,9 @@ local function reflowIrisTemplateLayout(systemTemplate, anchorUnit)
     end
   end
 
+  samMergeSpreadLnHeadings(profile, units, ah)
+
   return true
-end
-
-local function appendUnitTemplateWithOffset(systemTemplate, unitTemplate, anchorUnit, idx)
-  if not systemTemplate or not unitTemplate then return nil end
-  systemTemplate.units = systemTemplate.units or {}
-  if type(systemTemplate.units) ~= "table" then return nil end
-
-  local clone = UTILS.DeepCopy(unitTemplate)
-  local index = idx or 1
-  local ax = (anchorUnit and anchorUnit.x) or systemTemplate.x or 0
-  local ay = (anchorUnit and anchorUnit.y) or systemTemplate.y or 0
-
-  clone.x, clone.y = getIrisSlotPosition(ax, ay, index)
-  clone.heading = (anchorUnit and anchorUnit.heading) or clone.heading or 0
-  clone.psi = (anchorUnit and anchorUnit.psi) or clone.psi
-  clone.name = string.format("%s-%d", IRIS_SYSTEM_TEMPLATE, math.random(100000, 999999))
-  clone.unitId = nil
-  clone.groupId = nil
-
-  table.insert(systemTemplate.units, clone)
-  return clone
-end
-
-local function spawnMergedIrisSystemTemplate(template, preferredName)
-  if not template or type(template) ~= "table" then
-    return nil, "template missing"
-  end
-  if type(template.units) ~= "table" or #template.units == 0 then
-    return nil, "template has no units"
-  end
-
-  local spawnName = preferredName or string.format("%s-%d", IRIS_SYSTEM_TEMPLATE, math.random(100000, 999999))
-  local tpl = UTILS.DeepCopy(template)
-  tpl.name = spawnName
-  tpl.groupId = nil
-
-  local spawner = SPAWN:NewFromTemplate(tpl, spawnName, nil, true)
-  if not spawner then
-    return nil, "SPAWN:NewFromTemplate failed"
-  end
-  local grp = spawner:Spawn()
-  if not grp then
-    return nil, "spawn returned nil"
-  end
-  return grp
 end
 
 local function removeGroundUnitEntryByName(groupName)
@@ -635,24 +481,6 @@ local function findCrateCargoNameByTemplate(self, templateId, fallbackName)
   return fallbackName
 end
 
-local function syncGroundUnitsAfterIrisMerge(self, oldSystemName, oldComponentName, newSystemName)
-  if type(newSystemName) ~= "string" or newSystemName == "" then return end
-
-  removeGroundUnitEntryByName(oldSystemName)
-  removeGroundUnitEntryByName(oldComponentName)
-  removeGroundUnitEntryByName(newSystemName)
-
-  local systemCargoName = findCrateCargoNameByTemplate(self, IRIS_SYSTEM_TEMPLATE, IRIS_SYSTEM_CARGO_NAME)
-  local cargoObject = self and self._FindCratesCargoObject and self:_FindCratesCargoObject(systemCargoName) or nil
-  local currentStock = cargoObject and cargoObject:GetStock() or 0
-  table.insert(GroundUnits, {
-    groupName = newSystemName,
-    Timestamp = timer.getTime(),
-    CargoName = systemCargoName,
-    Stock = currentStock,
-  })
-end
-
 local function removeDroppedTroopGroupByName(self, groupName)
   if not self or not groupName or type(self.DroppedTroops) ~= "table" then return end
   for idx, grp in pairs(self.DroppedTroops) do
@@ -669,7 +497,355 @@ local function trackDroppedTroopGroup(self, grp)
   self.DroppedTroops[self.TroopCounter] = grp
 end
 
-local function findNearestIrisSystemGroup(coord, maxDist)
+local SAM_MERGE_PROFILE_ORDER = { "IRIS", "HAWK", "NASAMS" }
+local SAM_MERGE_PROFILES = {
+  IRIS = {
+    key = "IRIS",
+    display_name = "IRIS",
+    log_prefix = "[IRIS-MERGE]",
+    system_template = IRIS_SYSTEM_TEMPLATE,
+    system_cargo_names = { "IRIS T System", IRIS_SYSTEM_CARGO_NAME },
+    role_order = { "LN", "STR", "C2" },
+    role_by_cargo_name = IRIS_ROLE_BY_CARGO_NAME,
+    role_by_template_id = IRIS_ROLE_BY_TEMPLATE_ID,
+    role_to_unittype = IRIS_ROLE_TO_UNITTYPE,
+    baseline_counts = IRIS_BASELINE_COUNTS,
+  },
+  HAWK = {
+    key = "HAWK",
+    display_name = "HAWK",
+    log_prefix = "[HAWK-MERGE]",
+    system_template = "CTLD_CARGO_HAWKSite",
+    system_cargo_names = { "HAWK System", "HAWK Site" },
+    role_order = { "TR", "SR", "LN", "PCP", "CWAR" },
+    role_by_cargo_name = {
+      ["Hawk TR Add-on"] = "TR",
+      ["Hawk SR Add-on"] = "SR",
+      ["Hawk LN Add-on"] = "LN",
+    },
+    role_by_template_id = {
+      ["CTLD_CARGO_HAWKSite_TR"] = "TR",
+      ["CTLD_CARGO_HAWKSite_SR"] = "SR",
+      ["CTLD_CARGO_HAWKSite_LN"] = "LN",
+    },
+    role_to_unittype = {
+      TR = "Hawk tr",
+      SR = "Hawk sr",
+      LN = "Hawk ln",
+      PCP = "Hawk pcp",
+      CWAR = "Hawk cwar",
+    },
+    baseline_counts = { TR = 1, SR = 1, LN = 2, PCP = 1, CWAR = 1 },
+  },
+  NASAMS = {
+    key = "NASAMS",
+    display_name = "NASAMS",
+    log_prefix = "[NASAMS-MERGE]",
+    system_template = "CTLD_CARGO_NasamsSite",
+    system_cargo_names = { "NASAMS System", "Nasam Site" },
+    role_order = { "C2", "SR", "LN" },
+    role_by_cargo_name = {
+      ["NASAMS C2 Add-on"] = "C2",
+      ["NASAMS SR Add-on"] = "SR",
+      ["NASAMS LN Add-on"] = "LN",
+    },
+    role_by_template_id = {
+      ["CTLD_CARGO_NasamsSite_C2"] = "C2",
+      ["CTLD_CARGO_NasamsSite_SR"] = "SR",
+      ["CTLD_CARGO_NasamsSite_LN"] = "LN",
+    },
+    role_to_unittype = {
+      C2 = "NASAMS_Command_Post",
+      SR = "NASAMS_Radar_MPQ64F1",
+      LN = "NASAMS_LN_C",
+    },
+    baseline_counts = { C2 = 1, SR = 1, LN = 2 },
+  },
+}
+
+local function samMergeRoleCountTable(profile)
+  local counts = {}
+  for _, role in ipairs(profile.role_order or {}) do
+    counts[role] = 0
+  end
+  return counts
+end
+
+local function samMergeSystemCargoMatches(profile, cargoName)
+  local name = tostring(cargoName or "")
+  for _, candidate in ipairs(profile.system_cargo_names or {}) do
+    if name == tostring(candidate or "") then
+      return true
+    end
+  end
+  return false
+end
+
+local function samMergeRoleFromTemplateId(profile, text)
+  local haystack = tostring(text or "")
+  for templateId, role in pairs(profile.role_by_template_id or {}) do
+    if string.find(haystack, templateId, 1, true) then
+      return role
+    end
+  end
+  return nil
+end
+
+local function samMergeRoleFromUnitType(profile, typeName)
+  for role, unitType in pairs(profile.role_to_unittype or {}) do
+    if typeName == unitType then
+      return role
+    end
+  end
+  return nil
+end
+
+local function samMergeIsSystemTemplateText(profile, text)
+  local value = tostring(text or "")
+  local base = tostring(profile.system_template or "")
+  if base == "" then return false end
+  if value == base then return true end
+  if string.sub(value, 1, #base) ~= base then return false end
+  local suffix = string.sub(value, #base + 1, #base + 1)
+  return suffix == "-" or suffix == "#" or suffix == ""
+end
+
+local function samMergeProfileByKey(profileKey)
+  if type(profileKey) ~= "string" then return nil end
+  return SAM_MERGE_PROFILES[profileKey]
+end
+
+local function samMergeLog(self, profile, message)
+  local prefix = (profile and profile.log_prefix) or "[SAM-MERGE]"
+  local text = string.format("%s %s", prefix, tostring(message))
+  if self and self.I then
+    self:I(text)
+  else
+    env.info(text)
+  end
+end
+
+local function samMergeIsSystemGroupName(profile, groupName)
+  if type(groupName) ~= "string" then return false end
+  return samMergeIsSystemTemplateText(profile, groupName)
+end
+
+local function samMergeResolveComponentProfileRole(vehicleGroup, cargoName)
+  local role = nil
+
+  if vehicleGroup and vehicleGroup.GetName then
+    local groupName = vehicleGroup:GetName()
+    for _, profileKey in ipairs(SAM_MERGE_PROFILE_ORDER) do
+      local profile = SAM_MERGE_PROFILES[profileKey]
+      if samMergeIsSystemGroupName(profile, groupName) then
+        return nil, nil
+      end
+    end
+    for _, profileKey in ipairs(SAM_MERGE_PROFILE_ORDER) do
+      local profile = SAM_MERGE_PROFILES[profileKey]
+      role = samMergeRoleFromTemplateId(profile, groupName)
+      if role then
+        return profile, role
+      end
+    end
+  end
+
+  if vehicleGroup and vehicleGroup.GetTemplate then
+    local template = vehicleGroup:GetTemplate()
+    if template then
+      for _, profileKey in ipairs(SAM_MERGE_PROFILE_ORDER) do
+        local profile = SAM_MERGE_PROFILES[profileKey]
+        role = samMergeRoleFromTemplateId(profile, template.name)
+        if role then
+          return profile, role
+        end
+      end
+
+      if type(template.units) == "table" then
+        for _, unit in ipairs(template.units) do
+          local unitType = unit and unit.type or nil
+          for _, profileKey in ipairs(SAM_MERGE_PROFILE_ORDER) do
+            local profile = SAM_MERGE_PROFILES[profileKey]
+            role = samMergeRoleFromUnitType(profile, unitType)
+            if role then
+              return profile, role
+            end
+          end
+        end
+      end
+    end
+  end
+
+  for _, profileKey in ipairs(SAM_MERGE_PROFILE_ORDER) do
+    local profile = SAM_MERGE_PROFILES[profileKey]
+    if samMergeSystemCargoMatches(profile, cargoName) then
+      return nil, nil
+    end
+  end
+
+  for _, profileKey in ipairs(SAM_MERGE_PROFILE_ORDER) do
+    local profile = SAM_MERGE_PROFILES[profileKey]
+    role = profile.role_by_cargo_name and profile.role_by_cargo_name[tostring(cargoName or "")] or nil
+    if role then
+      return profile, role
+    end
+  end
+
+  return nil, nil
+end
+
+local function samMergeCountRolesInTemplate(profile, template)
+  local counts = samMergeRoleCountTable(profile)
+  if not template or type(template.units) ~= "table" then return counts end
+  for _, unit in ipairs(template.units) do
+    local role = samMergeRoleFromUnitType(profile, unit and unit.type or nil)
+    if role then
+      counts[role] = (counts[role] or 0) + 1
+    end
+  end
+  return counts
+end
+
+local function samMergeCountRolesInGroup(profile, group)
+  local counts = samMergeRoleCountTable(profile)
+  if not group or not group.IsAlive or not group:IsAlive() then return counts end
+  local units = group:GetUnits() or {}
+  for _, unit in ipairs(units) do
+    local role = samMergeRoleFromUnitType(profile, unit and unit.GetTypeName and unit:GetTypeName() or nil)
+    if role then
+      counts[role] = (counts[role] or 0) + 1
+    end
+  end
+  return counts
+end
+
+local function samMergeGetBaseTemplate(profile, systemGroup)
+  if not systemGroup then
+    return nil, nil, "system group missing"
+  end
+
+  local template = systemGroup:GetTemplate()
+  if not template or type(template.units) ~= "table" then
+    return nil, nil, "system template missing units"
+  end
+
+  if IRIS_RESTORE_UNIT_HEALTH_ON_MERGE then
+    return template, "restore-health", nil
+  end
+
+  local aliveCounts = samMergeCountRolesInGroup(profile, systemGroup)
+  local aliveTotal = 0
+  for _, role in ipairs(profile.role_order or {}) do
+    aliveTotal = aliveTotal + (aliveCounts[role] or 0)
+  end
+  if aliveTotal <= 0 then
+    return nil, "preserve-alive-composition", "no alive units in system to merge onto"
+  end
+
+  local keptCounts = samMergeRoleCountTable(profile)
+  local trimmedUnits = {}
+
+  for _, unit in ipairs(template.units) do
+    local role = samMergeRoleFromUnitType(profile, unit and unit.type or nil)
+    if not role then
+      trimmedUnits[#trimmedUnits + 1] = unit
+    else
+      local keepMax = aliveCounts[role] or 0
+      if (keptCounts[role] or 0) < keepMax then
+        keptCounts[role] = (keptCounts[role] or 0) + 1
+        trimmedUnits[#trimmedUnits + 1] = unit
+      end
+    end
+  end
+
+  if #trimmedUnits == 0 then
+    return nil, "preserve-alive-composition", "no alive units in system to merge onto"
+  end
+
+  template.units = trimmedUnits
+  return template, "preserve-alive-composition", nil
+end
+
+local function samMergeExtractUnitTemplateForRole(profile, groupTemplate, role)
+  if not groupTemplate or type(groupTemplate.units) ~= "table" then return nil end
+  local wantedType = profile.role_to_unittype and profile.role_to_unittype[role] or nil
+  local fallback = nil
+  for _, unit in ipairs(groupTemplate.units) do
+    if not fallback and unit then
+      fallback = UTILS.DeepCopy(unit)
+    end
+    if wantedType and unit and unit.type == wantedType then
+      return UTILS.DeepCopy(unit)
+    end
+  end
+  return fallback
+end
+
+local function samMergeAppendUnitTemplateWithOffset(profile, systemTemplate, unitTemplate, anchorUnit, idx)
+  if not systemTemplate or not unitTemplate then return nil end
+  systemTemplate.units = systemTemplate.units or {}
+  if type(systemTemplate.units) ~= "table" then return nil end
+
+  local clone = UTILS.DeepCopy(unitTemplate)
+  local index = idx or 1
+  local ax = (anchorUnit and anchorUnit.x) or systemTemplate.x or 0
+  local ay = (anchorUnit and anchorUnit.y) or systemTemplate.y or 0
+
+  clone.x, clone.y = getIrisSlotPosition(ax, ay, index)
+  clone.heading = (anchorUnit and anchorUnit.heading) or clone.heading or 0
+  clone.psi = (anchorUnit and anchorUnit.psi) or clone.psi
+  clone.name = string.format("%s-%d", tostring(profile.system_template or "CTLD_CARGO_SAM"), math.random(100000, 999999))
+  clone.unitId = nil
+  clone.groupId = nil
+
+  table.insert(systemTemplate.units, clone)
+  return clone
+end
+
+local function samMergeSpawnMergedSystemTemplate(profile, template, preferredName)
+  if not template or type(template) ~= "table" then
+    return nil, "template missing"
+  end
+  if type(template.units) ~= "table" or #template.units == 0 then
+    return nil, "template has no units"
+  end
+
+  local spawnName = preferredName or string.format("%s-%d", tostring(profile.system_template or "CTLD_CARGO_SAM"), math.random(100000, 999999))
+  local tpl = UTILS.DeepCopy(template)
+  tpl.name = spawnName
+  tpl.groupId = nil
+
+  local spawner = SPAWN:NewFromTemplate(tpl, spawnName, nil, true)
+  if not spawner then
+    return nil, "SPAWN:NewFromTemplate failed"
+  end
+  local grp = spawner:Spawn()
+  if not grp then
+    return nil, "spawn returned nil"
+  end
+  return grp
+end
+
+local function samMergeSyncGroundUnits(self, profile, oldSystemName, oldComponentName, newSystemName)
+  if type(newSystemName) ~= "string" or newSystemName == "" then return end
+
+  removeGroundUnitEntryByName(oldSystemName)
+  removeGroundUnitEntryByName(oldComponentName)
+  removeGroundUnitEntryByName(newSystemName)
+
+  local fallbackCargoName = profile.system_cargo_names and profile.system_cargo_names[1] or nil
+  local systemCargoName = findCrateCargoNameByTemplate(self, profile.system_template, fallbackCargoName)
+  local cargoObject = self and self._FindCratesCargoObject and self:_FindCratesCargoObject(systemCargoName) or nil
+  local currentStock = cargoObject and cargoObject:GetStock() or 0
+  table.insert(GroundUnits, {
+    groupName = newSystemName,
+    Timestamp = timer.getTime(),
+    CargoName = systemCargoName,
+    Stock = currentStock,
+  })
+end
+
+local function samMergeFindNearestSystemGroup(profile, coord, maxDist)
   if not coord then return nil, nil end
   local searchRadius = maxDist or IRIS_MERGE_DISTANCE
   if searchRadius <= 0 then searchRadius = IRIS_MERGE_DISTANCE end
@@ -680,7 +856,7 @@ local function findNearestIrisSystemGroup(coord, maxDist)
 
   for _, entry in ipairs(GroundUnits) do
     local gname = entry and entry.groupName or nil
-    if gname and not seen[gname] and (entry.CargoName == IRIS_SYSTEM_CARGO_NAME or isIrisSystemGroupName(gname)) then
+    if gname and not seen[gname] and (samMergeSystemCargoMatches(profile, entry and entry.CargoName or nil) or samMergeIsSystemGroupName(profile, gname)) then
       seen[gname] = true
       local grp = GROUP:FindByName(gname)
       if grp and grp:IsAlive() then
@@ -700,13 +876,13 @@ local function findNearestIrisSystemGroup(coord, maxDist)
     return nearestGroup, nearestDist
   end
 
-  local tmpZoneName = string.format("IRIS_MERGE_SCAN_%d", math.random(1, 1000000))
+  local tmpZoneName = string.format("%s_MERGE_SCAN_%d", tostring(profile.key or "SAM"), math.random(1, 1000000))
   local nearby = SET_GROUP:New()
     :FilterCoalitions("blue")
     :FilterZones({ ZONE_RADIUS:New(tmpZoneName, coord:GetVec2(), searchRadius, false) })
     :FilterOnce()
   for _, grp in pairs(nearby.Set or {}) do
-    if grp and grp:IsAlive() and isIrisSystemGroupName(grp:GetName()) then
+    if grp and grp:IsAlive() and samMergeIsSystemGroupName(profile, grp:GetName()) then
       local gCoord = grp:GetCoordinate()
       if gCoord then
         local dist = coord:Get2DDistance(gCoord)
@@ -721,67 +897,73 @@ local function findNearestIrisSystemGroup(coord, maxDist)
   return nearestGroup, nearestDist
 end
 
-local function tryMergeIrisComponentIntoNearbySystem(self, Group, Vehicle, cargoName, roleHint, mergeDistanceOverride)
-  local role = roleHint or resolveIrisComponentRole(Vehicle, cargoName)
-  if not role then
+local function samMergeTryMergeComponentIntoNearbySystem(self, Group, Vehicle, cargoName, roleHint, profileHint, mergeDistanceOverride)
+  local profile = profileHint
+  local role = roleHint
+  if not profile or not role then
+    local resolvedProfile, resolvedRole = samMergeResolveComponentProfileRole(Vehicle, cargoName)
+    profile = profile or resolvedProfile
+    role = role or resolvedRole
+  end
+  if not profile or not role then
     return false
   end
+
   if not Vehicle or not Vehicle.IsAlive or not Vehicle:IsAlive() then
-    irisLog(self, "Build vehicle is not alive, merge skipped.")
+    samMergeLog(self, profile, "Build vehicle is not alive, merge skipped.")
     return false
   end
 
   local buildCoord = Vehicle:GetCoordinate()
   if not buildCoord then
-    irisLog(self, "Build vehicle has no coordinate, merge skipped.")
+    samMergeLog(self, profile, "Build vehicle has no coordinate, merge skipped.")
     return false
   end
 
   local mergeDist = mergeDistanceOverride or IRIS_MERGE_DISTANCE
-  if mergeDist <= 0 then mergeDist = 200 end
-  local systemGroup, systemDist = findNearestIrisSystemGroup(buildCoord, mergeDist)
+  if mergeDist <= 0 then mergeDist = IRIS_MERGE_DISTANCE end
+  local systemGroup, systemDist = samMergeFindNearestSystemGroup(profile, buildCoord, mergeDist)
   if not systemGroup then
-    irisLog(self, string.format("No nearby system anchor for %s (role=%s).", tostring(cargoName), tostring(role)))
+    samMergeLog(self, profile, string.format("No nearby system anchor for %s (role=%s).", tostring(cargoName), tostring(role)))
     return false
   end
 
   local systemName = systemGroup:GetName()
   local componentName = Vehicle:GetName() or "unknown"
   if componentName == systemName then
-    irisLog(self, "Component group equals system group name, merge skipped.")
+    samMergeLog(self, profile, "Component group equals system group name, merge skipped.")
     return false
   end
 
-  local systemTemplate, mergeMode, baseErr = getIrisMergeBaseTemplate(systemGroup)
+  local systemTemplate, mergeMode, baseErr = samMergeGetBaseTemplate(profile, systemGroup)
   local componentTemplate = Vehicle:GetTemplate()
   if not systemTemplate or not componentTemplate then
-    irisLog(self, string.format("Missing template for system/component, merge skipped. mode=%s err=%s", tostring(mergeMode), tostring(baseErr)))
-    if Group then MESSAGE:New("IRIS merge failed: missing template data.", 10):ToGroup(Group) end
+    samMergeLog(self, profile, string.format("Missing template for system/component, merge skipped. mode=%s err=%s", tostring(mergeMode), tostring(baseErr)))
+    if Group then MESSAGE:New(string.format("%s merge failed: missing template data.", tostring(profile.display_name or "SAM")), 10):ToGroup(Group) end
     return false
   end
 
-  local sourceUnit = extractUnitTemplateForRole(componentTemplate, role)
+  local sourceUnit = samMergeExtractUnitTemplateForRole(profile, componentTemplate, role)
   if not sourceUnit then
-    irisLog(self, "No component unit template found for role " .. tostring(role))
-    if Group then MESSAGE:New("IRIS merge failed: no component template.", 10):ToGroup(Group) end
+    samMergeLog(self, profile, "No component unit template found for role " .. tostring(role))
+    if Group then MESSAGE:New(string.format("%s merge failed: no component template.", tostring(profile.display_name or "SAM")), 10):ToGroup(Group) end
     return false
   end
 
-  local counts = countIrisRolesInTemplate(systemTemplate)
   local nextIndex = (systemTemplate.units and #systemTemplate.units or 0) + 1
   local anchorUnit = systemTemplate.units and systemTemplate.units[1] or nil
-  if not appendUnitTemplateWithOffset(systemTemplate, sourceUnit, anchorUnit, nextIndex) then
-    irisLog(self, "Failed to append merged unit template.")
-    if Group then MESSAGE:New("IRIS merge failed: append error.", 10):ToGroup(Group) end
+  if not samMergeAppendUnitTemplateWithOffset(profile, systemTemplate, sourceUnit, anchorUnit, nextIndex) then
+    samMergeLog(self, profile, "Failed to append merged unit template.")
+    if Group then MESSAGE:New(string.format("%s merge failed: append error.", tostring(profile.display_name or "SAM")), 10):ToGroup(Group) end
     return false
   end
-  reflowIrisTemplateLayout(systemTemplate, anchorUnit)
+  reflowIrisTemplateLayout(profile, systemTemplate, anchorUnit)
 
-  local newSystemName = string.format("%s-%d", IRIS_SYSTEM_TEMPLATE, math.random(100000, 999999))
-  local mergedGroup, err = spawnMergedIrisSystemTemplate(systemTemplate, newSystemName)
+  local newSystemName = string.format("%s-%d", tostring(profile.system_template or "CTLD_CARGO_SAM"), math.random(100000, 999999))
+  local mergedGroup, err = samMergeSpawnMergedSystemTemplate(profile, systemTemplate, newSystemName)
   if not mergedGroup then
-    irisLog(self, string.format("Spawn merged system failed: %s", tostring(err)))
-    if Group then MESSAGE:New("IRIS merge failed: spawn error.", 10):ToGroup(Group) end
+    samMergeLog(self, profile, string.format("Spawn merged system failed: %s", tostring(err)))
+    if Group then MESSAGE:New(string.format("%s merge failed: spawn error.", tostring(profile.display_name or "SAM")), 10):ToGroup(Group) end
     return false
   end
 
@@ -793,12 +975,12 @@ local function tryMergeIrisComponentIntoNearbySystem(self, Group, Vehicle, cargo
   trackDroppedTroopGroup(self, mergedGroup)
 
   local mergedName = mergedGroup:GetName() or newSystemName
-  syncGroundUnitsAfterIrisMerge(self, systemName, componentName, mergedName)
+  samMergeSyncGroundUnits(self, profile, systemName, componentName, mergedName)
 
-  irisLog(self, string.format("Merged role=%s from %s into %s (dist=%.1f). New group=%s mode=%s",
+  samMergeLog(self, profile, string.format("Merged role=%s from %s into %s (dist=%.1f). New group=%s mode=%s",
     tostring(role), tostring(componentName), tostring(systemName), systemDist or -1, tostring(mergedName), tostring(mergeMode)))
   if Group then
-    MESSAGE:New(string.format("IRIS merge complete: added %s to nearby system.", tostring(role)), 10):ToGroup(Group)
+    MESSAGE:New(string.format("%s merge complete: added %s to nearby system.", tostring(profile.display_name or "SAM"), tostring(role)), 10):ToGroup(Group)
   end
   return true
 end
@@ -908,6 +1090,9 @@ local WAREHOUSE_CATEGORY_MULTIPLIER = {
 }
 
 local adjustWarehouseStockAtZone
+local zoneSupplyDebug
+local c130SupplyLogOnce
+local getZoneSupplyStaticKey
 
 local function isCtldSupplyZoneName(zoneName)
   if not zoneName then return false end
@@ -1118,6 +1303,221 @@ local function destroyC130AutoBuildCrate(entry, key, setId)
   return outcome
 end
 
+local function UpdateTrackedEntryMovement(Entry, CoordinatesVec3)
+  local Moved = false
+  if Entry._lastVec3 then
+    local DeltaX = CoordinatesVec3.x - Entry._lastVec3.x
+    local DeltaY = CoordinatesVec3.y - Entry._lastVec3.y
+    local DeltaZ = CoordinatesVec3.z - Entry._lastVec3.z
+    Moved = (DeltaX * DeltaX + DeltaY * DeltaY + DeltaZ * DeltaZ) > 0.25
+    Entry._lastVec3.x = CoordinatesVec3.x
+    Entry._lastVec3.y = CoordinatesVec3.y
+    Entry._lastVec3.z = CoordinatesVec3.z
+  else
+    Entry._lastVec3 = { x = CoordinatesVec3.x, y = CoordinatesVec3.y, z = CoordinatesVec3.z }
+  end
+  return Moved
+end
+
+local function ResolveTrackedCarrierUnit(Entry, UseGroupFallback)
+  local UnitObject = Entry._unitObj
+  if (not UnitObject) and Entry.unitName then
+    UnitObject = Unit.getByName(Entry.unitName)
+    Entry._unitObj = UnitObject
+    Entry._unitDim = nil
+  elseif UnitObject and Entry.unitName and (UnitObject.isExist and not UnitObject:isExist()) then
+    UnitObject = Unit.getByName(Entry.unitName)
+    Entry._unitObj = UnitObject
+    Entry._unitDim = nil
+  end
+
+  if UseGroupFallback and (not UnitObject) and Entry.groupName then
+    local DcsGroup = Group.getByName(Entry.groupName)
+    UnitObject = DcsGroup and DcsGroup:getUnit(1) or nil
+    Entry._unitObj = UnitObject
+    Entry._unitDim = nil
+  end
+
+  return UnitObject
+end
+
+local function ResolveTrackedCarrierDimensions(Entry, UnitObject)
+  local UnitDimensions = Entry._unitDim
+  if UnitObject and UnitObject.isExist and UnitObject:isExist() then
+    if not UnitDimensions then
+      UnitDimensions = ZONE_SUPPLY_AIRCRAFT_DIMENSIONS[UnitObject:getTypeName()]
+      Entry._unitDim = UnitDimensions
+    end
+  end
+  return UnitDimensions
+end
+
+local function UpdateC130AttachDetachState(Entry, Key, CoordinatesVec3, UnitObject, UnitDimensions)
+  if not (UnitObject and UnitObject.isExist and UnitObject:isExist()) then return end
+  if not UnitDimensions then return end
+
+  local UnitPoint = UnitObject:getPoint()
+  if not (UnitPoint and UnitPoint.x and UnitPoint.y and UnitPoint.z) then return end
+
+  local DeltaX = UnitPoint.x - CoordinatesVec3.x
+  local DeltaY = UnitPoint.y - CoordinatesVec3.y
+  local DeltaZ = UnitPoint.z - CoordinatesVec3.z
+  local Delta2D = DeltaX * DeltaX + DeltaZ * DeltaZ
+  local Delta3D = math.sqrt(Delta2D + DeltaY * DeltaY)
+  local InAir = UnitObject:inAir()
+  local AttachDistance = UnitDimensions.attach or 8
+
+  if Entry.detached and (not InAir) and Delta3D <= AttachDistance then
+    Entry.detached = false
+    Entry._loggedC130Detached = false
+    Entry._loggedC130Unloaded = false
+    Entry._c130Stable = 0
+    Entry._c130OneShotScheduled = false
+  elseif (not Entry.detached) and Delta3D > (UnitDimensions.detach or UnitDimensions.width) then
+    Entry.detached = true
+  end
+
+  if Entry.detached and (InAir or CTLD_Logging) then
+    c130SupplyLogOnce(Entry, Key, "_fhLogDetach", "DETACHED")
+  end
+end
+
+local function ClearZoneSupplyLandingState(Entry, StaticObject)
+  local RemovalKey = getZoneSupplyStaticKey(StaticObject)
+  if RemovalKey then
+    zoneSupplyPendingRemoval[RemovalKey] = nil
+  end
+  Entry.landedAt = nil
+  Entry._noZoneRemovalScheduled = nil
+  Entry._inactiveRemovalScheduled = nil
+  Entry._lastNoZoneLog = nil
+  Entry._lastInactiveLog = nil
+end
+
+local function BuildTrackedZoneSupplyEntry(CargoItem, StaticObject, PickupZoneName, GroupName, PlayerName, UnitName, CargoName, DeliveryType, WarehouseMeta, CarrierUnitObject)
+  local InitialVec3 = nil
+  if StaticObject then
+    local InitialCoordinate = StaticObject:GetCoordinate()
+    InitialVec3 = InitialCoordinate and InitialCoordinate:GetVec3() or nil
+  end
+
+  local UnitDimensions = nil
+  if CarrierUnitObject and CarrierUnitObject.isExist and CarrierUnitObject:isExist() then
+    UnitDimensions = ZONE_SUPPLY_AIRCRAFT_DIMENSIONS[CarrierUnitObject:getTypeName()]
+  end
+  local IsC130 = CarrierUnitObject and CarrierUnitObject.isExist and CarrierUnitObject:isExist() and CarrierUnitObject:getTypeName() == "C-130J-30"
+
+  local EntryData = {
+    cargo = CargoItem,
+    static = StaticObject,
+    pickupZone = PickupZoneName,
+    groupName = GroupName,
+    playerName = PlayerName,
+    unitName = UnitName,
+    _unitObj = CarrierUnitObject,
+    _unitDim = UnitDimensions,
+    _isC130 = IsC130,
+    attached = false,
+    detached = false,
+    _c130Stable = 0,
+    _loggedC130Attached = false,
+    _loggedC130Detached = false,
+    _loggedC130Unloaded = false,
+    warnedSameZone = false,
+    warnedNoNeed = false,
+    deliveryType = DeliveryType,
+    warehouseMeta = WarehouseMeta,
+    cargoName = CargoName,
+    wasAirborne = false,
+    _wasUnloaded = false,
+    _lastVec3 = InitialVec3 and { x = InitialVec3.x, y = InitialVec3.y, z = InitialVec3.z } or nil,
+  }
+
+  if DeliveryType == "warehouse" then
+    EntryData.warnedWarehouseSide = false
+  end
+
+  return EntryData
+end
+
+local function RegisterTrackedSupplyCargo(CargoItem, PickupZoneName, GroupName, PlayerName, UnitName, CargoName, DeliveryType, WarehouseMeta, CarrierUnitObject)
+  CargoItem._zoneSupplyPickupZone = PickupZoneName
+  CargoItem._zoneSupplyGroupName = GroupName
+  CargoItem._zoneSupplyPlayer = PlayerName
+
+  local CargoIdentifier = (CargoItem.GetID and CargoItem:GetID()) or CargoItem.ID
+  local StaticObject = (CargoItem.GetPositionable and CargoItem:GetPositionable()) or nil
+  local TrackingKey = CargoIdentifier
+  if not TrackingKey and StaticObject then
+    TrackingKey = getZoneSupplyStaticKey(StaticObject)
+  end
+
+  if TrackingKey then
+    if not zoneSupplyCrates[TrackingKey] then
+      zoneSupplyCrates[TrackingKey] = BuildTrackedZoneSupplyEntry(
+        CargoItem,
+        StaticObject,
+        PickupZoneName,
+        GroupName,
+        PlayerName,
+        UnitName,
+        CargoName,
+        DeliveryType,
+        WarehouseMeta,
+        CarrierUnitObject
+      )
+
+      local StaticName = StaticObject and StaticObject.GetName and StaticObject:GetName() or "nil"
+      if DeliveryType == "warehouse" then
+        zoneSupplyDebug(string.format(
+          "Tracking warehouse cargo key=%s cargoId=%s static=%s pickup=%s group=%s player=%s type=%s",
+          tostring(TrackingKey), tostring(CargoIdentifier), tostring(StaticName), tostring(PickupZoneName), tostring(GroupName), tostring(PlayerName), tostring(CargoName)))
+      else
+        zoneSupplyDebug(string.format(
+          "Tracking zone-supply key=%s cargoId=%s static=%s pickup=%s group=%s player=%s",
+          tostring(TrackingKey), tostring(CargoIdentifier), tostring(StaticName), tostring(PickupZoneName), tostring(GroupName), tostring(PlayerName)))
+      end
+    end
+  else
+    if DeliveryType == "warehouse" then
+      zoneSupplyDebug("OnAfterGetCrates: warehouse cargo without cargoId/static key")
+    else
+      zoneSupplyDebug("OnAfterGetCrates: zone supply without cargoId/static key")
+    end
+  end
+end
+
+local function EnforceMaxAtSpawnForTrackedUnits(TrackedUnits, MaxAtSpawnMap, RestockCallback)
+  local UnitsByName = {}
+  for _, TrackedEntry in ipairs(TrackedUnits) do
+    local CargoName = TrackedEntry.CargoName
+    UnitsByName[CargoName] = UnitsByName[CargoName] or {}
+    table.insert(UnitsByName[CargoName], TrackedEntry)
+  end
+
+  for NormalizedName, GroupedEntries in pairs(UnitsByName) do
+    table.sort(GroupedEntries, function(EntryA, EntryB) return EntryA.Timestamp > EntryB.Timestamp end)
+    local MaxAllowed = MaxAtSpawnMap[NormalizedName] or MAX_AT_SPAWN[NormalizedName] or 0
+    local TotalEntries = #GroupedEntries
+    local ExcessEntries = TotalEntries - MaxAllowed
+    for EntryIndex, EntryData in ipairs(GroupedEntries) do
+      local Action = EntryIndex <= MaxAllowed and "KEEP" or "DELETE"
+    end
+    for ListIndex = TotalEntries, MaxAllowed + 1, -1 do
+      local OldEntry = GroupedEntries[ListIndex]
+      local ExistingGroup = GROUP:FindByName(OldEntry.groupName)
+      if ExistingGroup and ExistingGroup:IsAlive() then ExistingGroup:Destroy() end
+      RestockCallback(OldEntry.CargoName)
+      for TrackedIndex, TrackedData in ipairs(TrackedUnits) do
+        if TrackedData.groupName == OldEntry.groupName then
+          table.remove(TrackedUnits, TrackedIndex)
+          break
+        end
+      end
+    end
+  end
+end
+
 local function processC130AutoBuild()
   if not next(c130AutoBuildSets) then return end
 
@@ -1153,43 +1553,13 @@ for key, entry in pairs(c130AutoBuildCrates) do
             end
           end
         end
-        local moved = false
-        if entry._lastVec3 then
-          local dx = vec3.x - entry._lastVec3.x
-          local dy = vec3.y - entry._lastVec3.y
-          local dz = vec3.z - entry._lastVec3.z
-          moved = (dx * dx + dy * dy + dz * dz) > 0.25
-          entry._lastVec3.x = vec3.x
-          entry._lastVec3.y = vec3.y
-          entry._lastVec3.z = vec3.z
-        else
-          entry._lastVec3 = { x = vec3.x, y = vec3.y, z = vec3.z }
-        end
+        local moved = UpdateTrackedEntryMovement(entry, vec3)
         local agl = vec3.y - land.getHeight({ x = vec3.x, y = vec3.z })
 
         if (entry.unitName or entry.groupName) and (not entry.detached or not entry.attached) then
-          local unitObj = entry._unitObj
-          if (not unitObj) and entry.unitName then
-            unitObj = Unit.getByName(entry.unitName)
-            entry._unitObj = unitObj
-            entry._unitDim = nil
-          elseif unitObj and entry.unitName and (unitObj.isExist and not unitObj:isExist()) then
-            unitObj = Unit.getByName(entry.unitName)
-            entry._unitObj = unitObj
-            entry._unitDim = nil
-          end
-          if (not unitObj) and entry.groupName then
-            local dcsGroup = Group.getByName(entry.groupName)
-            unitObj = dcsGroup and dcsGroup:getUnit(1) or nil
-            entry._unitObj = unitObj
-            entry._unitDim = nil
-          end
-          local dim = entry._unitDim
+          local unitObj = ResolveTrackedCarrierUnit(entry, true)
+          local dim = ResolveTrackedCarrierDimensions(entry, unitObj)
           if unitObj and unitObj.isExist and unitObj:isExist() then
-            if not dim then
-              dim = ZONE_SUPPLY_AIRCRAFT_DIMENSIONS[unitObj:getTypeName()]
-              entry._unitDim = dim
-            end
             local up = unitObj:getPoint()
             if dim and up and up.x and up.y and up.z then
               local dx = up.x - vec3.x
@@ -1549,7 +1919,7 @@ local function grantZoneBundle(zoneName)
 end
 
 
-local function zoneSupplyDebug(msg)
+zoneSupplyDebug = function(msg)
   if not CTLD_Logging_DEEP then return end
   env.info("[ZoneSupply] " .. tostring(msg))
   trigger.action.outTextForCoalition(2, "[ZoneSupply] " .. tostring(msg), 10)
@@ -1573,7 +1943,7 @@ local function c130SupplyLog(entry, key, event, extra)
   env.info(msg)
 end
 
-local function c130SupplyLogOnce(entry, key, flagField, event, extra)
+c130SupplyLogOnce = function(entry, key, flagField, event, extra)
   if not entry or not entry._isC130 then return end
   if entry[flagField] then return end
   entry[flagField] = true
@@ -1585,7 +1955,7 @@ local function isZoneSupplyCargoItem(cargoItem)
   return cargoName and ZONE_SUPPLY_TYPES[cargoName] == true
 end
 
-local function getZoneSupplyStaticKey(staticObj)
+getZoneSupplyStaticKey = function(staticObj)
   if not staticObj then return nil end
   local key = nil
   if staticObj.GetID then
@@ -1896,18 +2266,7 @@ processZoneSupplyDeliveries = function()
       if coord then
         local vec3 = coord:GetVec3()
         if vec3 then
-          local moved = false
-          if entry._lastVec3 then
-            local dx = vec3.x - entry._lastVec3.x
-            local dy = vec3.y - entry._lastVec3.y
-            local dz = vec3.z - entry._lastVec3.z
-            moved = (dx * dx + dy * dy + dz * dz) > 0.25
-            entry._lastVec3.x = vec3.x
-            entry._lastVec3.y = vec3.y
-            entry._lastVec3.z = vec3.z
-          else
-            entry._lastVec3 = { x = vec3.x, y = vec3.y, z = vec3.z }
-          end
+          local moved = UpdateTrackedEntryMovement(entry, vec3)
 
           if moved then
             if not entry.wasAirborne and not entry._gcLoadedMsg and not entry._isC130 then
@@ -1929,49 +2288,9 @@ processZoneSupplyDeliveries = function()
                 entry._loggedC130Attached = true
               end
               entry._c130Stable = 0
-              if true then
-                local unitObj = entry._unitObj
-                if (not unitObj) and entry.unitName then
-                  unitObj = Unit.getByName(entry.unitName)
-                  entry._unitObj = unitObj
-                  entry._unitDim = nil
-                elseif unitObj and entry.unitName and (unitObj.isExist and not unitObj:isExist()) then
-                  unitObj = Unit.getByName(entry.unitName)
-                  entry._unitObj = unitObj
-                  entry._unitDim = nil
-                end
-                local dim = entry._unitDim
-                if unitObj and unitObj.isExist and unitObj:isExist() then
-                  if not dim then
-                    dim = ZONE_SUPPLY_AIRCRAFT_DIMENSIONS[unitObj:getTypeName()]
-                    entry._unitDim = dim
-                  end
-                  if dim then
-                    local up = unitObj:getPoint()
-                    if up and up.x and up.y and up.z then
-                      local dx = up.x - vec3.x
-                      local dy = up.y - vec3.y
-                      local dz = up.z - vec3.z
-                      local d2 = dx * dx + dz * dz
-                      local delta3D = math.sqrt(d2 + dy * dy)
-                      local inAir = unitObj:inAir()
-                      local attach = dim.attach or 8
-                      if entry.detached and (not inAir) and delta3D <= attach then
-                        entry.detached = false
-                        entry._loggedC130Detached = false
-                        entry._loggedC130Unloaded = false
-                        entry._c130Stable = 0
-                        entry._c130OneShotScheduled = false
-                      elseif (not entry.detached) and delta3D > (dim.detach or dim.width) then
-                        entry.detached = true
-                      end
-                      if entry.detached and (inAir or CTLD_Logging) then
-                        c130SupplyLogOnce(entry, key, "_fhLogDetach", "DETACHED")
-                      end
-                    end
-                  end
-                end
-              end
+              local unitObj = ResolveTrackedCarrierUnit(entry, false)
+              local dim = ResolveTrackedCarrierDimensions(entry, unitObj)
+              UpdateC130AttachDetachState(entry, key, vec3, unitObj, dim)
               if entry.detached and not entry._loggedC130Detached then
                 if CTLD_Logging then
                 trigger.action.outText(string.format("[ZoneSupply][C130] Detached key=%s unit=%s", tostring(key), tostring(entry.unitName)), 10)
@@ -1981,15 +2300,7 @@ processZoneSupplyDeliveries = function()
             end
 
             if entry.landedAt then
-              local rkey = getZoneSupplyStaticKey(staticObj)
-              if rkey then
-                zoneSupplyPendingRemoval[rkey] = nil
-              end
-              entry.landedAt = nil
-              entry._noZoneRemovalScheduled = nil
-              entry._inactiveRemovalScheduled = nil
-              entry._lastNoZoneLog = nil
-              entry._lastInactiveLog = nil
+              ClearZoneSupplyLandingState(entry, staticObj)
             end
           else
             if entry.wasAirborne and not entry._wasUnloaded then
@@ -2003,47 +2314,9 @@ processZoneSupplyDeliveries = function()
                   end
                   entry._loggedC130Attached = true
                 end
-                local unitObj = entry._unitObj
-                if (not unitObj) and entry.unitName then
-                  unitObj = Unit.getByName(entry.unitName)
-                  entry._unitObj = unitObj
-                  entry._unitDim = nil
-                elseif unitObj and entry.unitName and (unitObj.isExist and not unitObj:isExist()) then
-                  unitObj = Unit.getByName(entry.unitName)
-                  entry._unitObj = unitObj
-                  entry._unitDim = nil
-                end
-                local dim = entry._unitDim
-                if unitObj and unitObj.isExist and unitObj:isExist() then
-                  if not dim then
-                    dim = ZONE_SUPPLY_AIRCRAFT_DIMENSIONS[unitObj:getTypeName()]
-                    entry._unitDim = dim
-                  end
-                  if dim then
-                    local up = unitObj:getPoint()
-                    if up and up.x and up.y and up.z then
-                      local dx = up.x - vec3.x
-                      local dy = up.y - vec3.y
-                      local dz = up.z - vec3.z
-                      local d2 = dx * dx + dz * dz
-                      local delta3D = math.sqrt(d2 + dy * dy)
-                      local inAir = unitObj:inAir()
-                      local attach = dim.attach or 8
-                      if entry.detached and (not inAir) and delta3D <= attach then
-                        entry.detached = false
-                        entry._loggedC130Detached = false
-                        entry._loggedC130Unloaded = false
-                        entry._c130Stable = 0
-                        entry._c130OneShotScheduled = false
-                      elseif (not entry.detached) and delta3D > (dim.detach or dim.width) then
-                        entry.detached = true
-                      end
-                      if entry.detached and (inAir or CTLD_Logging) then
-                        c130SupplyLogOnce(entry, key, "_fhLogDetach", "DETACHED")
-                      end
-                    end
-                  end
-                end
+                local unitObj = ResolveTrackedCarrierUnit(entry, false)
+                local dim = ResolveTrackedCarrierDimensions(entry, unitObj)
+                UpdateC130AttachDetachState(entry, key, vec3, unitObj, dim)
                 if entry.detached then
                   if not entry._loggedC130Detached then
                     if CTLD_Logging then
@@ -2078,16 +2351,7 @@ processZoneSupplyDeliveries = function()
                 end
               else
                 local ok = false
-                local unitObj = entry._unitObj
-                if (not unitObj) and entry.unitName then
-                  unitObj = Unit.getByName(entry.unitName)
-                  entry._unitObj = unitObj
-                  entry._unitDim = nil
-                elseif unitObj and entry.unitName and (unitObj.isExist and not unitObj:isExist()) then
-                  unitObj = Unit.getByName(entry.unitName)
-                  entry._unitObj = unitObj
-                  entry._unitDim = nil
-                end
+                local unitObj = ResolveTrackedCarrierUnit(entry, false)
                 if (not unitObj) or (unitObj and unitObj.isExist and not unitObj:isExist()) then
                   local ground = land.getHeight({ x = vec3.x, y = vec3.z })
                   local agl = vec3.y - ground
@@ -2096,7 +2360,7 @@ processZoneSupplyDeliveries = function()
                     entry._c130AglConfirm = nil
                   end
                 end
-                local dim = entry._unitDim
+                local dim = ResolveTrackedCarrierDimensions(entry, unitObj)
 
                 local inAir = nil
                 local speed2 = nil
@@ -2218,15 +2482,7 @@ processZoneSupplyDeliveries = function()
                 zoneSupplyDebug(string.format("Crate %s landed in %s side=%s active=%s", tostring(key), tostring(zoneName), tostring(zoneSide), tostring(zoneActive)))
                 if entry.pickupZone and zoneName == entry.pickupZone then
                   if entry.deliveryType == "warehouse" and entry.warehouseMeta and WarehouseLogistics == true then
-                    local rkey = getZoneSupplyStaticKey(staticObj)
-                    if rkey then
-                      zoneSupplyPendingRemoval[rkey] = nil
-                    end
-                    entry.landedAt = nil
-                    entry._noZoneRemovalScheduled = nil
-                    entry._inactiveRemovalScheduled = nil
-                    entry._lastNoZoneLog = nil
-                    entry._lastInactiveLog = nil
+                    ClearZoneSupplyLandingState(entry, staticObj)
                     entry._ready = true
                     entry._zoneName = zoneName
                     entry._deleteName = entry._deleteName or getZoneSupplyStaticName(staticObj)
@@ -2241,15 +2497,7 @@ processZoneSupplyDeliveries = function()
                   end
                 else
                   if bcZone and bcZone.active then
-                    local rkey = getZoneSupplyStaticKey(staticObj)
-                    if rkey then
-                      zoneSupplyPendingRemoval[rkey] = nil
-                    end
-                    entry.landedAt = nil
-                    entry._noZoneRemovalScheduled = nil
-                    entry._inactiveRemovalScheduled = nil
-                    entry._lastNoZoneLog = nil
-                    entry._lastInactiveLog = nil
+                    ClearZoneSupplyLandingState(entry, staticObj)
                     entry._ready = true
                     entry._zoneName = zoneName
                     entry._deleteName = entry._deleteName or getZoneSupplyStaticName(staticObj)
@@ -2260,15 +2508,7 @@ processZoneSupplyDeliveries = function()
                     if (not bcZone) and entry.deliveryType == "warehouse" and entry.warehouseMeta and WarehouseLogistics == true and isCtldSupplyZoneName(zoneName) then
                       local storage = getZoneStorageHandle(zoneName)
                       if storage then
-                        local rkey = getZoneSupplyStaticKey(staticObj)
-                        if rkey then
-                          zoneSupplyPendingRemoval[rkey] = nil
-                        end
-                        entry.landedAt = nil
-                        entry._noZoneRemovalScheduled = nil
-                        entry._inactiveRemovalScheduled = nil
-                        entry._lastNoZoneLog = nil
-                        entry._lastInactiveLog = nil
+                        ClearZoneSupplyLandingState(entry, staticObj)
                         entry._ready = true
                         entry._zoneName = zoneName
                         entry._deleteName = entry._deleteName or getZoneSupplyStaticName(staticObj)
@@ -2881,19 +3121,33 @@ function Foothold_ctld:OnAfterCratesBuild(From, Event, To, Group, Unit, Vehicle)
 
     local cargoName, stock = "unknown", 0
 
+    local bestCargoData = nil
+    local bestTemplateLen = -1
     for _, cargoData in pairs(self.Cargo_Crates) do
-      if cargoData.Templates then
-        local templateName = type(cargoData.Templates) == "table" and cargoData.Templates[1] or cargoData.Templates
-        if string.find(groupName, templateName, 1, true) then
-          cargoName = cargoData:GetName()
-          stock     = cargoData:GetStock()
-          break
+      local templates = cargoData and cargoData.Templates or nil
+      if type(templates) == "string" then
+        templates = { templates }
+      end
+      if type(templates) == "table" then
+        for _, templateName in pairs(templates) do
+          local templateText = tostring(templateName or "")
+          if templateText ~= "" and string.find(groupName, templateText, 1, true) then
+            local tLen = #templateText
+            if tLen > bestTemplateLen then
+              bestTemplateLen = tLen
+              bestCargoData = cargoData
+            end
+          end
         end
       end
     end
+    if bestCargoData then
+      cargoName = bestCargoData:GetName()
+      stock = bestCargoData:GetStock()
+    end
 
-    local irisRole = resolveIrisComponentRole(Vehicle, cargoName)
-    if irisRole then
+    local mergeProfile, mergeRole = samMergeResolveComponentProfileRole(Vehicle, cargoName)
+    if mergeProfile and mergeRole then
       local mergeDistanceOverride = nil
       if Group and Group.GetName then
         local helperName = Group:GetName() or ""
@@ -2904,7 +3158,7 @@ function Foothold_ctld:OnAfterCratesBuild(From, Event, To, Group, Unit, Vehicle)
           end
         end
       end
-      local merged = tryMergeIrisComponentIntoNearbySystem(self, Group, Vehicle, cargoName, irisRole, mergeDistanceOverride)
+      local merged = samMergeTryMergeComponentIntoNearbySystem(self, Group, Vehicle, cargoName, mergeRole, mergeProfile, mergeDistanceOverride)
       if merged then
         return
       end
@@ -3293,125 +3547,14 @@ function Foothold_ctld:OnAfterGetCrates(From, Event, To, Group, Unit, Cargo)
 
     if isZoneSupplyCargoItem(cargoItem) then
       sawZoneSupplies = true
-      cargoItem._zoneSupplyPickupZone = pickupZone
-      cargoItem._zoneSupplyGroupName = groupName
-      cargoItem._zoneSupplyPlayer = playerName
-
-      local cargoId = (cargoItem.GetID and cargoItem:GetID()) or cargoItem.ID
-      local staticObj = (cargoItem.GetPositionable and cargoItem:GetPositionable()) or nil
-      local key = cargoId
-      if not key and staticObj then
-        key = getZoneSupplyStaticKey(staticObj)
-      end
-
-      if key then
-        if not zoneSupplyCrates[key] then
-          local initVec3 = nil
-          if staticObj then
-            local initCoord = staticObj:GetCoordinate()
-            initVec3 = initCoord and initCoord:GetVec3() or nil
-          end
-          local unitObj = Unit and Unit:GetDCSObject() or nil
-          local unitDim = nil
-          if unitObj and unitObj.isExist and unitObj:isExist() then
-            unitDim = ZONE_SUPPLY_AIRCRAFT_DIMENSIONS[unitObj:getTypeName()]
-          end
-          local isC130 = unitObj and unitObj.isExist and unitObj:isExist() and unitObj:getTypeName() == "C-130J-30"
-          zoneSupplyCrates[key] = {
-            cargo = cargoItem,
-            static = staticObj,
-            pickupZone = pickupZone,
-            groupName = groupName,
-            playerName = playerName,
-            unitName = unitName,
-            _unitObj = unitObj,
-            _unitDim = unitDim,
-            _isC130 = isC130,
-            attached = false,
-            detached = false,
-            _c130Stable = 0,
-            _loggedC130Attached = false,
-            _loggedC130Detached = false,
-            _loggedC130Unloaded = false,
-            warnedSameZone = false,
-            warnedNoNeed = false,
-            deliveryType = "zone",
-            warehouseMeta = nil,
-            cargoName = cname,
-            wasAirborne = false,
-            _wasUnloaded = false,
-            _lastVec3 = initVec3 and { x = initVec3.x, y = initVec3.y, z = initVec3.z } or nil,
-          }
-          local staticName = staticObj and staticObj.GetName and staticObj:GetName() or "nil"
-          zoneSupplyDebug(string.format(
-            "Tracking zone-supply key=%s cargoId=%s static=%s pickup=%s group=%s player=%s",
-            tostring(key), tostring(cargoId), tostring(staticName), tostring(pickupZone), tostring(groupName), tostring(playerName)))
-        end
-      else
-        zoneSupplyDebug("OnAfterGetCrates: zone supply without cargoId/static key")
-      end
+      local carrierUnitObject = Unit and Unit:GetDCSObject() or nil
+      RegisterTrackedSupplyCargo(cargoItem, pickupZone, groupName, playerName, unitName, cname, "zone", nil, carrierUnitObject)
 
     elseif WAREHOUSE_SUPPLY_TYPES[cname] then
       sawWarehouse = true
       local meta = WAREHOUSE_SUPPLY_TYPES[cname]
-      cargoItem._zoneSupplyPickupZone = pickupZone
-      cargoItem._zoneSupplyGroupName = groupName
-      cargoItem._zoneSupplyPlayer = playerName
-
-      local cargoId = (cargoItem.GetID and cargoItem:GetID()) or cargoItem.ID
-      local staticObj = (cargoItem.GetPositionable and cargoItem:GetPositionable()) or nil
-      local key = cargoId
-      if not key and staticObj then
-        key = getZoneSupplyStaticKey(staticObj)
-      end
-
-      if key then
-        if not zoneSupplyCrates[key] then
-          local initVec3 = nil
-          if staticObj then
-            local initCoord = staticObj:GetCoordinate()
-            initVec3 = initCoord and initCoord:GetVec3() or nil
-          end
-          local unitObj = Unit and Unit:GetDCSObject() or nil
-          local unitDim = nil
-          if unitObj and unitObj.isExist and unitObj:isExist() then
-            unitDim = ZONE_SUPPLY_AIRCRAFT_DIMENSIONS[unitObj:getTypeName()]
-          end
-          local isC130 = unitObj and unitObj.isExist and unitObj:isExist() and unitObj:getTypeName() == "C-130J-30"
-          zoneSupplyCrates[key] = {
-            cargo = cargoItem,
-            static = staticObj,
-            pickupZone = pickupZone,
-            groupName = groupName,
-            playerName = playerName,
-            unitName = unitName,
-            _unitObj = unitObj,
-            _unitDim = unitDim,
-            _isC130 = isC130,
-            attached = false,
-            detached = false,
-            _c130Stable = 0,
-            _loggedC130Attached = false,
-            _loggedC130Detached = false,
-            _loggedC130Unloaded = false,
-            warnedSameZone = false,
-            warnedNoNeed = false,
-            warnedWarehouseSide = false,
-            deliveryType = "warehouse",
-            warehouseMeta = meta,
-            cargoName = cname,
-            wasAirborne = false,
-            _wasUnloaded = false,
-            _lastVec3 = initVec3 and { x = initVec3.x, y = initVec3.y, z = initVec3.z } or nil,
-          }
-          local staticName = staticObj and staticObj.GetName and staticObj:GetName() or "nil"
-          zoneSupplyDebug(string.format(
-            "Tracking warehouse cargo key=%s cargoId=%s static=%s pickup=%s group=%s player=%s type=%s",
-            tostring(key), tostring(cargoId), tostring(staticName), tostring(pickupZone), tostring(groupName), tostring(playerName), tostring(cname)))
-        end
-      else
-        zoneSupplyDebug("OnAfterGetCrates: warehouse cargo without cargoId/static key")
-      end
+      local carrierUnitObject = Unit and Unit:GetDCSObject() or nil
+      RegisterTrackedSupplyCargo(cargoItem, pickupZone, groupName, playerName, unitName, cname, "warehouse", meta, carrierUnitObject)
     end
   end
 
@@ -3613,23 +3756,24 @@ LoadIRISAugments = function()
   local filename = Foothold_ctld.filename
   local ok, lines = UTILS.LoadFromFile(path, filename)
   if not ok or type(lines) ~= "table" then
-    irisLog(Foothold_ctld, string.format("IRIS restore skipped: failed reading %s.", tostring(filename)))
+    samMergeLog(Foothold_ctld, nil, string.format("SAM restore skipped: failed reading %s.", tostring(filename)))
     return {}
   end
 
-  local function isIrisSystemSaveRow(parts)
+  local function isSystemSaveRow(profile, parts)
     local groupName = parts[1]
     local cargoName = parts[5]
     local cargoTemplates = parts[6]
-    return isIrisSystemTemplateText(cargoTemplates)
-      or isIrisSystemTemplateText(groupName)
-      or tostring(cargoName or "") == IRIS_SYSTEM_CARGO_NAME
+    return samMergeIsSystemTemplateText(profile, cargoTemplates)
+      or samMergeIsSystemTemplateText(profile, groupName)
+      or samMergeSystemCargoMatches(profile, cargoName)
   end
 
-  local function parseStructureCounts(structureText)
-    local counts = { LN = 0, STR = 0, C2 = 0 }
-    for unitType, countText in string.gmatch(tostring(structureText or ""), "([%w_]+)==(%d+)") do
-      local role = roleFromUnitType(unitType)
+  local function parseStructureCounts(profile, structureText)
+    local counts = samMergeRoleCountTable(profile)
+    for unitType, countText in string.gmatch(tostring(structureText or ""), "([^=;]+)==(%d+)") do
+      local cleanUnitType = tostring(unitType or ""):gsub("^%s+", ""):gsub("%s+$", "")
+      local role = samMergeRoleFromUnitType(profile, cleanUnitType)
       if role then
         counts[role] = tonumber(countText) or 0
       end
@@ -3638,31 +3782,51 @@ LoadIRISAugments = function()
   end
 
   local rows = {}
+  local profileCounts = {}
   for i = 2, #lines do
     local line = lines[i]
     if line and tostring(line):gsub("%s+", "") ~= "" then
       local parts = UTILS.Split(line, ",")
-      if isIrisSystemSaveRow(parts) then
-        local x = tonumber(parts[2])
-        local y = tonumber(parts[4])
-        local counts = parseStructureCounts(parts[10])
-        local lnExtra = math.max(0, (counts.LN or 0) - (IRIS_BASELINE_COUNTS.LN or 1))
-        local strExtra = math.max(0, (counts.STR or 0) - (IRIS_BASELINE_COUNTS.STR or 1))
-        local c2Extra = math.max(0, (counts.C2 or 0) - (IRIS_BASELINE_COUNTS.C2 or 1))
-        if x and y and (lnExtra > 0 or strExtra > 0 or c2Extra > 0) then
-          rows[#rows + 1] = {
-            x = x,
-            y = y,
-            ln_extra = lnExtra,
-            str_extra = strExtra,
-            c2_extra = c2Extra,
-          }
+      for _, profileKey in ipairs(SAM_MERGE_PROFILE_ORDER) do
+        local profile = SAM_MERGE_PROFILES[profileKey]
+        if isSystemSaveRow(profile, parts) then
+          local x = tonumber(parts[2])
+          local y = tonumber(parts[4])
+          local counts = parseStructureCounts(profile, parts[10])
+          local extras = {}
+          local hasExtra = false
+
+          for _, role in ipairs(profile.role_order or {}) do
+            local baseline = (profile.baseline_counts and profile.baseline_counts[role]) or 0
+            local extra = math.max(0, (counts[role] or 0) - baseline)
+            extras[role] = extra
+            if extra > 0 then
+              hasExtra = true
+            end
+          end
+
+          if x and y and hasExtra then
+            rows[#rows + 1] = {
+              profile_key = profileKey,
+              x = x,
+              y = y,
+              extras = extras,
+            }
+            profileCounts[profileKey] = (profileCounts[profileKey] or 0) + 1
+          end
+          break
         end
       end
     end
   end
 
-  irisLog(Foothold_ctld, string.format("Loaded %d IRIS augment rows from CTLD save %s", #rows, tostring(filename)))
+  for _, profileKey in ipairs(SAM_MERGE_PROFILE_ORDER) do
+    local count = profileCounts[profileKey] or 0
+    if count > 0 then
+      samMergeLog(Foothold_ctld, SAM_MERGE_PROFILES[profileKey], string.format("Loaded %d augment rows from %s", count, tostring(filename)))
+    end
+  end
+  samMergeLog(Foothold_ctld, nil, string.format("Loaded %d SAM augment rows from CTLD save %s", #rows, tostring(filename)))
   return rows
 end
 
@@ -3671,104 +3835,120 @@ ApplyIRISAugments = function(rows)
     return false
   end
 
-  local candidates = {}
+  local candidatesByProfile = {}
+  for _, profileKey in ipairs(SAM_MERGE_PROFILE_ORDER) do
+    candidatesByProfile[profileKey] = {}
+  end
+
   local seen = {}
   for _, entry in ipairs(GroundUnits) do
     local gName = entry and entry.groupName or nil
-    if gName and not seen[gName] and (entry.CargoName == IRIS_SYSTEM_CARGO_NAME or isIrisSystemGroupName(gName)) then
+    if gName and not seen[gName] then
       seen[gName] = true
       local grp = GROUP:FindByName(gName)
       if grp and grp:IsAlive() then
         local coord = grp:GetCoordinate()
         if coord then
-          candidates[#candidates + 1] = {
-            group = grp,
-            groupName = gName,
-            coord = coord,
-            matched = false,
-          }
+          for _, profileKey in ipairs(SAM_MERGE_PROFILE_ORDER) do
+            local profile = SAM_MERGE_PROFILES[profileKey]
+            if samMergeSystemCargoMatches(profile, entry and entry.CargoName or nil) or samMergeIsSystemGroupName(profile, gName) then
+              candidatesByProfile[profileKey][#candidatesByProfile[profileKey] + 1] = {
+                group = grp,
+                groupName = gName,
+                coord = coord,
+                matched = false,
+              }
+              break
+            end
+          end
         end
       end
     end
-  end
-
-  if #candidates == 0 then
-    irisLog(Foothold_ctld, "No IRIS system candidates available while applying augments.")
-    return false
   end
 
   local applied = 0
-  local roleOrder = { "LN", "STR", "C2" }
-  local roleExtraKey = { LN = "ln_extra", STR = "str_extra", C2 = "c2_extra" }
+  local missingCandidatesLogged = {}
 
   for _, row in ipairs(rows) do
-    local rowCoord = COORDINATE:NewFromVec2({ x = row.x, y = row.y })
-    local best = nil
-    local bestDist = nil
-
-    for _, candidate in ipairs(candidates) do
-      if not candidate.matched then
-        local dist = rowCoord:Get2DDistance(candidate.coord)
-        if dist <= IRIS_MERGE_DISTANCE and (not bestDist or dist < bestDist) then
-          best = candidate
-          bestDist = dist
+    local profile = samMergeProfileByKey(row.profile_key)
+    if profile then
+      local candidates = candidatesByProfile[row.profile_key] or {}
+      if #candidates == 0 then
+        if not missingCandidatesLogged[row.profile_key] then
+          samMergeLog(Foothold_ctld, profile, "No system candidates available while applying augments.")
+          missingCandidatesLogged[row.profile_key] = true
         end
-      end
-    end
+      else
+        local rowCoord = COORDINATE:NewFromVec2({ x = row.x, y = row.y })
+        local best = nil
+        local bestDist = nil
 
-    if best then
-      best.matched = true
-      local oldGroup = best.group
-      local oldGroupName = best.groupName
-      local template, mergeMode, baseErr = getIrisMergeBaseTemplate(oldGroup)
-      if template and type(template.units) == "table" and #template.units > 0 then
-        local counts = countIrisRolesInTemplate(template)
-        local anchorUnit = template.units[1]
-        local changed = false
-
-        for _, role in ipairs(roleOrder) do
-          local targetCount = (IRIS_BASELINE_COUNTS[role] or 1) + (row[roleExtraKey[role]] or 0)
-          local currentCount = counts[role] or 0
-          if targetCount > currentCount then
-            local sourceTemplate = extractUnitTemplateForRole(template, role)
-            if sourceTemplate then
-              for _ = 1, (targetCount - currentCount) do
-                local nextIndex = (template.units and #template.units or 0) + 1
-                if appendUnitTemplateWithOffset(template, sourceTemplate, anchorUnit, nextIndex) then
-                  counts[role] = (counts[role] or 0) + 1
-                  changed = true
-                end
-              end
+        for _, candidate in ipairs(candidates) do
+          if not candidate.matched then
+            local dist = rowCoord:Get2DDistance(candidate.coord)
+            if dist <= IRIS_MERGE_DISTANCE and (not bestDist or dist < bestDist) then
+              best = candidate
+              bestDist = dist
             end
           end
         end
 
-        if changed then
-          reflowIrisTemplateLayout(template, anchorUnit)
-          local spawnName = string.format("%s-%d", IRIS_SYSTEM_TEMPLATE, math.random(100000, 999999))
-          local mergedGroup, err = spawnMergedIrisSystemTemplate(template, spawnName)
-          if mergedGroup then
-            if oldGroup and oldGroup:IsAlive() then oldGroup:Destroy() end
-            removeDroppedTroopGroupByName(Foothold_ctld, oldGroupName)
-            trackDroppedTroopGroup(Foothold_ctld, mergedGroup)
-            syncGroundUnitsAfterIrisMerge(Foothold_ctld, oldGroupName, nil, mergedGroup:GetName() or spawnName)
-            applied = applied + 1
-            best.group = mergedGroup
-            best.groupName = mergedGroup:GetName() or spawnName
-            best.coord = mergedGroup:GetCoordinate() or best.coord
-            irisLog(Foothold_ctld, string.format("Applied IRIS augments at %.0f/%.0f (dist=%.1f) mode=%s.", row.x, row.y, bestDist or -1, tostring(mergeMode)))
+        if best then
+          best.matched = true
+          local oldGroup = best.group
+          local oldGroupName = best.groupName
+          local template, mergeMode, baseErr = samMergeGetBaseTemplate(profile, oldGroup)
+          if template and type(template.units) == "table" and #template.units > 0 then
+            local counts = samMergeCountRolesInTemplate(profile, template)
+            local anchorUnit = template.units[1]
+            local changed = false
+
+            for _, role in ipairs(profile.role_order or {}) do
+              local baseline = (profile.baseline_counts and profile.baseline_counts[role]) or 0
+              local targetCount = baseline + ((row.extras and row.extras[role]) or 0)
+              local currentCount = counts[role] or 0
+              if targetCount > currentCount then
+                local sourceTemplate = samMergeExtractUnitTemplateForRole(profile, template, role)
+                if sourceTemplate then
+                  for _ = 1, (targetCount - currentCount) do
+                    local nextIndex = (template.units and #template.units or 0) + 1
+                    if samMergeAppendUnitTemplateWithOffset(profile, template, sourceTemplate, anchorUnit, nextIndex) then
+                      counts[role] = (counts[role] or 0) + 1
+                      changed = true
+                    end
+                  end
+                end
+              end
+            end
+
+            if changed then
+              reflowIrisTemplateLayout(profile, template, anchorUnit)
+              local spawnName = string.format("%s-%d", tostring(profile.system_template or "CTLD_CARGO_SAM"), math.random(100000, 999999))
+              local mergedGroup, err = samMergeSpawnMergedSystemTemplate(profile, template, spawnName)
+              if mergedGroup then
+                if oldGroup and oldGroup:IsAlive() then oldGroup:Destroy() end
+                removeDroppedTroopGroupByName(Foothold_ctld, oldGroupName)
+                trackDroppedTroopGroup(Foothold_ctld, mergedGroup)
+                samMergeSyncGroundUnits(Foothold_ctld, profile, oldGroupName, nil, mergedGroup:GetName() or spawnName)
+                applied = applied + 1
+                best.group = mergedGroup
+                best.groupName = mergedGroup:GetName() or spawnName
+                best.coord = mergedGroup:GetCoordinate() or best.coord
+                samMergeLog(Foothold_ctld, profile, string.format("Applied augments at %.0f/%.0f (dist=%.1f) mode=%s.", row.x, row.y, bestDist or -1, tostring(mergeMode)))
+              else
+                samMergeLog(Foothold_ctld, profile, string.format("Failed augment spawn for row %.0f/%.0f: %s", row.x, row.y, tostring(err)))
+              end
+            end
           else
-            irisLog(Foothold_ctld, string.format("Failed IRIS augment spawn for row %.0f/%.0f: %s", row.x, row.y, tostring(err)))
+            samMergeLog(Foothold_ctld, profile, string.format("Skipped augment row %.0f/%.0f: no merge base template (mode=%s err=%s).", row.x, row.y, tostring(mergeMode), tostring(baseErr)))
           end
         end
-      else
-        irisLog(Foothold_ctld, string.format("Skipped IRIS augment row %.0f/%.0f: no merge base template (mode=%s err=%s).", row.x, row.y, tostring(mergeMode), tostring(baseErr)))
       end
     end
   end
 
   if applied > 0 then
-    irisLog(Foothold_ctld, string.format("Applied %d IRIS augment rows.", applied))
+    samMergeLog(Foothold_ctld, nil, string.format("Applied %d SAM augment rows.", applied))
   end
   return applied > 0
 end
@@ -3782,14 +3962,15 @@ RunIrisOnePassStandaloneMerge = function(self)
     local groupName = entry and entry.groupName or nil
     if groupName and not seen[groupName] then
       seen[groupName] = true
-      local role = roleFromTemplateIdText(groupName) or isIrisComponentCargoName(entry and entry.CargoName or nil)
-      if role then
-        local grp = GROUP:FindByName(groupName)
-        if grp and grp:IsAlive() then
+      local grp = GROUP:FindByName(groupName)
+      if grp and grp:IsAlive() then
+        local profile, role = samMergeResolveComponentProfileRole(grp, entry and entry.CargoName or nil)
+        if profile and role then
           candidates[#candidates + 1] = {
             group = grp,
             cargoName = entry and entry.CargoName or nil,
             role = role,
+            profile = profile,
           }
         end
       end
@@ -3798,13 +3979,13 @@ RunIrisOnePassStandaloneMerge = function(self)
 
   local merged = 0
   for _, candidate in ipairs(candidates) do
-    local didMerge = tryMergeIrisComponentIntoNearbySystem(context, nil, candidate.group, candidate.cargoName, candidate.role)
+    local didMerge = samMergeTryMergeComponentIntoNearbySystem(context, nil, candidate.group, candidate.cargoName, candidate.role, candidate.profile)
     if didMerge then
       merged = merged + 1
     end
   end
 
-  irisLog(context, string.format("One-pass IRIS standalone merge checked=%d merged=%d.", #candidates, merged))
+  samMergeLog(context, nil, string.format("One-pass SAM standalone merge checked=%d merged=%d.", #candidates, merged))
   return merged > 0
 end
 
@@ -3886,55 +4067,13 @@ for i,_t in ipairs(LoadedGroups) do
   end
 end
 
-  local cratesByName={}
-  for _,d in ipairs(GroundUnits) do
-    local k=d.CargoName
-    cratesByName[k]=cratesByName[k] or {}
-    table.insert(cratesByName[k],d)
-  end
-  for normName,list in pairs(cratesByName) do
-    table.sort(list,function(a,b)return a.Timestamp>b.Timestamp end)
-    local maxAllowed=MaxAtSpawn[normName] or MAX_AT_SPAWN[normName] or 0
-    local total=#list
-    local excess=total-maxAllowed
-    for idx,entry in ipairs(list) do
-      local act=idx<=maxAllowed and "KEEP" or "DELETE"
-    end
-    for i=total,maxAllowed+1,-1 do
-      local old=list[i]
-      local g=GROUP:FindByName(old.groupName)
-      if g and g:IsAlive() then g:Destroy() end
-      Foothold_ctld:AddStockCrates(old.CargoName,1)
-      for idx,gu in ipairs(GroundUnits) do
-        if gu.groupName==old.groupName then table.remove(GroundUnits,idx) break end
-      end
-    end
-  end
+  EnforceMaxAtSpawnForTrackedUnits(GroundUnits, MaxAtSpawn, function(CargoName)
+    Foothold_ctld:AddStockCrates(CargoName, 1)
+  end)
 
-  local troopsByName={}
-  for _,d in ipairs(TroopUnits) do
-    local k=d.CargoName
-    troopsByName[k]=troopsByName[k] or {}
-    table.insert(troopsByName[k],d)
-  end
-  for normName,list in pairs(troopsByName) do
-    table.sort(list,function(a,b)return a.Timestamp>b.Timestamp end)
-    local maxAllowed=MaxAtSpawn[normName] or MAX_AT_SPAWN[normName] or 0
-    local total=#list
-    local excess=total-maxAllowed
-    for idx,entry in ipairs(list) do
-      local act=idx<=maxAllowed and "KEEP" or "DELETE"
-    end
-    for i=total,maxAllowed+1,-1 do
-      local old=list[i]
-      local g=GROUP:FindByName(old.groupName)
-      if g and g:IsAlive() then g:Destroy() end
-      Foothold_ctld:AddStockTroops(old.CargoName,1)
-      for idx,tu in ipairs(TroopUnits) do
-        if tu.groupName==old.groupName then table.remove(TroopUnits,idx) break end
-      end
-    end
-  end
+  EnforceMaxAtSpawnForTrackedUnits(TroopUnits, MaxAtSpawn, function(CargoName)
+    Foothold_ctld:AddStockTroops(CargoName, 1)
+  end)
 -- below a code that deletes the cargo that is left on the ground from last session.
   if self.Spawned_Cargo then
     for i=#self.Spawned_Cargo,1,-1 do

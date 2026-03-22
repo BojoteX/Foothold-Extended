@@ -34296,8 +34296,16 @@ if self.launcher then
 self.launcherName=self.launcher:getName()
 self.launcherUnit=UNIT:Find(self.launcher)
 end
-self.coordinate=COORDINATE:NewFromVec3(self.launcher:getPoint())
+local point = nil
+if self.launcher then
+point = self.launcher:getPoint()
+elseif WeaponObject.getPoint then
+point = WeaponObject:getPoint()
+end
+if point then
+self.coordinate=COORDINATE:NewFromVec3(point)
 self.lid=string.format("[%s] %s | ",self.typeName,self.name)
+end
 if self.launcherUnit then
 self.releaseHeading=self.launcherUnit:GetHeading()
 self.releaseAltitudeASL=self.launcherUnit:GetAltitude()
@@ -76132,7 +76140,7 @@ end
 function CTLD:CanBuildCrates(Group,Unit,crates,number,Engineering,MultiDrop)
 return true
 end
-function CTLD:_BuildCrates(Group,Unit,Engineering,MultiDrop,NotifyGroup)
+function CTLD:_BuildCrates(Group,Unit,Engineering,MultiDrop)
 self:T(self.lid.." _BuildCrates")
 local helperTrace=nil
 if Group and Group.GetName then
@@ -76162,13 +76170,6 @@ local baseDist=self.CrateDistance or 35
 local finddist=baseDist
 if Engineering and self.EngineerSearch and self.EngineerSearch>baseDist then
 finddist=self.EngineerSearch
-end
-local notifyGroup=nil
-if not Engineering then
-notifyGroup=Group
-end
-if NotifyGroup then
-notifyGroup=NotifyGroup
 end
 local crates,number=self:_FindCratesNearby(Group,Unit,finddist,true,true,not Engineering)
 local buildables={}
@@ -76239,9 +76240,7 @@ end
 report:Add("------------------------------------------------------------")
 local text=report:Text()
 if not Engineering then
-self:_SendMessage(text,30,true,notifyGroup or Group,true)
-elseif notifyGroup then
-self:_SendMessage(text,30,true,notifyGroup,true)
+self:_SendMessage(text,30,true,Group,true)
 else
 self:T(text)
 end
@@ -76268,10 +76267,7 @@ buildtimer:Start(self.buildtime)
 if not notified then
 local msg=self.gettext:GetEntry("BUILD_STARTED",self.locale)
 msg=string.format(msg,self.buildtime)
-local startMsgGroup=(not Engineering and(notifyGroup or Group))or notifyGroup
-if startMsgGroup then
-self:_SendMessage(msg,15,false,startMsgGroup)
-end
+self:_SendMessage(msg,15,false,Group)
 notified=true
 end
 self:__CratesBuildStarted(1,Group,Unit,build.Name)
@@ -76293,10 +76289,7 @@ buildtimer:Start(self.buildtime)
 if not notified then
 local msg=self.gettext:GetEntry("BUILD_STARTED",self.locale)
 msg=string.format(msg,self.buildtime)
-local startMsgGroup=(not Engineering and(notifyGroup or Group))or notifyGroup
-if startMsgGroup then
-self:_SendMessage(msg,15,false,startMsgGroup)
-end
+self:_SendMessage(msg,15,false,Group)
 notified=true
 end
 self:__CratesBuildStarted(1,Group,Unit,build.Name)
@@ -77295,10 +77288,8 @@ MENU_GROUP_COMMAND:New(Group,self.gettext:GetEntry("MENU_LOAD_ALL",self.locale),
 local cargoByName={}
 for _,crate in pairs(nearby)do
 local name=crate:GetName()
-if name then
 cargoByName[name]=cargoByName[name]or{}
 table.insert(cargoByName[name],crate)
-end
 end
 local lineIndex=1
 for cName,list in pairs(cargoByName)do

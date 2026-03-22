@@ -101,6 +101,22 @@ function ewrs.shouldHideFriendlyReportingName(name)
   return name and ewrs.hiddenFriendlyReportingNames[name] == true
 end
 
+local function ewrsGetPlayerDisplayName(playerName)
+  if not playerName then
+    return playerName
+  end
+  if type(getPlayerDisplayName) == "function" then
+    return getPlayerDisplayName(playerName)
+  end
+  if type(getPlayerAssignment) == "function" then
+    local callsign = select(1, getPlayerAssignment(playerName))
+    if callsign and callsign ~= "" then
+      return callsign
+    end
+  end
+  return playerName
+end
+
 ewrs.runtimeCache = { units = {}, friendlyGroups = {}, groupSettings = {} }
 
 function ewrs.resetRuntimeCache()
@@ -555,6 +571,7 @@ function ewrs.outText(activePlayer, threatTable, bogeyDope, greeting)
     
     local message = {}
     local groupSettings = ewrs.getGroupSettingsTable(activePlayer.groupID)
+    local displayPlayerName = ewrsGetPlayerDisplayName(activePlayer.player)
     local altUnits
     local speedUnits
     local rangeUnits
@@ -575,14 +592,14 @@ function ewrs.outText(activePlayer, threatTable, bogeyDope, greeting)
       if greeting == nil then
         if bogeyDope then
           maxThreats = 1
-          messageGreeting = "EWRS Bogey Dope for: " .. activePlayer.player
+          messageGreeting = "EWRS Bogey Dope for: " .. displayPlayerName
         else
           if ewrs.maxThreatDisplay == 0 then
             maxThreats = 999
           else
             maxThreats = ewrs.maxThreatDisplay
           end
-          messageGreeting = "EWRS : " .. activePlayer.player .. " | relative to " .. groupSettings.reference
+          messageGreeting = "EWRS : " .. displayPlayerName .. " | relative to " .. groupSettings.reference
         end
       else
         messageGreeting = greeting
@@ -646,12 +663,12 @@ function ewrs.outText(activePlayer, threatTable, bogeyDope, greeting)
        trigger.action.outTextForGroup(activePlayer.groupID,table.concat(message),ewrs.messageDisplayTime)
     else
       if bogeyDope then
-        trigger.action.outTextForGroup(activePlayer.groupID, "EWRS Bogey Dope for: " .. activePlayer.player .. "\nNo targets detected", ewrs.messageDisplayTime)
+        trigger.action.outTextForGroup(activePlayer.groupID, "EWRS Bogey Dope for: " .. displayPlayerName .. "\nNo targets detected", ewrs.messageDisplayTime)
       elseif (not ewrs.disableMessageWhenNoThreats) and greeting == nil then
-        trigger.action.outTextForGroup(activePlayer.groupID, "EWRS Picture Report for: " .. activePlayer.player .. "\nNo targets detected", ewrs.messageDisplayTime)
+        trigger.action.outTextForGroup(activePlayer.groupID, "EWRS Picture Report for: " .. displayPlayerName .. "\nNo targets detected", ewrs.messageDisplayTime)
       end
       if greeting ~= nil then
-        trigger.action.outTextForGroup(activePlayer.groupID, "EWRS Friendly Picture for: " .. activePlayer.player .. "\nNo friendlies detected", ewrs.messageDisplayTime)
+        trigger.action.outTextForGroup(activePlayer.groupID, "EWRS Friendly Picture for: " .. displayPlayerName .. "\nNo friendlies detected", ewrs.messageDisplayTime)
       end
     end
   end)
@@ -751,7 +768,7 @@ function ewrs.friendlyPicture(args)
         --local friendlies = mist.makeUnitTable(filter) --find a way to do this only once if there is more then 1 person in a group
         local friendlies = SET_UNIT:New():FilterCoalitions(sideString):FilterTypes({"helicopter","plane"}):FilterOnce()
         local friendlyTable = ewrs.buildFriendlyTable(friendlies:GetSetNames(),ewrs.activePlayers[i])
-        local greeting = "EWRS Friendly Picture for: " .. ewrs.activePlayers[i].player
+        local greeting = "EWRS Friendly Picture for: " .. ewrsGetPlayerDisplayName(ewrs.activePlayers[i].player)
         ewrs.outText(ewrs.activePlayers[i],friendlyTable,false,greeting)
       end
     end

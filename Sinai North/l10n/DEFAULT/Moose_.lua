@@ -34296,8 +34296,16 @@ if self.launcher then
 self.launcherName=self.launcher:getName()
 self.launcherUnit=UNIT:Find(self.launcher)
 end
-self.coordinate=COORDINATE:NewFromVec3(self.launcher:getPoint())
+local point = nil
+if self.launcher then
+point = self.launcher:getPoint()
+elseif WeaponObject.getPoint then
+point = WeaponObject:getPoint()
+end
+if point then
+self.coordinate=COORDINATE:NewFromVec3(point)
 self.lid=string.format("[%s] %s | ",self.typeName,self.name)
+end
 if self.launcherUnit then
 self.releaseHeading=self.launcherUnit:GetHeading()
 self.releaseAltitudeASL=self.launcherUnit:GetAltitude()

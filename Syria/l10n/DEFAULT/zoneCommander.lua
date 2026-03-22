@@ -7,15 +7,15 @@ end, {}, 2)
 missionMarkId = missionMarkId or 900000000
 if Era == 'Gulfwar' then Era = 'Coldwar' end
 MISSING_GROUPS = {}
-PATH_CACHE=PATH_CACHE or{}
+PATH_CACHE = {}
 Respawn = {}
 farpBuiltByConvoy={}
-ActiveCurrentMission = ActiveCurrentMission or {}
-ReconMissionTrackers = ReconMissionTrackers or {}
-ReconMissionClientSet = ReconMissionClientSet or nil
+ActiveCurrentMission = {}
+ReconMissionTrackers = {}
+ReconMissionClientSet = nil
 _awacsRepositionSched = nil
 FlightTimeRewardPerMinute = FlightTimeRewardPerMinute or 1
-flightTimeTakeoffByPlayer = flightTimeTakeoffByPlayer or {}
+flightTimeTakeoffByPlayer = {}
 ForbiddWeaponsInAllEra = type(ForbiddWeaponsInAllEra) == "table" and ForbiddWeaponsInAllEra or {}
 local escortFarpToZone={}
 
@@ -2800,9 +2800,6 @@ end
 
 Frontline = Frontline or {}
 Frontline._centroidCache = Frontline._centroidCache or {}
-Frontline._zoneAwareness = Frontline._zoneAwareness or nil
-
-
 
 function Frontline.DebugExplain(zname)
   local bc = _G.bc
@@ -7935,6 +7932,8 @@ end
 						if pname ~= "" and amount and amount ~= 0 then
 							bc:addPlayerRankCredits(pname, amount)
 							env.info("rank for "..pname.." set")
+							trigger.action.outTextForCoalition(event.coalition, "rank for "..pname.." set", 15)
+							bc:refreshShopMenuForAllGroupsInCoalition(event.coalition)
 							success = true
 							trigger.action.removeMark(event.idx)
 						end
@@ -8383,19 +8382,12 @@ local RED_REACTIVE_BOOST_STATES = {
 	dead = true,
 }
 
-local function _rrDiffRank(v)
-	v = string.lower(tostring(v or "medium"))
-	if v == "easy" then return 1 end
-	if v == "hard" then return 3 end
-	return 2
-end
-
 do
-	local rrLevel = math.max(_rrDiffRank(CapDifficulty), _rrDiffRank(CasSeadDifficulty))
+	local rrDiff = string.lower(tostring(RedReactiveDifficulty or "medium"))
 	local rrProfile = "medium"
-	if rrLevel == 1 then
+	if rrDiff == "easy" then
 		rrProfile = "easy"
-	elseif rrLevel == 3 then
+	elseif rrDiff == "hard" then
 		rrProfile = "hard"
 	end
 
@@ -8474,8 +8466,8 @@ function BattleCommander:_redReactiveNormalizeConfig(cfg)
 	cfg.hardSourceMode = "attack_plus_cap_attack"
 	cfg.log = false
 
-	local rrLevel = math.max(_rrDiffRank(CapDifficulty), _rrDiffRank(CasSeadDifficulty))
-	if rrLevel == 3 then
+	local rrDiff = string.lower(tostring(RedReactiveDifficulty or "medium"))
+	if rrDiff == "hard" then
 		cfg.tickSec = 60
 	else
 		cfg.tickSec = 120
@@ -16680,7 +16672,9 @@ function GroupCommander:_assignHeloLogisticsRoute(groupName, targetZoneName, own
 	self._logiCargoByGroup = self._logiCargoByGroup or {}
 	self._logiCargoByGroup[self.name] = cargoName
 	if AIDeliveryamount == nil then AIDeliveryamount = 20 end
+	if AIDeliveryamount > 0 then
 	self:_adjustWarehouseStock(ownZone, -AIDeliveryamount)
+	end
 
 	local prefix2 = targetZoneName and (targetZoneName .. "-land") or nil
 	local pooledLand2 = prefix2 and _getLandingSpotPoolForPrefix(prefix2) or nil
@@ -17359,8 +17353,140 @@ end
 
 function getRedCasLimit(numPlayers)
 	numPlayers = numPlayers or getRedCasPlayersCount()
-	local diff = string.lower(tostring(CasSeadDifficulty or 'medium'))
+	local diff = string.lower(tostring(CasDifficulty or CasSeadDifficulty or 'medium'))
 	local stagesByDiff = RedCasLimitStages
+	local stages = stagesByDiff and (stagesByDiff[diff] or stagesByDiff.medium or stagesByDiff.easy or stagesByDiff.hard)
+	if stages then
+		local v = _limitFromStages(numPlayers, stages)
+		if v ~= nil then return v end
+	end
+	if diff == 'easy' then
+		if numPlayers == 0 then
+			return 0
+		elseif numPlayers <= 2 then
+			return 1
+		elseif numPlayers <= 4 then
+			return 2
+		else
+			return 3
+		end
+	elseif diff == 'hard' then
+		if numPlayers == 0 then
+			return 1
+		elseif numPlayers <= 2 then
+			return 2
+		elseif numPlayers == 3 then
+			return 3
+		elseif numPlayers <= 9 then
+			return 4
+		else
+			return 5
+		end
+	else
+		if numPlayers <= 1 then
+			return 1
+		elseif numPlayers <= 3 then
+			return 2
+		elseif numPlayers == 4 then
+			return 3
+		else
+			return 4
+		end
+	end
+end
+
+function getRedSeadLimit(numPlayers)
+	numPlayers = numPlayers or getRedCasPlayersCount()
+	local diff = string.lower(tostring(SeadDifficulty or CasSeadDifficulty or 'medium'))
+	local stagesByDiff = RedSeadLimitStages or RedCasLimitStages
+	local stages = stagesByDiff and (stagesByDiff[diff] or stagesByDiff.medium or stagesByDiff.easy or stagesByDiff.hard)
+	if stages then
+		local v = _limitFromStages(numPlayers, stages)
+		if v ~= nil then return v end
+	end
+	if diff == 'easy' then
+		if numPlayers == 0 then
+			return 0
+		elseif numPlayers <= 2 then
+			return 1
+		elseif numPlayers <= 4 then
+			return 2
+		else
+			return 3
+		end
+	elseif diff == 'hard' then
+		if numPlayers == 0 then
+			return 1
+		elseif numPlayers <= 2 then
+			return 2
+		elseif numPlayers == 3 then
+			return 3
+		elseif numPlayers <= 9 then
+			return 4
+		else
+			return 5
+		end
+	else
+		if numPlayers <= 1 then
+			return 1
+		elseif numPlayers <= 3 then
+			return 2
+		elseif numPlayers == 4 then
+			return 3
+		else
+			return 4
+		end
+	end
+end
+
+function getRedRunwayStrikeLimit(numPlayers)
+	numPlayers = numPlayers or getRedCasPlayersCount()
+	local diff = string.lower(tostring(RunwayStrikeDifficulty or CasSeadDifficulty or 'medium'))
+	local stagesByDiff = RedRunwayStrikeLimitStages or RedCasLimitStages
+	local stages = stagesByDiff and (stagesByDiff[diff] or stagesByDiff.medium or stagesByDiff.easy or stagesByDiff.hard)
+	if stages then
+		local v = _limitFromStages(numPlayers, stages)
+		if v ~= nil then return v end
+	end
+	if diff == 'easy' then
+		if numPlayers == 0 then
+			return 0
+		elseif numPlayers <= 2 then
+			return 1
+		elseif numPlayers <= 4 then
+			return 2
+		else
+			return 3
+		end
+	elseif diff == 'hard' then
+		if numPlayers == 0 then
+			return 1
+		elseif numPlayers <= 2 then
+			return 2
+		elseif numPlayers == 3 then
+			return 3
+		elseif numPlayers <= 9 then
+			return 4
+		else
+			return 5
+		end
+	else
+		if numPlayers <= 1 then
+			return 1
+		elseif numPlayers <= 3 then
+			return 2
+		elseif numPlayers == 4 then
+			return 3
+		else
+			return 4
+		end
+	end
+end
+
+function getRedAntiShipLimit(numPlayers)
+	numPlayers = numPlayers or getRedCasPlayersCount()
+	local diff = string.lower(tostring(AntiShipDifficulty or CasSeadDifficulty or 'medium'))
+	local stagesByDiff = RedAntiShipLimitStages or RedCasLimitStages
 	local stages = stagesByDiff and (stagesByDiff[diff] or stagesByDiff.medium or stagesByDiff.easy or stagesByDiff.hard)
 	if stages then
 		local v = _limitFromStages(numPlayers, stages)
@@ -18447,7 +18573,18 @@ function GroupCommander:shouldSpawn(ignore)
 					if self.MissionType ~='CAS' and players == 0 then
 						return false
 					end
-					local planeLimit = getRedCasLimit(players) or 0
+					local planeLimit = 0
+					if self.MissionType=='CAS' then
+						planeLimit = getRedCasLimit(players) or 0
+					elseif self.MissionType=='SEAD' then
+						planeLimit = getRedSeadLimit(players) or 0
+					elseif self.MissionType=='RUNWAYSTRIKE' then
+						planeLimit = getRedRunwayStrikeLimit(players) or 0
+					elseif self.MissionType=='ANTISHIP' then
+						planeLimit = getRedAntiShipLimit(players) or 0
+					else
+						planeLimit = getRedCasLimit(players) or 0
+					end
 					local heloBonus = 1
 					local totalLimit = math.max(0, planeLimit) + heloBonus
 					local activePlanes = self.zoneCommander.battleCommander:getActiveStrikeCount(1,'attack',self.MissionType,plane)
@@ -19075,7 +19212,7 @@ end
 						if AIDeliveryamount == nil then AIDeliveryamount = 20 end
 						local amount = (self.unitCategory == plane) and 50 or AIDeliveryamount
 						local bcObj =self.zoneCommander.battleCommander
-						if bcObj and bcObj.addWarehouseItemsAtZone then
+						if bcObj and bcObj.addWarehouseItemsAtZone and amount > 0 then
 							bcObj:addWarehouseItemsAtZone(tg, self.side, amount)
 						end
 						if self._logiCargoByGroup then
@@ -20161,6 +20298,7 @@ LogisticCommander.AllowedFlightTimeReward = AllowedFlightTimeReward or {
 	LogisticCommander.csarHoverHeight = CsarHoverHeight or 40
 	LogisticCommander.csarHoverSeconds = CsarHoverSeconds or 10
 	LogisticCommander.csarHostileInfantryChance = CsarHostileInfantryChance or 25
+	LogisticCommander.CsarPilotSpawnWithoutCreditsChance = CsarPilotSpawnWithoutCreditsChance or 50
 	LogisticCommander.csarHostileInfantryMinDistanceNM = 1
 	LogisticCommander.csarHostileInfantryMaxDistanceNM = 3
 	LogisticCommander.csarHostileInfantryDistanceByTemplate = { ["CSAR_RED_INF_1"] = { minNM = 0.5, maxNM = 0.8, count = {1,3} }, ["CSAR_RED_INF_2"] = { minNM = 0.8, maxNM = 2.0, count = {1,2} } }
@@ -22204,6 +22342,19 @@ function LogisticCommander:init()
 				return
 			end
 
+			if not pilotData then
+				local spawnChance = LogisticCommander.CsarPilotSpawnWithoutCreditsChance or 50
+				if spawnChance < 0 then spawnChance = 0 end
+				if spawnChance > 100 then spawnChance = 100 end
+				if spawnChance <= 0 or math.random(100) > spawnChance then
+					landedPilotOwners[pilotObjectID]=nil
+					if event.initiator and event.initiator:isExist() then
+						event.initiator:destroy()
+					end
+					return
+				end
+			end
+
 			local downedCoalition = (pilotData and pilotData.coalition) or coalitionSide
 			if (not zoneSide) and downedCoalition then
 				local templateKey = nil
@@ -22361,7 +22512,7 @@ function LogisticCommander:init()
 				local spawned = sp:SpawnFromPointVec3(spawnCoord)
 				if not spawned then return nil end
 				local unitWrapper = spawned:GetUnit(1)
-				env.info('[FOOTHOLD CSAR] Spawned downed pilot '..alias or nil)
+				env.info('[FOOTHOLD CSAR] Spawned downed pilot '..tostring(alias or nil))
 				return unitWrapper and unitWrapper:GetDCSObject() or nil	
 			end
 
@@ -24458,8 +24609,8 @@ local function _getAIAttackRequiredSpawnDistanceNM(minDistNM)
 end
 
 local function _getDynamicSupportTemplateCopy(templateName)
-    local tpl = _DATABASE and _DATABASE.Templates and _DATABASE.Templates.Groups and _DATABASE.Templates.Groups[templateName]
-    tpl = tpl and tpl.Template or nil
+	local tpl = _DATABASE.Templates.Groups[templateName]
+	tpl = tpl and tpl.Template or nil
     if tpl then
         return UTILS.DeepCopy(tpl)
     end
@@ -28575,11 +28726,6 @@ allowedPlanes = allowedPlanes or {
 restockAircraft = restockAircraft or {
 "UH-60L_DAP","UH-60L","Bronco-OV-10A","Ka-50_3","Ka-50","SK-60","T-45","OH-6A","FA-18FT","EA-18G","F-22A","FA-18E","B-52H","FA-18F","FA-18ET","F15EX","A-29B","F-23A","Mi-28NE","SU22","AV8BNA","Su-30MKA","Su-30MKI","Su-30MKM","Su-30SM",
 "JAS39Gripen_AG","MiG-31BM","JAS39Gripen","Su-35S","Su-35","JAS39Gripen_BVR", "MH-6J","AH-6J"}
-
-ForbiddWeaponsInAllEra = ForbiddWeaponsInAllEra or {
-    "weapons.bombs.RN-24",
-    "weapons.bombs.RN-28",
-}
 
 
 local restrictedWeaponSet = {}

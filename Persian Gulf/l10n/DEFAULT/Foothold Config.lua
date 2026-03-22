@@ -1,10 +1,10 @@
--- Version V1.0.2
+-- Version V1.0.3
 -- ** CHANGE LOG **
 --
--- Added supplyDifficultyScaling for separate supply mission difficulty scaling - V1.0.2
--- Added NoSA15 - V1.0.2
--- Added NoSA10AndSA11 - V1.0.2
--- Added laser rockets to the restrictedWeapons. - V1.0.2
+-- Added CsarPilotSpawnWithoutCreditsChance,  - V1.0.3
+-- Added CasDifficulty setting Advanced settings. - V1.0.3
+-- Added SeadDifficulty setting with Advanced settings. - V1.0.3
+-- Added RunwayStrikeDifficulty setting Advanced settings. - V1.0.3
 --
 --
 -- DO NOT TOUCH THIS BLOCK
@@ -52,18 +52,21 @@ GlobalSettings.supplyDifficultyScaling = { [1]=1.0, [2]=1.0 }
 
 -- Valid values: "easy" | "medium" | "hard"
 -- Here, you can adjust how many cap should spawn. medium, is the default (Balanaced)
-CapDifficulty      = "medium" -- RED CAP amount.  This can be further custommized in the advance section.
-CasSeadDifficulty  = "medium" -- RED CAS/SEAD/strike amount.  This can be further custommized in the advance section.
+CapDifficulty           = "medium" -- RED CAP amount.  This can be further custommized in the advance section.
+CasDifficulty           = "medium" -- RED CAS amount.  This can be further custommized in the advance section.
+SeadDifficulty          = "medium" -- RED SEAD amount.  This can be further custommized in the advance section.
+RunwayStrikeDifficulty  = "medium" -- RED RUNWAYSTRIKE amount.  This can be further custommized in the advance section.
 
-FriendlyCapSupport  = "medium" -- BLUE CAP support limit. This can be further custommized in the advance section.
-FriendlyCasSupport  = "medium" -- BLUE CAS support limit.  This can be further custommized in the advance section.
-FriendlySeadSupport = "medium" -- BLUE SEAD support limit.  This can be further custommized in the advance section.
 
-AiPlaneSkill = "Random"
+FriendlyCapSupport      = "medium" -- BLUE CAP support limit. This can be further custommized in the advance section.
+FriendlyCasSupport      = "medium" -- BLUE CAS support limit.  This can be further custommized in the advance section.
+FriendlySeadSupport     = "medium" -- BLUE SEAD support limit.  This can be further custommized in the advance section.
+
+AiPlaneSkill            = "Random"
 -- AI skill used for spawned airplanes Red only (MOOSE SPAWN:InitSkill).
 -- Valid: "Average", "Good", "High", "Excellent", "Random" (case-insensitive). Unknown values become "High".
 
-AiGroundSkill = "Excellent"
+AiGroundSkill           = "Excellent"
 -- AI skill used for spawned non-airplane units Red and blue share the same config value (ground/ship/etc) (MOOSE SPAWN:InitSkill).
 -- Valid: "Average", "Good", "High", "Excellent", "Random" (case-insensitive). Unknown values become "High".
 
@@ -72,7 +75,7 @@ AiGroundSkill = "Excellent"
 -- false    = always shown on MFD
 -- true     = always hidden on MFD (default)
 -- "random" = 50% chance hidden on each spawn
-HideSAMOnMFD = true -- if random, use "random" (string)
+HideSAMOnMFD            = true -- if random, use "random" (string)
 
 -- ============================================================================
 -- RED Reactive Counterpressure
@@ -80,23 +83,26 @@ HideSAMOnMFD = true -- if random, use "random" (string)
 -- RED Reactive Counterpressure (simple explanation):
 -- When BLUE players get close to RED frontline zones, RED starts reacting.
 -- RED reaction has 2 parts:
--- 1) Soft reaction: RED speeds up some supply and CAP groups for pressured RED zones.
+-- 1) Soft reaction: RED speeds up some supply and Patrolling CAP groups for pressured RED zones.
 -- 2) Hard reaction: RED can force-spawn attack groups to strike BLUE zones.
--- The difficulty used here is the higher of:
--- CapDifficulty and CasSeadDifficulty.
--- Easy = system off.
--- Medium/Hard = system on.
+-- If you do NOT want red supplies groups to be boosted in speed to spawn faster, set softSupplyBoostPerZone to 0.
+-- If you do NOT want red CAP groups to be boosted in speed to spawn faster, set softCapBoostPerZone to 0.
+-- The coolDownSec is how often this stuff triggers, you can increase / decrease.
+
+
+-- Valid values: "easy" | "medium" | "hard"
+RedReactiveDifficulty   = "medium" -- RED reactive counterpressure difficulty.
 
 RedReactiveConfig = {
 easy = {
-    enabled = false, -- false in easy.
+    enabled = false, -- Set to true  if you want to enable it.
     minPressureSoft = 16, -- Minimum pressure needed for RED soft reaction (supply/CAP boost). With CapDifficulty="medium", this is usually 3+ counted CAP players.
     minPressureHard = 15, -- Minimum pressure needed for RED hard reaction (attack push). With CapDifficulty="medium", this is usually 3+ counted CAP players.
     captureHardWindowSec = 120, -- If BLUE captured a zone recently, Red side can be angry for this long in seconds, and dispatch attack.
     hardZoneCooldownSec = 1800, -- After hard reaction is used for a pressured RED zone, wait this long before hard can happen there again
     maxZonesPerTick = 1, -- Max number of pressured RED zones processed per check
     softSupplyBoostPerZone = 0, -- Max number of RED supply groups to soft-boost per processed zone per check
-    softCapBoostPerZone = 0, -- Max number of RED CAP groups to soft-boost per processed zone per check
+    softCapBoostPerZone = 1, -- Max number of RED CAP groups to soft-boost per processed zone per check
     softSupplyCooldownSec = 1800, -- After a supply soft-boost in one RED zone, wait this long before supply soft-boost can happen there again
     softCapCooldownSec = 1800, -- After a CAP soft-boost in one RED zone, wait this long before CAP soft-boost can happen there again
     hardForcePerZone = 1, -- Max hard-forced attack groups for one processed pressured zone
@@ -106,17 +112,17 @@ easy = {
 
 medium = {
     enabled = true, -- Turn the reactive system on/off for this profile
-    minPressureSoft = 10, -- Minimum pressure needed for RED soft reaction (supply/CAP boost). With CapDifficulty="medium", this is usually 3+ counted CAP players.
-    minPressureHard = 12, -- Minimum pressure needed for RED hard reaction (attack push). With CapDifficulty="medium", this is usually 3+ counted CAP players.
+    minPressureSoft = 9, -- Minimum pressure needed for RED soft reaction (supply/CAP boost). With CapDifficulty="medium", this is usually 2-3 counted CAP players.
+    minPressureHard = 9, -- Minimum pressure needed for RED hard reaction (attack push). With CapDifficulty="medium", this is usually 2-3 counted CAP players.
     captureHardWindowSec = 180, -- If BLUE captured a zone recently, Red side can be angry for this long in seconds, and dispatch attack.
     hardZoneCooldownSec = 1800, -- After hard reaction is used for a pressured RED zone, wait this long before hard can happen there again
     maxZonesPerTick = 1, -- Max number of pressured RED zones processed per check
     softSupplyBoostPerZone = 1, -- Set to 0 to disable RED supply soft reaction. Applied only when minPressureSoft is met.
     softCapBoostPerZone = 1, -- Set to 0 to disable RED CAP soft reaction. Applied only when minPressureSoft is met.
     softSupplyCooldownSec = 1500, -- After a supply soft-boost in one RED zone, wait this long before supply soft-boost can happen there again
-    softCapCooldownSec = 1500, -- After a CAP soft-boost in one RED zone, wait this long before CAP soft-boost can happen there again
-    hardForcePerZone = 1, -- Max hard-forced attack groups for one processed pressured zone
-    hardForceTotalPerTick = 1, -- Total hard-forced attack groups allowed per check (all zones together)
+    softCapCooldownSec = 900, -- After a CAP soft-boost in one RED zone, wait this long before CAP soft-boost can happen there again
+    hardForcePerZone = 2, -- Max hard-forced attack groups for one processed pressured zone
+    hardForceTotalPerTick = 2, -- Total hard-forced attack groups allowed per check (all zones together)
     groupReuseCooldownSec = 1200, -- After one attack group is hard-forced, wait this long before that same group can be hard-forced again
 
 },
@@ -125,15 +131,16 @@ hard = {
     enabled = true, -- Turn the reactive system on/off for this profile
     startDelaySec = 120, -- Wait this many seconds after mission start before first reactive check
     minPressureSoft = 6, -- Minimum pressure needed for RED soft reaction (supply/CAP boost). In hard profile, this starts earlier than medium.
-    minPressureHard = 12, -- Minimum pressure needed for RED hard reaction (attack push). This is usually around 3+ counted CAP players.
+    minPressureHard = 9, -- Minimum pressure needed for RED hard reaction (attack push). This is usually around 2-3 counted CAP players.
     captureHardWindowSec = 240, -- If BLUE captured a zone recently, Red side can be angry for this long in seconds, and dispatch attack (Hard reaction)
     hardZoneCooldownSec = 900, -- After hard reaction is used for a pressured RED zone, wait this long before hard can happen there again
-    maxZonesPerTick = 2, -- Max number of pressured RED zones processed per check
+    maxZonesPerTick = 1, -- Max number of pressured RED zones processed per check
     softSupplyBoostPerZone = 1, -- Set to 0 to disable RED supply soft reaction. Applied only when minPressureSoft is met.
-    softCapBoostPerZone = 1, -- Set to 0 to disable RED CAP soft reaction. Applied only when minPressureSoft is met.
+    softCapBoostPerZone = 2, -- Set to 0 to disable RED CAP soft reaction. Applied only when minPressureSoft is met.
+    softSupplyCooldownSec = 1200, -- After a supply soft-boost in one RED zone, wait this long before supply soft-boost can happen there again 
     softCapCooldownSec = 900, -- After a CAP soft-boost in one RED zone, wait this long before CAP soft-boost can happen there again
-    hardForcePerZone = 2, -- Max hard-forced attack groups for one processed pressured zone
-    hardForceTotalPerTick = 2, -- Total hard-forced attack groups allowed per check (all zones together)
+    hardForcePerZone = 3, -- Max hard-forced attack groups for one processed pressured zone
+    hardForceTotalPerTick = 3, -- Total hard-forced attack groups allowed per check (all zones together)
     groupReuseCooldownSec = 900, -- After one attack group is hard-forced, wait this long before that same group can be hard-forced again
 },
 }
@@ -482,8 +489,14 @@ CTLDPrices = {
   ["Humvee scout"]           = { price = 100, reqRank = 1 },
   ["Linebacker"]             = { price = 300, reqRank = 2 },
   ["Vulcan"]                 = { price = 300, reqRank = 2 },
-  ["HAWK Site"]              = { price = 750, reqRank = 3 },
-  ["Nasam Site"]             = { price = 750, reqRank = 3 },
+  ["HAWK System"]            = { price = 750, reqRank = 3 },
+  ["Hawk TR Add-on"]         = { price = 250, reqRank = 3 },
+  ["Hawk SR Add-on"]         = { price = 250, reqRank = 3 },
+  ["Hawk LN Add-on"]         = { price = 250, reqRank = 3 },
+  ["NASAMS System"]          = { price = 750, reqRank = 3 },
+  ["NASAMS C2 Add-on"]       = { price = 250, reqRank = 3 },
+  ["NASAMS SR Add-on"]       = { price = 250, reqRank = 3 },
+  ["NASAMS LN Add-on"]       = { price = 250, reqRank = 3 },
   ["FARP"]                   = { price = 500, reqRank = 1 },
   ["IRIS T STR Add-on"]      = { price = 750, reqRank = 3 },
   ["IRIS T LN Add-on"]       = { price = 500, reqRank = 3 },
@@ -511,8 +524,14 @@ MAX_AT_SPAWN = {
     ["Mortar Squad"]            = 2,
     ["Linebacker"]              = 2,
     ["Vulcan"]                  = 2,
-    ["HAWK Site"]               = 3,
-    ["Nasam Site"]              = 3,
+    ["HAWK System"]             = 3,
+    ["Hawk TR Add-on"]          = 3,
+    ["Hawk SR Add-on"]          = 3,
+    ["Hawk LN Add-on"]          = 8,
+    ["NASAMS System"]           = 3,
+    ["NASAMS C2 Add-on"]        = 3,
+    ["NASAMS SR Add-on"]        = 3,
+    ["NASAMS LN Add-on"]        = 8,
     ["Tank Abrahams"]           = 0,
     ["FARP"]                    = 3,
     ["IRIS T STR Add-on"]       = 3,
@@ -564,6 +583,8 @@ AllowedCsar = {
     ["AH-6J"]         = 4,
 }
 
+-- Chance (0-100) to spawn a downed pilot when the landing pilot has no credits. This applies both to players and AI.
+CsarPilotSpawnWithoutCreditsChance = 50
 
 -- Default pilot weight used for CSAR / this weight will be added to the helicopter.
 PilotWeight = 80
@@ -579,7 +600,6 @@ CsarHoverSeconds = 10
 
 -- Chance (0-100) that hostile infantry will spawn at a CSAR location.
 CsarHostileInfantryChance = 25
-
 -- ============================================================================
 -- Advanced Settings
 -- ============================================================================
@@ -616,39 +636,30 @@ RedCasCountIgnoreTypes = {
 }
 
 -- ============================================================================
--- Tankers speed
--- ============================================================================
--- Airforce tanker speed (knots)
-TexacoSpeed = 286 -- orbit speed for texaco is hardcoded at 280, otherwise strange things happen.
--- Navy tanker speed (knots)
-ArcoSpeed = 286 -- orbit speed for arco is hardcoded at 280, otherwise strange things happen.
-
--- ============================================================================
 -- CAP / CAS / SEAD Scaling (Stage Tables)
 -- ============================================================================
 
--- These tables define the maximum number of AI flights based on player count.
--- Each stage is evaluated in order: when `numPlayers <= stage.player`, the
--- limit becomes `stage.amount`.
-
+-- Advance settings for CapDifficulty.
+-- The "amount" field in the case of CAP, 1 amount equals to 1 CAP Patrol and 1 CAP Attack. so 1 amount equal 2 groups.
+-- players in the table below are counted as active players if they are not in the CapCountIgnoreTypes.
 CapLimitStages = {
 	easy = {
 		{ player = 0,   amount = 0 },
 		{ player = 1,   amount = 1 },
-		{ player = 2,   amount = 2 },
-		{ player = 3,   amount = 3 },
+		{ player = 2,   amount = 1 },
+		{ player = 3,   amount = 2 },
 		{ player = 4,   amount = 3 },
-		{ player = 9,   amount = 4 },
+		{ player = 6,   amount = 4 },
 		{ player = 10,  amount = 5 },
 		{ player = 999, amount = 6 },
 	},
 	medium = {
 		{ player = 0,   amount = 1 },
 		{ player = 1,   amount = 1 },
-		{ player = 2,   amount = 3 },
-		{ player = 3,   amount = 4 },
-		{ player = 4,   amount = 4 },
-		{ player = 5,   amount = 4 },
+		{ player = 2,   amount = 2 },
+		{ player = 3,   amount = 3 },
+		{ player = 4,   amount = 3 },
+		{ player = 6,   amount = 4 },
 		{ player = 9,   amount = 5 },
 		{ player = 10,  amount = 6 },
 		{ player = 999, amount = 7 },
@@ -656,16 +667,19 @@ CapLimitStages = {
 	hard = {
 		{ player = 0,   amount = 1 },
 		{ player = 1,   amount = 2 },
-		{ player = 2,   amount = 4 },
+		{ player = 2,   amount = 3 },
 		{ player = 3,   amount = 4 },
 		{ player = 4,   amount = 5 },
-		{ player = 5,   amount = 5 },
+		{ player = 6,   amount = 5 },
 		{ player = 9,   amount = 6 },
 		{ player = 10,  amount = 7 },
 		{ player = 999, amount = 8 },
 	},
 }
 
+-- Advance settings for CasDifficulty.
+-- Players in the table below are counted as active players if they are not in the RedCasCountIgnoreTypes.
+-- The "amount" field in the table below is the amount of CAS flights that can be active at the same time.
 RedCasLimitStages = {
 	easy = {
 		{ player = 0,   amount = 0 },
@@ -678,6 +692,41 @@ RedCasLimitStages = {
 	},
 	medium = {
 		{ player = 0,   amount = 1 },
+		{ player = 1,   amount = 1 },
+		{ player = 2,   amount = 2 },
+		{ player = 3,   amount = 2 },
+		{ player = 4,   amount = 3 },
+		{ player = 5,   amount = 3 },
+		{ player = 9,   amount = 4 },
+		{ player = 999, amount = 4 },
+	},
+	hard = {
+		{ player = 0,   amount = 1 },
+		{ player = 1,   amount = 2 },
+		{ player = 2,   amount = 2 },
+		{ player = 3,   amount = 3 },
+		{ player = 4,   amount = 4 },
+		{ player = 5,   amount = 4 },
+		{ player = 9,   amount = 6 },
+		{ player = 999, amount = 7 },
+	},
+}
+
+-- Advance settings for SeadDifficulty..
+-- Players in the table below are counted as active players if they are not in the RedCasCountIgnoreTypes.
+-- The "amount" field in the table below is the amount of SEAD flights that can be active at the same time.
+RedSeadLimitStages = {
+	easy = {
+		{ player = 0,   amount = 0 },
+		{ player = 1,   amount = 0 },
+		{ player = 2,   amount = 1 },
+		{ player = 3,   amount = 1 },
+		{ player = 4,   amount = 2 },
+		{ player = 5,   amount = 2 },
+		{ player = 999, amount = 3 },
+	},
+	medium = {
+		{ player = 0,   amount = 0 },
 		{ player = 1,   amount = 1 },
 		{ player = 2,   amount = 1 },
 		{ player = 3,   amount = 2 },
@@ -698,6 +747,44 @@ RedCasLimitStages = {
 	},
 }
 
+-- Advance settings for RunwayStrikeDifficulty.
+-- Players in the table below are counted as active players if they are not in the RedCasCountIgnoreTypes.
+-- The "amount" field in the table below is the amount of Runway Strike flights that can be active at the same time.
+RedRunwayStrikeLimitStages = {
+	easy = {
+		{ player = 0,   amount = 0 },
+		{ player = 1,   amount = 0 },
+		{ player = 2,   amount = 1 },
+		{ player = 3,   amount = 1 },
+		{ player = 4,   amount = 2 },
+		{ player = 5,   amount = 2 },
+		{ player = 999, amount = 3 },
+	},
+	medium = {
+		{ player = 0,   amount = 0 },
+		{ player = 1,   amount = 0 },
+		{ player = 2,   amount = 1 },
+		{ player = 3,   amount = 2 },
+		{ player = 4,   amount = 3 },
+		{ player = 5,   amount = 3 },
+		{ player = 9,   amount = 4 },
+		{ player = 999, amount = 4 },
+	},
+	hard = {
+		{ player = 0,   amount = 0 },
+		{ player = 1,   amount = 1 },
+		{ player = 2,   amount = 2 },
+		{ player = 3,   amount = 3 },
+		{ player = 4,   amount = 4 },
+		{ player = 5,   amount = 4 },
+		{ player = 9,   amount = 6 },
+		{ player = 999, amount = 7 },
+	},
+}
+
+-- Advance settings for FriendlyCapSupport.
+-- Players in the table below are counted as active players if they are not in the CapCountIgnoreTypes.
+-- The logic here, The less the players, the more AI will help you. The list in CapCountIgnoreTypes, is types that doesn't count as active players.
 BlueCapSupportStages = {
 	easy = {
 		{ player = 0,   amount = 2 },
@@ -713,7 +800,9 @@ BlueCapSupportStages = {
 		{ player = 999, amount = 0 },
 	},
 }
-
+-- Advance settings for FriendlyCasSupport.
+-- Players in the table below are counted as active players if they are not in the BlueCasCountIgnoreTypes.
+-- The logic here, The less the players, the more AI will help you. The list in BlueCasCountIgnoreTypes, is types that doesn't count as active players.
 BlueCasSupportStages = {
 	easy = {
 		{ player = 0,   amount = 2 },
@@ -729,7 +818,9 @@ BlueCasSupportStages = {
 		{ player = 999, amount = 0 },
 	},
 }
-
+-- players in the table below are counted as active players if they are not in the BlueCasCountIgnoreTypes.
+-- The logic here, The less the players, the more AI will help you. The list in BlueCasCountIgnoreTypes, is types that doesn't count as active players.
+-- Advance settings for FriendlySeadSupport.
 BlueSeadSupportStages = {
 	easy = {
 		{ player = 0,   amount = 2 },
@@ -745,6 +836,14 @@ BlueSeadSupportStages = {
 		{ player = 999, amount = 0 },
 	},
 }
+
+-- ============================================================================
+-- Tankers speed
+-- ============================================================================
+-- Airforce tanker speed (knots)
+TexacoSpeed = 286 -- orbit speed for texaco is hardcoded at 280, otherwise strange things happen.
+-- Navy tanker speed (knots)
+ArcoSpeed = 286 -- orbit speed for arco is hardcoded at 280, otherwise strange things happen.
 
 -- ============================================================================
 -- EWRS Configuration
@@ -921,75 +1020,6 @@ ForbiddWeaponsInAllEra = {
 }
 
 WarehouseWeaponCaps = {
-    -- A/A missiles
-    "weapons.missiles.AIM_54",
-    "weapons.missiles.AIM_54A_Mk47",
-    "weapons.missiles.AIM_54A_Mk60",
-    "weapons.missiles.AIM_54C_Mk47",
-    "weapons.missiles.AIM_54C_Mk60",
-    "weapons.missiles.Matra Super 530D",
-    "weapons.missiles.MMagicII",
-    "weapons.missiles.P_24R",
-    "weapons.missiles.P_24T",
-    "weapons.missiles.P_33E",
-    "weapons.missiles.P_40R",
-    "weapons.missiles.P_40T",
-    "weapons.missiles.PL-8A",
-    "weapons.missiles.PL-8B",
-    "weapons.missiles.R_530F_EM",
-    "weapons.missiles.R_530F_IR",
-    "weapons.missiles.R_550",
-    "weapons.missiles.R_550_M1",
-    "weapons.missiles.Rb 74",
-    "weapons.missiles.Super_530D",
-    "weapons.missiles.Super_530F",
-
-    -- A/G guided missiles
-    "weapons.missiles.ADM_141A",
-    "weapons.missiles.AGM_119",
-    "weapons.missiles.AGM_122",
-    "weapons.missiles.AGM_45A",
-    "weapons.missiles.AGM_45B",
-    "weapons.missiles.AGM_78A",
-    "weapons.missiles.AGM_78B",
-    "weapons.missiles.AGM_86",
-    "weapons.missiles.AGM_88",
-    "weapons.missiles.ALARM",
-    "weapons.missiles.HOT3_MBDA",
-    "weapons.missiles.Kh25MP_PRGS1VP",
-    "weapons.missiles.Kormoran",
-    "weapons.missiles.Rb 04E",
-    "weapons.missiles.Rb 05A",
-    "weapons.missiles.Rb 15F",
-    "weapons.missiles.Rb_04",
-    "weapons.missiles.S_25L",
-    "weapons.missiles.Sea_Eagle",
-    "weapons.missiles.X_22",
-    "weapons.missiles.X_25ML",
-    "weapons.missiles.X_25MP",
-    "weapons.missiles.X_25MR",
-    "weapons.missiles.X_28",
-    "weapons.missiles.X_29L",
-    "weapons.missiles.X_29T",
-    "weapons.missiles.X_31A",
-    "weapons.missiles.X_31P",
-    "weapons.missiles.X_41",
-    "weapons.missiles.X_58",
-
-    -- A/G guided bombs
-    "weapons.bombs.AGM_62",
-    "weapons.bombs.AGM_62_I",
-    "weapons.bombs.GBU_15_V_1_B",
-    "weapons.bombs.GBU_15_V_31_B",
-    "weapons.bombs.GBU_24",
-    "weapons.bombs.GBU_27",
-    "weapons.bombs.GBU_8_B",
-    "weapons.bombs.KAB_1500Kr",
-    "weapons.bombs.KAB_1500LG",
-    "weapons.bombs.KAB_1500T",
-    "weapons.bombs.KAB_500",
-    "weapons.bombs.KAB_500Kr",
-    "weapons.bombs.KAB_500KrOD",
 }
 
 

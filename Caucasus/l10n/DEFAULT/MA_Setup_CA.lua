@@ -2874,16 +2874,7 @@ bc:registerShopItem('intel','Intel on enemy zone',ShopPrices.intel,function(send
 			end
 			intelActiveZones[targetZoneName] = true
 			startZoneIntel(targetZoneName)
-			trigger.action.outTextForCoalition(2, 'Intel available for '..targetZoneName..'. Check Zone status. Valid for 1 hour', 15)
-			timer.scheduleFunction(function(args)
-				local zName = args[1]
-				local zn = bc:getZoneByName(zName)
-				if not zn or zn.side ~= 1 or zn.suspended then return end
-				if intelActiveZones[zName] then
-					intelActiveZones[zName] = false
-					trigger.action.outTextForCoalition(2, 'Intel on '..zName..' has expired.', 10)
-				end
-			end, {targetZoneName}, timer.getTime()+60*60)
+			trigger.action.outTextForCoalition(2, 'Gathering intel on '..targetZoneName..'. Stand by for report...', 10)
 			intelMenu = nil
 		end
 	end
@@ -2894,13 +2885,7 @@ function(sender, params)
 	if params.zone and params.zone.side == 1 then
 		intelActiveZones[params.zone.zone] = true
 		startZoneIntel(params.zone.zone)
-		trigger.action.outTextForCoalition(2, 'Intel available for '..params.zone.zone..'. Check Zone status. Valid for 1 hour', 15)
-		SCHEDULER:New(nil,function(zName)
-			if intelActiveZones[zName] then
-				intelActiveZones[zName] = false
-				trigger.action.outTextForCoalition(2, 'Intel on '..zName..' has expired.', 10)
-			end
-		end,{params.zone.zone},3600)
+		trigger.action.outTextForCoalition(2, 'Gathering intel on '..params.zone.zone..'. Stand by for report...', 10)
 	else
 		return 'Must pick an enemy zone'
 	end
@@ -5390,8 +5375,15 @@ function generateSupplyMission()
 
 	return resupplyTarget1 ~= nil or resupplyTarget2 ~= nil
 end
+local function _zoneIntelIsActiveForRecon(zoneName, now)
+	local zoneIntelActive = (intelActiveZones and intelActiveZones[zoneName] == true)
+	if not zoneIntelActive then return false end
+	local zoneIntelExpire = tonumber((intelExpireTimes and intelExpireTimes[zoneName]) or 0) or 0
+	return zoneIntelExpire <= 0 or zoneIntelExpire > now
+end
 function checkAndGenerateReconMissionV2()
-	if reconMissionTarget ~= nil or timer.getTime() < reconMissionCooldownUntil then
+	local now = timer.getTime()
+	if reconMissionTarget ~= nil or now < reconMissionCooldownUntil then
 		return true
 	end
 
@@ -5400,11 +5392,11 @@ function checkAndGenerateReconMissionV2()
 	for _, connection in ipairs(bc.connections or {}) do
 		local from, to = bc:getConnectionZones(connection)
 		if _isFrontlineConnectionEligible(from, to) then
-			if _isValidAttackMissionZone(from) and not seen[from.zone] then
+			if _isValidAttackMissionZone(from) and not _zoneIntelIsActiveForRecon(from.zone, now) and not seen[from.zone] then
 				seen[from.zone] = true
 				validzones[#validzones + 1] = from.zone
 			end
-			if _isValidAttackMissionZone(to) and not seen[to.zone] then
+			if _isValidAttackMissionZone(to) and not _zoneIntelIsActiveForRecon(to.zone, now) and not seen[to.zone] then
 				seen[to.zone] = true
 				validzones[#validzones + 1] = to.zone
 			end

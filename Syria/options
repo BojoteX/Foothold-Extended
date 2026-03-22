@@ -111,7 +111,7 @@ options =
 		["clutterMaxDistance"] = 1500,
 		["textures"] = 2,
 		["DLSS_PerfQuality"] = 1,
-		["outputGamma"] = 1.9,
+		["outputGamma"] = 2.1,
 		["forestDistanceFactor"] = 0.85,
 		["BlurFlatShadows"] = 1,
 		["cockpitGI"] = 1,
@@ -322,6 +322,12 @@ options =
 			["ElevatorTrim"] = 0,
 			["CanopyMIST"] = false,
 		}, -- end of ["MB-339"]
+		["La-7"] = 
+		{
+			["assistance"] = 0,
+			["CPLocalList"] = "default",
+			["autoRudder"] = false,
+		}, -- end of ["La-7"]
 		["Su-33"] = 
 		{
 			["CPLocalList"] = "default",
@@ -670,17 +676,27 @@ options =
 			["assistance"] = 100,
 			["autoRudder"] = false,
 		}, -- end of ["Yak52"]
-		["CH-47F"] = 
+		["AH-64D_BLK_II"] = 
 		{
-			["gunnerAim"] = 0,
-			["PedalsTrimMethod"] = 2,
-			["eclDetent"] = 0,
-			["StickTrimMethod"] = 0,
-			["GroundDetent"] = true,
+			["AH64HmdEye"] = 1,
 			["CPLocalList"] = "default",
-			["trimmingMethod"] = 1,
-			["collectiveBrake"] = 0,
-		}, -- end of ["CH-47F"]
+			["AH64BalaclavaCPG"] = true,
+			["AH64PedalsTrimmingMethod"] = 2,
+			["AH64ManTrkRampUpSpeed"] = 5,
+			["AH64CockpitShake"] = 50,
+			["AH64AutoHandover"] = true,
+			["AH64CyclicTrimmingMethod"] = 1,
+			["AH64IhadssMonocleVisible"] = false,
+			["AH64BalaclavaPLT"] = true,
+			["AH64AISubtitles"] = true,
+			["AH64VRSNotificationVisual"] = false,
+			["AH64AIIFFColorScheme"] = 0,
+			["AH64TriggerGuardEnable"] = false,
+			["AH64LockoutDetent"] = 1,
+			["AH64AIInterfaceColorScheme"] = 0,
+			["AH64VRSNotificationAudio"] = true,
+			["AH64AIColorScheme"] = 0,
+		}, -- end of ["AH-64D_BLK_II"]
 		["Bf-109K-4"] = 
 		{
 			["cameraOrigin"] = 0,
@@ -740,13 +756,10 @@ options =
 			["CPLocalList"] = "default",
 			["helmetCircleDisplacement"] = 11,
 		}, -- end of ["Ka-50"]
-		["P-51D"] = 
+		["F-15C"] = 
 		{
-			["assistance"] = 0,
-			["autoRudder"] = false,
-			["CPLocalList_P51D25NA"] = "default",
-			["CPLocalList_P51D30NA"] = "default",
-		}, -- end of ["P-51D"]
+			["CPLocalList"] = "default",
+		}, -- end of ["F-15C"]
 		["F4U-1D"] = 
 		{
 			["Shake"] = 100,
@@ -958,47 +971,40 @@ options =
 		{
 			["CPLocalList"] = "default",
 		}, -- end of ["Su-27"]
-		["F-5E-3_FC"] = 
+		["P-51D"] = 
 		{
-			["JoystickMode"] = 0,
-			["CPLocalList"] = "default",
-		}, -- end of ["F-5E-3_FC"]
+			["assistance"] = 0,
+			["autoRudder"] = false,
+			["CPLocalList_P51D25NA"] = "default",
+			["CPLocalList_P51D30NA"] = "default",
+		}, -- end of ["P-51D"]
 		["MiG-15bis_FC"] = 
 		{
 			["autoLeanToAimMiG15"] = true,
 			["CPLocalList"] = "default",
 		}, -- end of ["MiG-15bis_FC"]
-		["F-15C"] = 
+		["F-5E-3_FC"] = 
 		{
+			["JoystickMode"] = 0,
 			["CPLocalList"] = "default",
-		}, -- end of ["F-15C"]
+		}, -- end of ["F-5E-3_FC"]
 		["TF-51D"] = 
 		{
 			["assistance"] = 100,
 			["CPLocalList"] = "default",
 			["autoRudder"] = false,
 		}, -- end of ["TF-51D"]
-		["AH-64D_BLK_II"] = 
+		["CH-47F"] = 
 		{
-			["AH64HmdEye"] = 1,
+			["gunnerAim"] = 0,
+			["PedalsTrimMethod"] = 2,
+			["eclDetent"] = 0,
+			["StickTrimMethod"] = 0,
+			["GroundDetent"] = true,
 			["CPLocalList"] = "default",
-			["AH64BalaclavaCPG"] = true,
-			["AH64PedalsTrimmingMethod"] = 2,
-			["AH64ManTrkRampUpSpeed"] = 5,
-			["AH64CockpitShake"] = 50,
-			["AH64AutoHandover"] = true,
-			["AH64CyclicTrimmingMethod"] = 1,
-			["AH64IhadssMonocleVisible"] = false,
-			["AH64BalaclavaPLT"] = true,
-			["AH64AISubtitles"] = true,
-			["AH64VRSNotificationVisual"] = false,
-			["AH64AIIFFColorScheme"] = 0,
-			["AH64TriggerGuardEnable"] = false,
-			["AH64LockoutDetent"] = 1,
-			["AH64AIInterfaceColorScheme"] = 0,
-			["AH64VRSNotificationAudio"] = true,
-			["AH64AIColorScheme"] = 0,
-		}, -- end of ["AH-64D_BLK_II"]
+			["trimmingMethod"] = 1,
+			["collectiveBrake"] = 0,
+		}, -- end of ["CH-47F"]
 		["JF-17"] = 
 		{
 			["PROG04FLBI"] = 3,
