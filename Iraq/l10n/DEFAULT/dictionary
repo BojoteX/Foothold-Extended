@@ -1,0 +1,163 @@
+dictionary = 
+{
+	["DictKey_ActionText_213"] = "",
+	["DictKey_ActionText_48"] = "",
+	["DictKey_ActionText_45"] = "Flag 100 True",
+	["DictKey_ActionText_211"] = "",
+	["DictKey_ActionText_47"] = "",
+	["DictKey_sortie_5"] = "",
+	["DictKey_ActionText_176"] = "",
+	["DictKey_ActionText_210"] = "",
+	["DictKey_descriptionRedTask_2"] = "",
+	["DictKey_ActionText_12"] = "",
+	["DictKey_ActionText_215"] = "",
+	["DictKey_ActionText_170"] = "",
+	["DictKey_descriptionText_1"] = "The goal is to capture all zones.\
+\
+To capture a zone, first you need to destroy all enemy forces deployed there, in order to turn the zone neutral.\
+\
+Neutral zones can be captured either by assisting friendly AI supply aircraft, which periodically spawn at friendly zones, to land at them, or airlifting one of the cargo items found in various zones.\
+\
+Friendly zones can be upgraded with extra units to improve their defense using the same mechanics as capturing.\
+\
+If a zone has a group that is missing units, a supply delivery will first restore that group. An upgrade will only occur if all existing groups are in good condition.\
+\
+These rules are common to all zones, but some zones can provide special bonuses as well, like friendly air patrols, an AWACS, supplies, or unlock new spawn points.\
+\
+The enemy AI will also launch attacks to recapture lost zones, air patrols to protect their airspace and supply deliveries to reinforce their defenses, so plan accordingly.\
+\
+Feel free to use the map to get an idea of what is happening, and use the F10 radio menu to get a report about any of the zones.\
+\
+As mentioned above, some spawns will be blocked until you capture the zone they are in. The name of the required zone can be found in the unit/group name on the spawn menu.\
+\
+Certain zones will have structures in them that are critical to their functioning. If all of these are destroyed, the zone gets disabled and will no longer provide any benefits. No side can capture it anymore and any remaining groups there will no longer be repairable.\
+\
+You can now call in support to help you in your conquest using credits. Some suport items will unlock a new menu where you can select a zone to target.\
+\
+You can earn credits in several ways:\
+-Some zones provide passive income.\
+-All kills will earn the player a certain amount of credits depending of unit killed. These however will not be instantly added to the coalition account. You will need to land at a friendly zone to claim the accumulated credits. Ejecting will also claim 25% of these credits.\
+-Airlifting supplies to friendly zones\
+\
+The red coalition will use credits earned from controlling certain zones to call in its own support.\
+\
+ATC/Ground -\
+BTN 7 on all inbound and on the ground. Once airborne Push CH 3. AWAVS is on CH 18.\
+\
+Tankers -\
+\
+Arco BTN 14,  101Y (Drogue) \
+Texaco BTN 20, 102Y  (Boom)\
+\
+Buy the tanker from the support menu\
+\
+**Map markers**\
+\
+Using map markers, you can deploy smoke.\
+\"-smoke colour\", example: -smoke red. \
+Colours that can be used is blue, orange, red and white.\
+After writing the text, delete the marker and smoke shall appear.\
+",
+	["DictKey_ActionText_187"] = "",
+	["DictKey_ActionText_200"] = "",
+	["DictKey_descriptionBlueTask_3"] = "The goal is to capture all zones.\
+\
+To capture a zone, first you need to destroy all enemy forces deployed there, in order to turn the zone neutral.\
+\
+Neutral zones can be captured either by assisting friendly AI supply aircraft, which periodically spawn at friendly zones, to land at them, or airlifting one of the cargo items found in various zones.\
+\
+Friendly zones can be upgraded with extra units to improve their defense using the same mechanics as capturing.\
+\
+If a zone has a group that is missing units, a supply delivery will first restore that group. An upgrade will only occur if all existing groups are in good condition.\
+\
+These rules are common to all zones, but some zones can provide special bonuses as well, like friendly air patrols, an AWACS, supplies, or unlock new spawn points.\
+\
+The enemy AI will also launch attacks to recapture lost zones, air patrols to protect their airspace and supply deliveries to reinforce their defenses, so plan accordingly.\
+\
+Feel free to use the map to get an idea of what is happening, and use the F10 radio menu to get a report about any of the zones.\
+\
+As mentioned above, some spawns will be blocked until you capture the zone they are in. The name of the required zone can be found in the unit/group name on the spawn menu.\
+\
+Certain zones will have structures in them that are critical to their functioning. If all of these are destroyed, the zone gets disabled and will no longer provide any benefits. No side can capture it anymore and any remaining groups there will no longer be repairable.\
+\
+You can now call in support to help you in your conquest using credits. Some suport items will unlock a new menu where you can select a zone to target.\
+\
+You can earn credits in several ways:\
+-Some zones provide passive income.\
+-All kills will earn the player a certain amount of credits depending of unit killed. These however will not be instantly added to the coalition account. You will need to land at a friendly zone to claim the accumulated credits. Ejecting will also claim 25% of these credits.\
+-Airlifting supplies to friendly zones\
+\
+The red coalition will use credits earned from controlling certain zones to call in its own support.\
+\
+ATC/Ground -\
+BTN 7 on all inbound and on the ground. Once airborne Push CH 3. AWAVS is on CH 18.\
+\
+Tankers -\
+\
+Arco BTN 14,  101Y (Drogue) \
+Texaco BTN 20, 102Y  (Boom)\
+\
+Buy the tanker from the support menu\
+\
+**Map markers**\
+\
+Using map markers, you can deploy smoke.\
+\"-smoke colour\", example: -smoke red. \
+Colours that can be used is blue, orange, red and white.\
+After writing the text, delete the marker and smoke shall appear.\
+",
+	["DictKey_ActionText_171"] = "",
+	["DictKey_ActionText_21"] = "return false",
+	["DictKey_descriptionNeutralsTask_4"] = "The goal is to capture all zones.\
+\
+To capture a zone, first you need to destroy all enemy forces deployed there, in order to turn the zone neutral.\
+\
+Neutral zones can be captured either by assisting friendly AI supply aircraft, which periodically spawn at friendly zones, to land at them, or airlifting one of the cargo items found in various zones.\
+\
+Friendly zones can be upgraded with extra units to improve their defense using the same mechanics as capturing.\
+\
+If a zone has a group that is missing units, a supply delivery will first restore that group. An upgrade will only occur if all existing groups are in good condition.\
+\
+These rules are common to all zones, but some zones can provide special bonuses as well, like friendly air patrols, an AWACS, supplies, or unlock new spawn points.\
+\
+The enemy AI will also launch attacks to recapture lost zones, air patrols to protect their airspace and supply deliveries to reinforce their defenses, so plan accordingly.\
+\
+Feel free to use the map to get an idea of what is happening, and use the F10 radio menu to get a report about any of the zones.\
+\
+As mentioned above, some spawns will be blocked until you capture the zone they are in. The name of the required zone can be found in the unit/group name on the spawn menu.\
+\
+Certain zones will have structures in them that are critical to their functioning. If all of these are destroyed, the zone gets disabled and will no longer provide any benefits. No side can capture it anymore and any remaining groups there will no longer be repairable.\
+\
+You can now call in support to help you in your conquest using credits. Some suport items will unlock a new menu where you can select a zone to target.\
+\
+You can earn credits in several ways:\
+-Some zones provide passive income.\
+-All kills will earn the player a certain amount of credits depending of unit killed. These however will not be instantly added to the coalition account. You will need to land at a friendly zone to claim the accumulated credits. Ejecting will also claim 25% of these credits.\
+-Airlifting supplies to friendly zones\
+\
+The red coalition will use credits earned from controlling certain zones to call in its own support.\
+\
+ATC/Ground -\
+BTN 7 on all inbound and on the ground. Once airborne Push CH 3. AWAVS is on CH 18.\
+\
+Tankers -\
+\
+Arco BTN 14,  101Y (Drogue) \
+Texaco BTN 20, 102Y  (Boom)\
+\
+Buy the tanker from the support menu\
+\
+**Map markers**\
+\
+Using map markers, you can deploy smoke.\
+\"-smoke colour\", example: -smoke red. \
+Colours that can be used is blue, orange, red and white.\
+After writing the text, delete the marker and smoke shall appear.\
+",
+	["DictKey_ActionText_212"] = "",
+	["DictKey_ActionText_87"] = "",
+	["DictKey_ActionText_46"] = "Flag 100 False",
+	["DictKey_ActionText_192"] = "",
+	["DictKey_ActionText_180"] = "",
+	["DictKey_ActionText_172"] = "",
+} -- end of dictionary

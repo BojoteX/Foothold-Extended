@@ -1,0 +1,215 @@
+dictionary = 
+{
+	["DictKey_ActionRadioText_202"] = "Play the song",
+	["DictKey_ActionText_325"] = "",
+	["DictKey_ActionText_308"] = "",
+	["DictKey_ActionRadioText_197"] = "Capture FARP Alpha",
+	["DictKey_ActionText_306"] = "",
+	["DictKey_ActionText_43"] = "",
+	["DictKey_ActionText_36"] = "",
+	["DictKey_ActionRadioText_116"] = "Destroy 9 Line Jtac",
+	["DictKey_ActionRadioText_204"] = "",
+	["DictKey_ActionText_310"] = "",
+	["DictKey_ActionRadioText_114"] = "Destroy 9 Line Jtac",
+	["DictKey_ActionText_49"] = "",
+	["DictKey_ActionRadioText_32"] = "",
+	["DictKey_ActionText_61"] = "SEAD GROUP DESTROYED OR KILLED IN ACTION",
+	["DictKey_ActionText_75"] = "CAP GROUP DESTROYED OR KILLED IN ACTION",
+	["DictKey_ActionText_307"] = "",
+	["DictKey_ActionText_35"] = "",
+	["DictKey_ActionText_64"] = "",
+	["DictKey_ActionComment_31"] = "",
+	["DictKey_ActionRadioText_33"] = "DESTROY CAP",
+	["DictKey_ActionText_56"] = "",
+	["DictKey_descriptionText_1"] = "The goal is to capture all zones.\
+\
+To capture a zone, first you need to destroy all enemy forces deployed there, in order to turn the zone neutral.\
+\
+Neutral zones can be captured either by assisting friendly AI supply aircraft, which periodically spawn at friendly zones, to land at them, or airlifting one of the cargo items found in various zones.\
+\
+Friendly zones can be upgraded with extra units to improve their defense using the same mechanics as capturing.\
+\
+If a zone has a group that is missing units, a supply delivery will first restore that group. An upgrade will only occur if all existing groups are in good condition.\
+\
+These rules are common to all zones, but some zones can provide special bonuses as well, like friendly air patrols, an AWACS, supplies, or unlock new spawn points.\
+\
+The enemy AI will also launch attacks to recapture lost zones, air patrols to protect their airspace and supply deliveries to reinforce their defenses, so plan accordingly.\
+\
+Feel free to use the map to get an idea of what is happening, and use the F10 radio menu to get a report about any of the zones.\
+\
+As mentioned above, some spawns will be blocked until you capture the zone they are in. The name of the required zone can be found in the unit/group name on the spawn menu.\
+\
+Certain zones will have structures in them that are critical to their functioning. If all of these are destroyed, the zone gets disabled and will no longer provide any benefits. No side can capture it anymore and any remaining groups there will no longer be repairable.\
+\
+You can now call in support to help you in your conquest using credits. Some suport items will unlock a new menu where you can select a zone to target.\
+\
+You can earn credits in several ways:\
+-Some zones provide passive income.\
+-All kills will earn the player a certain amount of credits depending of unit killed. These however will not be instantly added to the coalition account. You will need to land at a friendly zone to claim the accumulated credits. Ejecting will also claim 25% of these credits.\
+-Airlifting supplies to friendly zones\
+\
+The red coalition will use credits earned from controlling certain zones to call in its own support.\
+\
+ATC/Ground -\
+BTN 7 on all inbound and on the ground. Once airborne Push CH 3. AWAVS is on CH 18.\
+\
+\
+Carrier CVN 272 AM TCN 72X ICLS 1, Tarawa 273 AM TCN 1X\
+\
+Tankers -\
+Shell BTN1 19 AM 103Y (Recovery tanker)\
+When Echo is clear\
+Arco BTN 14,  101Y (Drogue) \
+Texaco BTN 20, 102Y  (Boom)\
+\
+**Tankers will be available once Ramon airbase is blue and SAM-Bravo.**\
+\
+********************************************************************************\
+\
+Carrier CVN-59 259 AM TCN 59X ICLS 9\
+\
+Carrier CVN-72 272 AM TCN 72X ICLS 12\
+\
+Carrier CVN-73 273 AM TCN 73X ICLS 13\
+\
+Carrier CVN-74 274 AM TCN 74X ICLS 14\
+\
+Tarawa Tacan X1, 249.5 MHZ\
+\
+HMS Invincible Tacan X2, 249.5 MHZ\
+\
+\
+********************************************************************************\
+\
+\
+\
+**Map markers**\
+Using map markers, you can deploy smoke.\
+\"-smoke colour\", example: -smoke red. \
+Colours that can be used is blue, orange, red and white.\
+After writing the text, delete the marker and smoke shall appear.\
+",
+	["DictKey_ActionRadioText_72"] = "Carrier Audio",
+	["DictKey_ActionRadioText_81"] = "Move Carrier",
+	["DictKey_ActionRadioText_203"] = "",
+	["DictKey_ActionText_82"] = "",
+	["DictKey_ActionText_42"] = "",
+	["DictKey_ActionText_319"] = "",
+	["DictKey_ActionText_34"] = "",
+	["DictKey_ActionText_40"] = "",
+	["DictKey_ActionText_45"] = "",
+	["DictKey_ActionText_255"] = "",
+	["DictKey_ActionRadioText_83"] = "",
+	["DictKey_ActionText_41"] = "",
+	["DictKey_ActionText_58"] = "CAS GROUP DESTROYED OR KILLED IN ACTION",
+	["DictKey_ActionRadioText_54"] = "Destroy CAS",
+	["DictKey_descriptionRedTask_2"] = "",
+	["DictKey_ActionText_52"] = "",
+	["DictKey_ActionText_44"] = "",
+	["DictKey_ActionText_62"] = "",
+	["DictKey_ActionRadioText_76"] = "DESTROY CAP",
+	["DictKey_ActionRadioText_29"] = "DESTROY CAP",
+	["DictKey_ActionText_46"] = "",
+	["DictKey_ActionRadioText_28"] = "",
+	["DictKey_ActionText_37"] = "",
+	["DictKey_ActionText_321"] = "",
+	["DictKey_ActionRadioText_78"] = "",
+	["DictKey_ActionText_6"] = "",
+	["DictKey_ActionText_7"] = "",
+	["DictKey_ActionText_328"] = "",
+	["DictKey_ActionRadioText_27"] = "DESTROY CAP",
+	["DictKey_ActionRadioText_79"] = "Move Carrier",
+	["DictKey_ActionText_146"] = "",
+	["DictKey_ActionRadioText_206"] = "Play the song",
+	["DictKey_ActionText_39"] = "",
+	["DictKey_ActionText_47"] = "",
+	["DictKey_sortie_5"] = "",
+	["DictKey_ActionText_179"] = "",
+	["DictKey_ActionText_48"] = "",
+	["DictKey_ActionRadioText_59"] = "DESTROY SEAD",
+	["DictKey_descriptionNeutralsTask_4"] = "",
+	["DictKey_ActionText_38"] = "",
+	["DictKey_ActionText_30"] = "CAP DESTROYED",
+	["DictKey_ActionComment_57"] = "",
+	["DictKey_ActionRadioText_115"] = "",
+	["DictKey_ActionText_326"] = "",
+	["DictKey_descriptionBlueTask_3"] = "The goal is to capture all zones.\
+\
+To capture a zone, first you need to destroy all enemy forces deployed there, in order to turn the zone neutral.\
+\
+Neutral zones can be captured either by assisting friendly AI supply aircraft, which periodically spawn at friendly zones, to land at them, or airlifting one of the cargo items found in various zones.\
+\
+Friendly zones can be upgraded with extra units to improve their defense using the same mechanics as capturing.\
+\
+If a zone has a group that is missing units, a supply delivery will first restore that group. An upgrade will only occur if all existing groups are in good condition.\
+\
+These rules are common to all zones, but some zones can provide special bonuses as well, like friendly air patrols, an AWACS, supplies, or unlock new spawn points.\
+\
+The enemy AI will also launch attacks to recapture lost zones, air patrols to protect their airspace and supply deliveries to reinforce their defenses, so plan accordingly.\
+\
+Feel free to use the map to get an idea of what is happening, and use the F10 radio menu to get a report about any of the zones.\
+\
+As mentioned above, some spawns will be blocked until you capture the zone they are in. The name of the required zone can be found in the unit/group name on the spawn menu.\
+\
+Certain zones will have structures in them that are critical to their functioning. If all of these are destroyed, the zone gets disabled and will no longer provide any benefits. No side can capture it anymore and any remaining groups there will no longer be repairable.\
+\
+You can now call in support to help you in your conquest using credits. Some suport items will unlock a new menu where you can select a zone to target.\
+\
+You can earn credits in several ways:\
+-Some zones provide passive income.\
+-All kills will earn the player a certain amount of credits depending of unit killed. These however will not be instantly added to the coalition account. You will need to land at a friendly zone to claim the accumulated credits. Ejecting will also claim 25% of these credits.\
+-Airlifting supplies to friendly zones\
+\
+The red coalition will use credits earned from controlling certain zones to call in its own support.\
+\
+ATC/Ground -\
+BTN 7 on all inbound and on the ground. Once airborne Push CH 3. AWAVS is on CH 18.\
+\
+\
+Carrier CVN 272 AM TCN 72X ICLS 1, Tarawa 273 AM TCN 1X\
+\
+Tankers -\
+Shell BTN1 19 AM 103Y (Recovery tanker)\
+When Echo is clear\
+Arco BTN 14,  101Y (Drogue) \
+Texaco BTN 20, 102Y  (Boom)\
+\
+**Tankers will be available once Ramon airbase is blue and SAM-Bravo.**\
+\
+********************************************************************************\
+\
+Carrier CVN-59 259 AM TCN 59X ICLS 9\
+\
+Carrier CVN-72 272 AM TCN 72X ICLS 12\
+\
+Carrier CVN-73 273 AM TCN 73X ICLS 13\
+\
+Carrier CVN-74 274 AM TCN 74X ICLS 14\
+\
+Tarawa Tacan X1, 249.5 MHZ\
+\
+HMS Invincible Tacan X2, 249.5 MHZ\
+\
+\
+********************************************************************************\
+\
+\
+\
+**Map markers**\
+Using map markers, you can deploy smoke.\
+\"-smoke colour\", example: -smoke red. \
+Colours that can be used is blue, orange, red and white.\
+After writing the text, delete the marker and smoke shall appear.\
+",
+	["DictKey_ActionText_51"] = "",
+	["DictKey_ActionText_323"] = "",
+	["DictKey_ActionRadioText_77"] = "DESTROY CAS",
+	["DictKey_ActionRadioText_55"] = "DESTROY CAS",
+	["DictKey_ActionText_266"] = "return false",
+	["DictKey_ActionText_50"] = "",
+	["DictKey_ActionText_150"] = "",
+	["DictKey_ActionRadioText_60"] = "DESTROY SEAD",
+	["DictKey_ActionText_318"] = "",
+	["DictKey_ActionRadioText_70"] = "Carrier Audio",
+	["DictKey_ActionText_324"] = "",
+} -- end of dictionary

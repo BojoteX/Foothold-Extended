@@ -1,0 +1,279 @@
+dictionary = 
+{
+	["DictKey_ActionText_333"] = "",
+	["DictKey_ActionText_411"] = "",
+	["DictKey_ActionText_342"] = "",
+	["DictKey_ActionText_92"] = "",
+	["DictKey_ActionText_66"] = "",
+	["DictKey_ActionText_241"] = "CAP DESTROYED OR KILLED IN ACTION",
+	["DictKey_ActionRadioText_106"] = "DESTROY CAP",
+	["DictKey_ActionText_432"] = "",
+	["DictKey_ActionRadioText_109"] = "Destroy CAP",
+	["DictKey_ActionRadioText_98"] = "Destroy CAP if they did not Despawn",
+	["DictKey_ActionText_91"] = "",
+	["DictKey_ActionRadioText_95"] = "Destroy CAP if they did not Despawn",
+	["DictKey_ActionText_57"] = "",
+	["DictKey_ActionText_85"] = "",
+	["DictKey_ActionComment_116"] = "",
+	["DictKey_ActionText_61"] = "",
+	["DictKey_ActionRadioText_191"] = "Respawn FARP BLUE",
+	["DictKey_ActionText_24"] = "",
+	["DictKey_ActionText_117"] = "CAP DESTROYED",
+	["DictKey_ActionText_35"] = "",
+	["DictKey_ActionText_13"] = "",
+	["DictKey_ActionText_89"] = "",
+	["DictKey_ActionText_431"] = "",
+	["DictKey_ActionRadioText_97"] = "",
+	["DictKey_ActionRadioText_239"] = "DESTROY CAP",
+	["DictKey_ActionRadioText_201"] = "Capture Khatim",
+	["DictKey_ActionRadioText_209"] = "Play the song",
+	["DictKey_ActionText_56"] = "",
+	["DictKey_descriptionText_1"] = "The goal is to capture all zones.\
+\
+To capture a zone, first you need to destroy all enemy forces deployed there, in order to turn the zone neutral.\
+\
+Neutral zones can be captured either by assisting friendly AI supply aircraft, which periodically spawn at friendly zones, to land at them, or airlifting one of the cargo items found in various zones.\
+\
+Friendly zones can be upgraded with extra units to improve their defense using the same mechanics as capturing.\
+\
+If a zone has a group that is missing units, a supply delivery will first restore that group. An upgrade will only occur if all existing groups are in good condition.\
+\
+These rules are common to all zones, but some zones can provide special bonuses as well, like friendly air patrols, an AWACS, supplies, or unlock new spawn points.\
+\
+The enemy AI will also launch attacks to recapture lost zones, air patrols to protect their airspace and supply deliveries to reinforce their defenses, so plan accordingly.\
+\
+Feel free to use the map to get an idea of what is happening, and use the F10 radio menu to get a report about any of the zones.\
+\
+As mentioned above, some spawns will be blocked until you capture the zone they are in. The name of the required zone can be found in the unit/group name on the spawn menu.\
+\
+Certain zones will have structures in them that are critical to their functioning. If all of these are destroyed, the zone gets disabled and will no longer provide any benefits. No side can capture it anymore and any remaining groups there will no longer be repairable.\
+\
+You can now call in support to help you in your conquest using credits. Some support items will unlock a new menu where you can select a zone to target.\
+\
+You can earn credits in several ways:\
+\
+-All kills will earn the player a certain amount of credits depending of unit killed. These however will not be instantly added to the coalition account. You will need to land at a friendly zone to claim the accumulated credits. Ejecting will also claim 25% of these credits.\
+\
+**CTLD**\
+You can use friendly CTLD enabled units like the CH-47F or the MI-8 and more to carry troops or cargo. You can then transport the troops to engage enemy zones.\
+You can also use them to capture the zone when the zone is neutral. If the troops are dropped close to the zone, within 2.5 KM. They will run to that zone.\
+\
+Pilots will get rewarded for that capture / upgrade. PS: If you drop the pilots the pilots inside the zone and the zone is blue, the troops will be as if they have returned to base. They will vanish. You can also build crates, you can find what you can build from the  Get crates menu, under the CTLD section. Those built items will be saved, but not all will be. due to performance, only a few is saved and a limited ammount.\
+\
+**CSAR**\
+If a pilot eject, ( player ), and that player had credits and he get saved by you, first, you'll earn 300 credits for saving the pilot but also you can bring back the 75% lost credit that the pilot lost upon ejection. You can also save friendly AI pilots, the payout is then capped to 300.\
+\
+**Shop**\
+All shop items are there for the coalition. You can use Dynamic CAP, CAS, Sead, Decoy and in some missions like Foothold PG / CA, building strike group. \
+Those planes will spawn dynamically except CAP where you choose where he will spawn. Others you'll have to choose the target zone.\
+\
+**Side missions**\
+Side missions is now connected to the player for the payout. if a player successfully complete a side mission, like kill the cargo plane, the player will get the reward like a kill. He need to land safely to earn the credits.\
+\
+**Supplies**\
+Both the blue players and the red side will have AI taking care of supplies, they will do that when the time is right. You can also carry supplies to a friendly or neutral zone for capture / upgrade. Using the radio menu you can select logistics, then load supplies. When you reach the target zone, you land and do the process but you select unload supplies. You'll get credit for capturing that zone orfor upgrading if there is a mission for it. You can also buy \"Emergency capture\" which tells the friendly forces to drop everything and capture that zone, they will then dispatch a friendly unit to capture that zone.\
+\
+**Hunt**\
+If you kill enough ground forces while your in a jet, you will be hunted by enemy forces. enemy will dispatch 2 jets to hunt you down.\
+\
+**ATC/Ground**\
+BTN 7 on all inbound and on the ground. Once airborne Push CH 3. AWACS is on CH 18.\
+\
+**blue Carrier**\
+Abraham Lincoln CVN-72\
+272 AM TCN 72X ICLS 12\
+\
+John C. Stennis CVN-74\
+274 AM TCN 74X ICLS 14\
+\
+\
+**Red Carrier**\
+George Washington CVN-73\
+273 AM TCN 73X ICLS 13\
+\
+Forrestal CVN-59\
+259 AM TCN 59X ICLS 9\
+\
+Tarawa \
+271.50 AM TCN 1X\
+\
+\
+**Tankers** \
+will be available after Abu Musa Island or BandarAbbas is captured by our forces.\
+\
+Arco BTN 14,  101Y (Drogue) \
+Texaco BTN 20, 102Y (Boom)\
+\
+**Map markers**\
+Using map markers, you can deploy smoke.\
+\"-smoke colour\", example: -smoke red. \
+Colours that can be used is blue, orange, red and white.\
+After writing the text, delete the marker and smoke shall appear.\
+\
+\
+If you have any questions about the mission, you're welcome to join my discord at https:\\\\discord.gg\\cshgmgXuxE\
+From there, you can get the latest versions of the other maps, Caucasus, Persian Gulf, Sinai, Syria, Germany cold war and Marianas.\
+\
+This mission was created by Lekaa. but wouldn't be possible without Dzsekeb, the original creator of foothold. that aside, enjoy.\
+\
+HARM CODES\
+\
+Pantsir's - 134\
+Tor-M2 - 132\
+Boat Tor  - 415",
+	["DictKey_ActionRadioText_211"] = "",
+	["DictKey_ActionText_84"] = "",
+	["DictKey_ActionRadioText_190"] = "Respawn FARP RED",
+	["DictKey_ActionRadioText_164"] = "Destroy Jtac 9 Line",
+	["DictKey_ActionText_173"] = "",
+	["DictKey_ActionText_439"] = "",
+	["DictKey_ActionText_83"] = "",
+	["DictKey_ActionText_82"] = "",
+	["DictKey_ActionText_409"] = "",
+	["DictKey_ActionRadioText_193"] = "explode",
+	["DictKey_ActionText_311"] = "",
+	["DictKey_ActionText_40"] = "",
+	["DictKey_ActionText_67"] = "",
+	["DictKey_ActionText_25"] = "",
+	["DictKey_ActionRadioText_112"] = "",
+	["DictKey_ActionText_115"] = "",
+	["DictKey_ActionText_41"] = "",
+	["DictKey_ActionText_86"] = "",
+	["DictKey_ActionText_32"] = "",
+	["DictKey_descriptionRedTask_2"] = "",
+	["DictKey_ActionRadioText_96"] = "Destroy CAP if they did not Despawn",
+	["DictKey_ActionRadioText_105"] = "DESTROY CAP IF THEY DON*T DESPAWN ",
+	["DictKey_ActionText_62"] = "",
+	["DictKey_sortie_5"] = "",
+	["DictKey_ActionText_425"] = "",
+	["DictKey_ActionText_154"] = "",
+	["DictKey_ActionText_27"] = "",
+	["DictKey_ActionText_350"] = "",
+	["DictKey_ActionText_79"] = "",
+	["DictKey_ActionRadioText_104"] = "DESTROY CAP IF THEY DON*T DESPAWN ",
+	["DictKey_ActionText_339"] = "",
+	["DictKey_ActionRadioText_107"] = "",
+	["DictKey_ActionText_26"] = "",
+	["DictKey_descriptionNeutralsTask_4"] = "",
+	["DictKey_ActionRadioText_243"] = "DESTROY CAP",
+	["DictKey_ActionRadioText_244"] = "",
+	["DictKey_ActionText_81"] = "",
+	["DictKey_ActionText_88"] = "",
+	["DictKey_ActionRadioText_206"] = "Play the song",
+	["DictKey_ActionText_39"] = "",
+	["DictKey_ActionRadioText_240"] = "DESTROY CAP",
+	["DictKey_ActionText_430"] = "",
+	["DictKey_ActionRadioText_113"] = "Destroy CAP",
+	["DictKey_ActionText_90"] = "",
+	["DictKey_ActionText_63"] = "",
+	["DictKey_ActionText_80"] = "",
+	["DictKey_ActionText_192"] = "",
+	["DictKey_ActionRadioText_110"] = "",
+	["DictKey_ActionRadioText_163"] = "Destroy Jtac 9 Line",
+	["DictKey_ActionText_250"] = "",
+	["DictKey_ActionText_347"] = "",
+	["DictKey_descriptionBlueTask_3"] = "The goal is to capture all zones.\
+\
+To capture a zone, first you need to destroy all enemy forces deployed there, in order to turn the zone neutral.\
+\
+Neutral zones can be captured either by assisting friendly AI supply aircraft, which periodically spawn at friendly zones, to land at them, or airlifting one of the cargo items found in various zones.\
+\
+Friendly zones can be upgraded with extra units to improve their defense using the same mechanics as capturing.\
+\
+If a zone has a group that is missing units, a supply delivery will first restore that group. An upgrade will only occur if all existing groups are in good condition.\
+\
+These rules are common to all zones, but some zones can provide special bonuses as well, like friendly air patrols, an AWACS, supplies, or unlock new spawn points.\
+\
+The enemy AI will also launch attacks to recapture lost zones, air patrols to protect their airspace and supply deliveries to reinforce their defenses, so plan accordingly.\
+\
+Feel free to use the map to get an idea of what is happening, and use the F10 radio menu to get a report about any of the zones.\
+\
+As mentioned above, some spawns will be blocked until you capture the zone they are in. The name of the required zone can be found in the unit/group name on the spawn menu.\
+\
+Certain zones will have structures in them that are critical to their functioning. If all of these are destroyed, the zone gets disabled and will no longer provide any benefits. No side can capture it anymore and any remaining groups there will no longer be repairable.\
+\
+You can now call in support to help you in your conquest using credits. Some support items will unlock a new menu where you can select a zone to target.\
+\
+You can earn credits in several ways:\
+\
+-All kills will earn the player a certain amount of credits depending of unit killed. These however will not be instantly added to the coalition account. You will need to land at a friendly zone to claim the accumulated credits. Ejecting will also claim 25% of these credits.\
+\
+**CTLD**\
+You can use friendly CTLD enabled units like the CH-47F or the MI-8 and more to carry troops or cargo. You can then transport the troops to engage enemy zones.\
+You can also use them to capture the zone when the zone is neutral. If the troops are dropped close to the zone, within 2.5 KM. They will run to that zone.\
+\
+Pilots will get rewarded for that capture / upgrade. PS: If you drop the pilots the pilots inside the zone and the zone is blue, the troops will be as if they have returned to base. They will vanish. You can also build crates, you can find what you can build from the  Get crates menu, under the CTLD section. Those built items will be saved, but not all will be. due to performance, only a few is saved and a limited ammount.\
+\
+**CSAR**\
+If a pilot eject, ( player ), and that player had credits and he get saved by you, first, you'll earn 300 credits for saving the pilot but also you can bring back the 75% lost credit that the pilot lost upon ejection. You can also save friendly AI pilots, the payout is then capped to 300.\
+\
+**Shop**\
+All shop items are there for the coalition. You can use Dynamic CAP, CAS, Sead, Decoy and in some missions like Foothold PG / CA, building strike group. \
+Those planes will spawn dynamically except CAP where you choose where he will spawn. Others you'll have to choose the target zone.\
+\
+**Side missions**\
+Side missions is now connected to the player for the payout. if a player successfully complete a side mission, like kill the cargo plane, the player will get the reward like a kill. He need to land safely to earn the credits.\
+\
+**Supplies**\
+Both the blue players and the red side will have AI taking care of supplies, they will do that when the time is right. You can also carry supplies to a friendly or neutral zone for capture / upgrade. Using the radio menu you can select logistics, then load supplies. When you reach the target zone, you land and do the process but you select unload supplies. You'll get credit for capturing that zone orfor upgrading if there is a mission for it. You can also buy \"Emergency capture\" which tells the friendly forces to drop everything and capture that zone, they will then dispatch a friendly unit to capture that zone.\
+\
+**Hunt**\
+If you kill enough ground forces while your in a jet, you will be hunted by enemy forces. enemy will dispatch 2 jets to hunt you down.\
+\
+**ATC/Ground**\
+BTN 7 on all inbound and on the ground. Once airborne Push CH 3. AWACS is on CH 18.\
+\
+**blue Carrier**\
+Abraham Lincoln CVN-72\
+272 AM TCN 72X ICLS 12\
+\
+John C. Stennis CVN-74\
+274 AM TCN 74X ICLS 14\
+\
+\
+**Red Carrier**\
+George Washington CVN-73\
+273 AM TCN 73X ICLS 13\
+\
+Forrestal CVN-59\
+259 AM TCN 59X ICLS 9\
+\
+Tarawa \
+271.50 AM TCN 1X\
+\
+\
+**Tankers** \
+will be available after Abu Musa Island or BandarAbbas is captured by our forces.\
+\
+Arco BTN 14,  101Y (Drogue) \
+Texaco BTN 20, 102Y (Boom)\
+\
+**Map markers**\
+Using map markers, you can deploy smoke.\
+\"-smoke colour\", example: -smoke red. \
+Colours that can be used is blue, orange, red and white.\
+After writing the text, delete the marker and smoke shall appear.\
+\
+\
+If you have any questions about the mission, you're welcome to join my discord at https:\\\\discord.gg\\cshgmgXuxE\
+From there, you can get the latest versions of the other maps, Caucasus, Persian Gulf, Sinai, Syria, Germany cold war and Marianas.\
+\
+This mission was created by Lekaa. but wouldn't be possible without Dzsekeb, the original creator of foothold. that aside, enjoy.\
+\
+HARM CODES\
+\
+Pantsir's - 134\
+Tor-M2 - 132\
+Boat Tor  - 415",
+	["DictKey_ActionText_212"] = "",
+	["DictKey_ActionText_196"] = "",
+	["DictKey_ActionRadioText_108"] = "Destroy CAP",
+	["DictKey_ActionText_71"] = "",
+	["DictKey_ActionText_93"] = "",
+	["DictKey_ActionText_87"] = "",
+	["DictKey_ActionRadioText_238"] = "",
+	["DictKey_ActionRadioText_207"] = "",
+	["DictKey_ActionRadioText_111"] = "Destroy CAP",
+	["DictKey_ActionText_415"] = "",
+	["DictKey_ActionRadioText_245"] = "DESTROY CAP",
+} -- end of dictionary

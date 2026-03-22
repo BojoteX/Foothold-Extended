@@ -1,0 +1,76 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  release:
+    name: Build and Release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run tests
+        run: python tests/test_briefing.py
+
+      - name: Repack all theaters
+        run: python scripts/repack.py --version ${{ github.ref_name }}
+
+      - name: Copy tools to dist
+        run: |
+          cp briefing.pyw dist/briefing.pyw
+          cp scripts/setup.py dist/setup.py
+
+      - name: Generate release notes
+        id: notes
+        run: |
+          TAG="${{ github.ref_name }}"
+          # Find previous tag
+          PREV=$(git tag --sort=-v:refname | grep -v "^${TAG}$" | head -1 || true)
+
+          if [ -z "$PREV" ]; then
+            RANGE="HEAD"
+            SINCE="initial commit"
+          else
+            RANGE="${PREV}..HEAD"
+            SINCE="${PREV}"
+          fi
+
+          # Build changelog
+          COMMITS=$(git log ${RANGE} --oneline --no-merges)
+
+          cat > release_notes.md << NOTES_EOF
+          ## Foothold Extended ${TAG}
+
+          A multiplayer PvE sandbox campaign for DCS World. 8 theaters, multiple eras, persistent campaign progress.
+
+          ### Install
+          \`\`\`
+          powershell -c "irm https://bojotex.github.io/Foothold-Extended/install.ps1 | iex"
+          \`\`\`
+          Or download individual files below.
+
+          ### Theaters
+          Caucasus | Syria | Germany | Iraq | Kola | Persian Gulf | Sinai Extended | Sinai North
+
+          ### Changelog (since ${SINCE})
+          ${COMMITS}
+          NOTES_EOF
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: "Foothold Extended ${{ github.ref_name }}"
+          body_path: release_notes.md
+          files: |
+            dist/*.miz
+            dist/briefing.pyw
+            dist/setup.py

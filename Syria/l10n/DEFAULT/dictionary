@@ -1,0 +1,255 @@
+dictionary = 
+{
+	["DictKey_ActionText_451"] = "",
+	["DictKey_subtitle_46"] = "",
+	["DictKey_ActionText_162"] = "",
+	["DictKey_ActionText_92"] = "",
+	["DictKey_ActionText_446"] = "",
+	["DictKey_subtitle_10"] = "",
+	["DictKey_ActionRadioText_106"] = "DESTROY SOUTH CAS",
+	["DictKey_ActionText_68"] = "",
+	["DictKey_ActionRadioText_109"] = "DESTROY SOUTH CAP",
+	["DictKey_ActionText_105"] = "BOMBERS NORTH GROUP DESTROYED OR KILLED IN ACTION",
+	["DictKey_ActionText_91"] = "",
+	["DictKey_ActionRadioText_188"] = "",
+	["DictKey_ActionText_57"] = "",
+	["DictKey_ActionRadioText_125"] = "",
+	["DictKey_ActionText_85"] = "SEAD GROUP DESTROYED OR KILLED IN ACTION",
+	["DictKey_ActionText_553"] = "",
+	["DictKey_ActionRadioText_100"] = "DESTROY SOUTH SEAD",
+	["DictKey_ActionText_271"] = "if zones.redcarrier.side == 1 then return true end",
+	["DictKey_ActionRadioText_84"] = "DESTROY SEAD",
+	["DictKey_ActionText_110"] = "CAP GROUP DESTROYED OR KILLED IN ACTION",
+	["DictKey_sortie_5"] = "",
+	["DictKey_ActionText_146"] = "",
+	["DictKey_ActionRadioText_111"] = "DESTROY CAP",
+	["DictKey_ActionRadioText_123"] = "",
+	["DictKey_ActionText_56"] = "",
+	["DictKey_subtitle_38"] = "",
+	["DictKey_descriptionText_1"] = "The goal is to capture all zones.\
+\
+To capture a zone, first you need to destroy all enemy forces deployed there, in order to turn the zone neutral.\
+\
+Neutral zones can be captured either by assisting friendly AI supply aircraft, which periodically spawn at friendly zones, to land at them, or using CTLD and carry troops to the target zone.\
+\
+Friendly zones can be upgraded with extra units to improve their defense using the same mechanics as capturing.\
+\
+If a zone has a group that is missing units, a supply delivery will first restore that group. An upgrade will only occur if all existing groups are in good condition.\
+\
+These rules are common to all zones, but some zones can provide special bonuses as well, like friendly air patrols, an AWACS, supplies, or unlock new spawn points.\
+\
+The enemy AI will also launch attacks to recapture lost zones, air patrols to protect their airspace and supply deliveries to reinforce their defenses, so plan accordingly.\
+\
+Feel free to use the map to get an idea of what is happening, and use the F10 radio menu to get a report about any of the zones.\
+\
+As mentioned above, some spawns will be blocked until you capture the zone they are in. The name of the required zone can be found in the unit/group name on the spawn menu.\
+\
+Certain zones will have structures in them that are critical to their functioning. If all of these are destroyed, the zone gets disabled and will no longer provide any benefits. No side can capture it anymore and any remaining groups there will no longer be repairable.\
+\
+You can now call in support to help you in your conquest using credits. Some suport items will unlock a new menu where you can select a zone to target.\
+\
+You can earn credits in several ways:\
+-Some zones provide passive income.\
+-All kills will earn the player a certain amount of credits depending of unit killed. These however will not be instantly added to the coalition account. You will need to land at a friendly zone to claim the accumulated credits. Ejecting will also claim 25% of these credits.\
+-Supply zones that needs repair or upgrades.\
+\
+The red coalition will use credits earned from controlling certain zones to call in its own support.\
+\
+ATC/Ground -\
+BTN 7 on all inbound and on the ground. Once airborne Push CH 3. AWAVS is on CH 18.\
+\
+**********************Blue carrier zone**********************\
+        \
+                    Abraham Lincoln CVN-72\
+                    272 AM TCN 72X ICLS 12\
+                    \
+                    **********************\
+\
+                    John C. Stennis CVN-74\
+                    274 AM TCN 74X ICLS 14\
+\
+**********************Red carrier zone**********************\
+                    \
+                    George Washington CVN-73\
+                    273 AM TCN 73X ICLS 13\
+\
+                    **********************\
+\
+                    Forrestal CVN-59\
+                    259 AM TCN 59X ICLS 9\
+\
+                    **********************\
+\
+                        Tarawa \
+                    271.50 AM TCN 1X\
+\
+                    **********************\
+\
+                    HMS Invincible \
+                    275.00 AM TCN 15X\
+\
+\
+**************************Tankers***************************\
+        \
+            Shell BTN1 19 AM 103Y (Recovery tanker)\
+            Arco BTN 14,  101Y (Drogue) \
+            Texaco BTN 20, 102Y  (Boom)\
+\
+************************************************************\
+\
+\
+**Map markers**\
+\
+Using map markers, you can deploy smoke.\
+\"-smoke colour\", example: -smoke red. \
+Colours that can be used is blue, orange, red and white.\
+After writing the text, click anywhere else on the map.",
+	["DictKey_ActionText_316"] = "",
+	["DictKey_ActionRadioText_104"] = "DESTROY SOUTH BOMBERS",
+	["DictKey_ActionText_108"] = "CAS SOUTH GROUP DESTROYED OR KILLED IN ACTION",
+	["DictKey_subtitle_44"] = "",
+	["DictKey_ActionRadioText_81"] = "DESTROY BOMBERS",
+	["DictKey_ActionText_204"] = "CVN MOVING TO RED CARRIER ZONE",
+	["DictKey_ActionText_82"] = "BOMBERS GROUP DESTROYED OR KILLED IN ACTION",
+	["DictKey_ActionText_456"] = "",
+	["DictKey_ActionText_273"] = "",
+	["DictKey_subtitle_40"] = "",
+	["DictKey_ActionRadioText_75"] = "DESTROY SOUTH CAP",
+	["DictKey_ActionText_25"] = "",
+	["DictKey_ActionText_76"] = "CAP SOUTH GROUP DESTROYED OR KILLED IN ACTION",
+	["DictKey_ActionRadioText_83"] = "DESTROY SEAD",
+	["DictKey_ActionRadioText_107"] = "DESTROY SOUTH CAS",
+	["DictKey_ActionText_153"] = "",
+	["DictKey_ActionText_552"] = "",
+	["DictKey_ActionRadioText_124"] = "",
+	["DictKey_ActionRadioText_235"] = "DESTROY CAP",
+	["DictKey_ActionRadioText_101"] = "DESTROY SOUTH SEAD",
+	["DictKey_ActionText_275"] = "",
+	["DictKey_ActionRadioText_120"] = "Play the Song",
+	["DictKey_ActionText_474"] = "",
+	["DictKey_subtitle_42"] = "",
+	["DictKey_ActionRadioText_103"] = "DESTROY SOUTH BOMBERS",
+	["DictKey_ActionText_215"] = "if zones.alpha.side == 2 then return true end",
+	["DictKey_ActionRadioText_143"] = "",
+	["DictKey_ActionText_102"] = "SEAD GROUP SOUTH DESTROYED OR KILLED IN ACTION",
+	["DictKey_ActionText_154"] = "",
+	["DictKey_ActionText_205"] = "return false",
+	["DictKey_ActionText_67"] = "",
+	["DictKey_ActionText_79"] = "CAS GROUP DESTROYED OR KILLED IN ACTION",
+	["DictKey_ActionText_272"] = "",
+	["DictKey_ActionRadioText_121"] = "",
+	["DictKey_ActionRadioText_78"] = "DESTROY CAS",
+	["DictKey_ActionRadioText_187"] = "Capture Juliett",
+	["DictKey_ActionText_21"] = "if zones.redcarrier.wasBlue then return true end",
+	["DictKey_ActionText_152"] = "",
+	["DictKey_ActionText_550"] = "",
+	["DictKey_ActionText_554"] = "",
+	["DictKey_subtitle_50"] = "",
+	["DictKey_ActionRadioText_77"] = "DESTROY CAS",
+	["DictKey_ActionText_55"] = "",
+	["DictKey_ActionText_94"] = "",
+	["DictKey_ActionRadioText_142"] = "Destroy 9 Line Jtac",
+	["DictKey_subtitle_48"] = "",
+	["DictKey_ActionText_70"] = "",
+	["DictKey_ActionRadioText_80"] = "DESTROY BOMBERS",
+	["DictKey_ActionRadioText_145"] = "Destroy 9 Line Jtac",
+	["DictKey_ActionRadioText_126"] = "Play the Song",
+	["DictKey_subtitle_36"] = "",
+	["DictKey_ActionRadioText_144"] = "",
+	["DictKey_ActionRadioText_74"] = "DESTROY CAP",
+	["DictKey_ActionText_495"] = "",
+	["DictKey_descriptionBlueTask_3"] = "The goal is to capture all zones.\
+\
+To capture a zone, first you need to destroy all enemy forces deployed there, in order to turn the zone neutral.\
+\
+Neutral zones can be captured either by assisting friendly AI supply aircraft, which periodically spawn at friendly zones, to land at them, or using CTLD and carry troops to the target zone.\
+\
+Friendly zones can be upgraded with extra units to improve their defense using the same mechanics as capturing.\
+\
+If a zone has a group that is missing units, a supply delivery will first restore that group. An upgrade will only occur if all existing groups are in good condition.\
+\
+These rules are common to all zones, but some zones can provide special bonuses as well, like friendly air patrols, an AWACS, supplies, or unlock new spawn points.\
+\
+The enemy AI will also launch attacks to recapture lost zones, air patrols to protect their airspace and supply deliveries to reinforce their defenses, so plan accordingly.\
+\
+Feel free to use the map to get an idea of what is happening, and use the F10 radio menu to get a report about any of the zones.\
+\
+As mentioned above, some spawns will be blocked until you capture the zone they are in. The name of the required zone can be found in the unit/group name on the spawn menu.\
+\
+Certain zones will have structures in them that are critical to their functioning. If all of these are destroyed, the zone gets disabled and will no longer provide any benefits. No side can capture it anymore and any remaining groups there will no longer be repairable.\
+\
+You can now call in support to help you in your conquest using credits. Some suport items will unlock a new menu where you can select a zone to target.\
+\
+You can earn credits in several ways:\
+-Some zones provide passive income.\
+-All kills will earn the player a certain amount of credits depending of unit killed. These however will not be instantly added to the coalition account. You will need to land at a friendly zone to claim the accumulated credits. Ejecting will also claim 25% of these credits.\
+-Supply zones that needs repair or upgrades.\
+\
+The red coalition will use credits earned from controlling certain zones to call in its own support.\
+\
+ATC/Ground -\
+BTN 7 on all inbound and on the ground. Once airborne Push CH 3. AWAVS is on CH 18.\
+\
+**********************Blue carrier zone**********************\
+        \
+                    Abraham Lincoln CVN-72\
+                    272 AM TCN 72X ICLS 12\
+                    \
+                    **********************\
+\
+                    John C. Stennis CVN-74\
+                    274 AM TCN 74X ICLS 14\
+\
+**********************Red carrier zone**********************\
+                    \
+                    George Washington CVN-73\
+                    273 AM TCN 73X ICLS 13\
+\
+                    **********************\
+\
+                    Forrestal CVN-59\
+                    259 AM TCN 59X ICLS 9\
+\
+                    **********************\
+\
+                        Tarawa \
+                    271.50 AM TCN 1X\
+\
+                    **********************\
+\
+                    HMS Invincible \
+                    275.00 AM TCN 15X\
+\
+\
+**************************Tankers***************************\
+        \
+            Shell BTN1 19 AM 103Y (Recovery tanker)\
+            Arco BTN 14,  101Y (Drogue) \
+            Texaco BTN 20, 102Y  (Boom)\
+\
+************************************************************\
+\
+\
+**Map markers**\
+\
+Using map markers, you can deploy smoke.\
+\"-smoke colour\", example: -smoke red. \
+Colours that can be used is blue, orange, red and white.\
+After writing the text, click anywhere else on the map.\
+\
+Jtac 9line AM Springfield on 241.00 AM\
+\
+Jtac 9line FM Uzi on 31.00 FM\
+",
+	["DictKey_descriptionRedTask_2"] = "",
+	["DictKey_ActionText_557"] = "",
+	["DictKey_ActionText_274"] = "",
+	["DictKey_ActionText_155"] = "",
+	["DictKey_descriptionNeutralsTask_4"] = "",
+	["DictKey_ActionText_464"] = "",
+	["DictKey_ActionText_392"] = "",
+	["DictKey_ActionText_207"] = "",
+	["DictKey_ActionText_206"] = "",
+	["DictKey_ActionText_461"] = "",
+	["DictKey_ActionText_440"] = "",
+} -- end of dictionary
